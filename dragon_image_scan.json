@@ -1,0 +1,64 @@
+{
+  "img_tags": [
+    {
+      "src": "https://www.monsterbrainsoup.com/wp-content/uploads/2022/02/MBS-Text-Logo.png",
+      "srcset": "",
+      "alt": "MonsterBrainSoup"
+    },
+    {
+      "src": "",
+      "srcset": "",
+      "alt": "... LOADING, PLEASE WAIT ..."
+    },
+    {
+      "src": "https://i0.wp.com/www.monsterbrainsoup.com/dragonbuilder/menu_head.png?ssl=1",
+      "srcset": "",
+      "alt": "Tab 1 - Head"
+    },
+    {
+      "src": "https://i0.wp.com/www.monsterbrainsoup.com/dragonbuilder/menu_body.png?ssl=1",
+      "srcset": "",
+      "alt": "Tab 2 - Torso"
+    },
+    {
+      "src": "https://i0.wp.com/www.monsterbrainsoup.com/dragonbuilder/menu_legs.png?ssl=1",
+      "srcset": "",
+      "alt": "Tab 3 - Legs"
+    },
+    {
+      "src": "https://i0.wp.com/www.monsterbrainsoup.com/dragonbuilder/menu_wings.png?ssl=1",
+      "srcset": "",
+      "alt": "Tab 4 - Wings"
+    },
+    {
+      "src": "https://i0.wp.com/www.monsterbrainsoup.com/dragonbuilder/menu_tail.png?ssl=1",
+      "srcset": "",
+      "alt": "Tab 5 - Tail"
+    }
+  ],
+  "svg_image_tags": [],
+  "svg_use_tags": [],
+  "inline_script_file_refs": [
+    "https://i0.wp.com/www.monsterbrainsoup.com/wp-content/uploads/2025/04/Featured_DragonBuilderCustomColors.png?fit=365%2C365&ssl=1",
+    "https://www.monsterbrainsoup.com/dragonbuilder/base/baselineart.png",
+    "https://www.monsterbrainsoup.com/dragonbuilder/newbases/newbase_c1.png",
+    "https://www.monsterbrainsoup.com/dragonbuilder/wings/wing_${wingStyle}_front_color.png",
+    "https://www.monsterbrainsoup.com/dragonbuilder/wings/wing_${wingStyle}_front_color_special_${wingpatternStyle}.png",
+    "https://www.monsterbrainsoup.com/dragonbuilder/wings/wing_${wingStyle}_rear_color.png",
+    "https://www.monsterbrainsoup.com/dragonbuilder/wings/wing_${wingStyle}_rear_color_special_${wingpatternStyle}.png"
+  ],
+  "wp_uploads_urls": [
+    "https://i0.wp.com/www.monsterbrainsoup.com/wp-content/uploads/2018/12/favicon.png?fit=16%2C16&#038;ssl=1",
+    "https://i0.wp.com/www.monsterbrainsoup.com/wp-content/uploads/2025/04/Featured_DragonBuilderCustomColors.png?fit=365%2C365&ssl=1",
+    "https://www.monsterbrainsoup.com/wp-content/uploads/2022/02/MBS-Tentacles-BG-01-1.png);",
+    "https://www.monsterbrainsoup.com/wp-content/uploads/2022/02/MBS-Text-Logo.png",
+    "https://www.monsterbrainsoup.com/wp-content/uploads/2025/04/Featured_DragonBuilderCustomColors.png",
+    "https://www.monsterbrainsoup.com/wp-content/uploads/elementor/css/post-4425.css?ver=1774035595",
+    "https://www.monsterbrainsoup.com/wp-content/uploads/elementor/css/post-8027.css?ver=1774035718",
+    "https://www.monsterbrainsoup.com/wp-content/uploads/elementor/google-fonts/css/raleway.css?ver=1742231153",
+    "https://www.monsterbrainsoup.com/wp-content/uploads/elementor/google-fonts/css/roboto.css?ver=1742231135",
+    "https://www.monsterbrainsoup.com/wp-content/uploads/elementor/google-fonts/css/robotoslab.css?ver=1742231143"
+  ],
+  "cdn_image_urls": [],
+  "svg_count": 1
+}

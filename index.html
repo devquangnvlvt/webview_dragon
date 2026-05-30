@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dragon Builder - Create Your Legend</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <header class="main-header">
+            <div class="logo">
+                <i class="fas fa-dragon"></i>
+                <h1>Dragon Builder</h1>
+            </div>
+            <div class="header-actions">
+                <button id="headerRandomizeBtn" class="icon-btn" title="Randomize"><i class="fas fa-dice"></i></button>
+                <button id="headerDownloadBtn" class="finish-btn">DONE <i class="fas fa-check"></i></button>
+            </div>
+        </header>
+
+        <main class="app-container">
+        <!-- Top Section: Preview -->
+        <section class="preview-section">
+            <div class="canvas-wrapper">
+                <canvas id="dragonCanvas" width="1500" height="1500"></canvas>
+                <div id="loadingOverlay" class="hidden">
+                    <div class="loader"></div>
+                    <p>Brewing your dragon...</p>
+                </div>
+            </div>
+            
+            <div class="action-bar">
+                <button id="downloadBtn" class="primary-btn"><i class="fas fa-download"></i> DOWNLOAD</button>
+            </div>
+        </section>
+
+        <!-- Bottom Section: Controls -->
+        <section class="controls-section">
+            <!-- Styled Category Tabs -->
+            <nav class="category-tabs">
+                <button class="tab-btn active" data-tab="head" style="--tab-color: #FF6B9B;">
+                    <i class="fas fa-head-side-virus"></i>
+                    <span>HEAD</span>
+                </button>
+                <button class="tab-btn" data-tab="torso" style="--tab-color: #FFD93D;">
+                    <i class="fas fa-shirt"></i>
+                    <span>TORSO</span>
+                </button>
+                <button class="tab-btn" data-tab="legs" style="--tab-color: #6BCB77;">
+                    <i class="fas fa-paw"></i>
+                    <span>LEGS</span>
+                </button>
+                <button class="tab-btn" data-tab="wings" style="--tab-color: #4D96FF;">
+                    <i class="fas fa-feather-pointed"></i>
+                    <span>WINGS</span>
+                </button>
+                <button class="tab-btn" data-tab="tail" style="--tab-color: #B983FF;">
+                    <i class="fas fa-worm"></i>
+                    <span>TAIL</span>
+                </button>
+            </nav>
+
+            <!-- Control Content Container -->
+            <div class="controls-container">
+                <div id="tab-content" class="tab-content">
+                    <!-- Dynamic control elements (selects, colors) will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Floating Utilities -->
+        <div class="floating-utils">
+            <button id="randomizeBtn" class="util-btn" title="Randomize"><i class="fas fa-dice"></i></button>
+            <button id="themeToggle" class="util-btn" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+        </div>
+    </main>
+    </div>
+
+    <script src="builder.js"></script>
+</body>
+</html>

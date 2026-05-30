@@ -1,0 +1,2765 @@
+{
+  "url": "https://www.monsterbrainsoup.com/dragon-builder/",
+  "title": "Dragon Builder - MonsterBrainSoup",
+  "tabs": {
+    "tabsection": [
+      "HEAD",
+      "TORSO",
+      "LEGS",
+      "WINGS",
+      "TAIL"
+    ]
+  },
+  "selects": {
+    "eyeStyle": {
+      "id": "eyeStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "01",
+          "text": "Default"
+        },
+        {
+          "value": "09",
+          "text": "Darksight"
+        },
+        {
+          "value": "02",
+          "text": "Almond"
+        },
+        {
+          "value": "03",
+          "text": "Narrow"
+        },
+        {
+          "value": "04",
+          "text": "Mystic"
+        },
+        {
+          "value": "05",
+          "text": "Buggy"
+        },
+        {
+          "value": "06",
+          "text": "Hollow"
+        },
+        {
+          "value": "07",
+          "text": "Closed - happy"
+        },
+        {
+          "value": "08",
+          "text": "Closed - calm"
+        }
+      ]
+    },
+    "browStyle": {
+      "id": "browStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Armored scutes"
+        },
+        {
+          "value": "02",
+          "text": "Fur"
+        },
+        {
+          "value": "03",
+          "text": "Spikes"
+        }
+      ]
+    },
+    "snoutStyle": {
+      "id": "snoutStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "Short"
+        },
+        {
+          "value": "01",
+          "text": "Canine"
+        },
+        {
+          "value": "03",
+          "text": "Equine"
+        },
+        {
+          "value": "02",
+          "text": "Slim"
+        },
+        {
+          "value": "04",
+          "text": "Short beak"
+        },
+        {
+          "value": "05",
+          "text": "Upturned"
+        },
+        {
+          "value": "06",
+          "text": "Shark"
+        },
+        {
+          "value": "07",
+          "text": "Panther"
+        },
+        {
+          "value": "08",
+          "text": "Square"
+        },
+        {
+          "value": "09",
+          "text": "Blocky"
+        },
+        {
+          "value": "10",
+          "text": "Wedge"
+        },
+        {
+          "value": "11",
+          "text": "Nubby"
+        },
+        {
+          "value": "12",
+          "text": "Chomper"
+        },
+        {
+          "value": "13",
+          "text": "Scissorbeak"
+        },
+        {
+          "value": "14",
+          "text": "Snippy"
+        },
+        {
+          "value": "15",
+          "text": "Bulky"
+        },
+        {
+          "value": "16",
+          "text": "Fluted"
+        },
+        {
+          "value": "17",
+          "text": "Kitty"
+        },
+        {
+          "value": "18",
+          "text": "Noble"
+        },
+        {
+          "value": "19",
+          "text": "Axenose"
+        }
+      ]
+    },
+    "snoutmarkingStyle": {
+      "id": "snoutmarkingStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Tip fade"
+        },
+        {
+          "value": "02",
+          "text": "Lower jaw"
+        }
+      ]
+    },
+    "snoutadd": {
+      "id": "snoutadd",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Nose horn"
+        }
+      ]
+    },
+    "mouthStyle": {
+      "id": "mouthStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "Neutral"
+        },
+        {
+          "value": "01",
+          "text": "Little smile"
+        },
+        {
+          "value": "02",
+          "text": "Big smile"
+        },
+        {
+          "value": "03",
+          "text": "Frown"
+        },
+        {
+          "value": "04",
+          "text": "Little grin"
+        },
+        {
+          "value": "05",
+          "text": "Big grin"
+        },
+        {
+          "value": "06",
+          "text": "Grimace"
+        },
+        {
+          "value": "07",
+          "text": "Playful blep"
+        }
+      ]
+    },
+    "maneStyle": {
+      "id": "maneStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "03",
+          "text": "Short fur mohawk"
+        },
+        {
+          "value": "01",
+          "text": "Medium fluffy fur"
+        },
+        {
+          "value": "02",
+          "text": "Medium wavy fur"
+        },
+        {
+          "value": "04",
+          "text": "Long wispy fur"
+        },
+        {
+          "value": "10",
+          "text": "Forward floofy fur"
+        },
+        {
+          "value": "08",
+          "text": "Lion mane"
+        },
+        {
+          "value": "12",
+          "text": "Furry neck"
+        },
+        {
+          "value": "05",
+          "text": "Bony fin"
+        },
+        {
+          "value": "11",
+          "text": "Frill fin"
+        },
+        {
+          "value": "06",
+          "text": "Spikes"
+        },
+        {
+          "value": "07",
+          "text": "Feathers"
+        },
+        {
+          "value": "09",
+          "text": "Crest"
+        },
+        {
+          "value": "13",
+          "text": "Quills"
+        },
+        {
+          "value": "14",
+          "text": "Quill crown"
+        }
+      ]
+    },
+    "headtopStyle": {
+      "id": "headtopStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Small forward hair fluff"
+        },
+        {
+          "value": "02",
+          "text": "Center parted hair fluff"
+        },
+        {
+          "value": "03",
+          "text": "Forward fluffy hair"
+        },
+        {
+          "value": "04",
+          "text": "Medium wavy hair"
+        },
+        {
+          "value": "06",
+          "text": "Long hair"
+        },
+        {
+          "value": "08",
+          "text": "Upward ahoge"
+        },
+        {
+          "value": "09",
+          "text": "Double forward ahoge"
+        },
+        {
+          "value": "10",
+          "text": "Bouncy forward ahoge"
+        },
+        {
+          "value": "07",
+          "text": "Angler lure"
+        }
+      ]
+    },
+    "hornStyle": {
+      "id": "hornStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Short hooked"
+        },
+        {
+          "value": "02",
+          "text": "Gently curved"
+        },
+        {
+          "value": "03",
+          "text": "Straight n' sharp"
+        },
+        {
+          "value": "04",
+          "text": "Big swoops"
+        },
+        {
+          "value": "05",
+          "text": "Chargers"
+        },
+        {
+          "value": "06",
+          "text": "Uni-horn"
+        },
+        {
+          "value": "07",
+          "text": "Double uni-horn"
+        },
+        {
+          "value": "08",
+          "text": "Deer antlers"
+        },
+        {
+          "value": "09",
+          "text": "Curved-back"
+        },
+        {
+          "value": "10",
+          "text": "Curled ram"
+        }
+      ]
+    },
+    "earStyle": {
+      "id": "earStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Elven"
+        },
+        {
+          "value": "02",
+          "text": "Cupped"
+        },
+        {
+          "value": "03",
+          "text": "Kittywolf"
+        },
+        {
+          "value": "04",
+          "text": "Fin"
+        },
+        {
+          "value": "05",
+          "text": "Feathers"
+        },
+        {
+          "value": "06",
+          "text": "Winged"
+        },
+        {
+          "value": "07",
+          "text": "Alien knobs"
+        },
+        {
+          "value": "08",
+          "text": "Gecko slit"
+        },
+        {
+          "value": "09",
+          "text": "Tympanic shield"
+        },
+        {
+          "value": "11",
+          "text": "Perky wolfish"
+        },
+        {
+          "value": "12",
+          "text": "Flappynubs"
+        }
+      ]
+    },
+    "fangStyle": {
+      "id": "fangStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Vamp"
+        }
+      ]
+    },
+    "jawdecStyle": {
+      "id": "jawdecStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Fin - high"
+        },
+        {
+          "value": "02",
+          "text": "Fin - low"
+        },
+        {
+          "value": "03",
+          "text": "Spikes"
+        },
+        {
+          "value": "06",
+          "text": "Big spikes"
+        },
+        {
+          "value": "04",
+          "text": "Fur"
+        },
+        {
+          "value": "05",
+          "text": "Feathers"
+        },
+        {
+          "value": "07",
+          "text": "Nubbies"
+        },
+        {
+          "value": "08",
+          "text": "Sub-horn"
+        }
+      ]
+    },
+    "whiskerStyle": {
+      "id": "whiskerStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Short noodle"
+        },
+        {
+          "value": "02",
+          "text": "Long noodle"
+        },
+        {
+          "value": "03",
+          "text": "Kitty"
+        },
+        {
+          "value": "04",
+          "text": "Chin danglies"
+        },
+        {
+          "value": "05",
+          "text": "Viper eel"
+        },
+        {
+          "value": "06",
+          "text": "Thin antennae"
+        },
+        {
+          "value": "07",
+          "text": "Moth antennae"
+        }
+      ]
+    },
+    "breath": {
+      "id": "breath",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "No breath magic"
+        },
+        {
+          "value": "01",
+          "text": "Fire"
+        },
+        {
+          "value": "02",
+          "text": "Smoke"
+        },
+        {
+          "value": "03",
+          "text": "Clouds"
+        },
+        {
+          "value": "04",
+          "text": "Swirls"
+        },
+        {
+          "value": "05",
+          "text": "Lightning"
+        },
+        {
+          "value": "06",
+          "text": "Snow-swirl"
+        }
+      ]
+    },
+    "headacc": {
+      "id": "headacc",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "No head accessory"
+        },
+        {
+          "value": "01",
+          "text": "Skull mask - white"
+        },
+        {
+          "value": "02",
+          "text": "Skull mask - black"
+        },
+        {
+          "value": "03",
+          "text": "Crown - gold"
+        },
+        {
+          "value": "04",
+          "text": "Crown - black"
+        },
+        {
+          "value": "05",
+          "text": "Bridle"
+        },
+        {
+          "value": "06",
+          "text": "Tucked flower"
+        },
+        {
+          "value": "07",
+          "text": "Eye patch"
+        },
+        {
+          "value": "08",
+          "text": "Glasses"
+        }
+      ]
+    },
+    "neckacc": {
+      "id": "neckacc",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "No neck accessory"
+        },
+        {
+          "value": "01",
+          "text": "Brown leather collar"
+        },
+        {
+          "value": "02",
+          "text": "Black leather collar"
+        },
+        {
+          "value": "03",
+          "text": "Black leather collar - spiked"
+        },
+        {
+          "value": "04",
+          "text": "Black leather collar - clawed"
+        },
+        {
+          "value": "05",
+          "text": "Chain collar"
+        },
+        {
+          "value": "06",
+          "text": "Gold metal band"
+        },
+        {
+          "value": "10",
+          "text": "Gold pendant necklace"
+        },
+        {
+          "value": "07",
+          "text": "Scarf - white"
+        },
+        {
+          "value": "08",
+          "text": "Scarf - black"
+        },
+        {
+          "value": "09",
+          "text": "Scarf - red"
+        },
+        {
+          "value": "11",
+          "text": "Leather pouch on string"
+        },
+        {
+          "value": "12",
+          "text": "Lots of gold jewelry"
+        }
+      ]
+    },
+    "bellyStyle": {
+      "id": "bellyStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Soft fade"
+        },
+        {
+          "value": "02",
+          "text": "Hard fade"
+        },
+        {
+          "value": "04",
+          "text": "Square scutes"
+        },
+        {
+          "value": "03",
+          "text": "Armor plates"
+        },
+        {
+          "value": "05",
+          "text": "Pointy armor"
+        },
+        {
+          "value": "06",
+          "text": "Furry belly"
+        }
+      ]
+    },
+    "spinedecStyle": {
+      "id": "spinedecStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Bony fish fin"
+        },
+        {
+          "value": "02",
+          "text": "Fur ridge"
+        },
+        {
+          "value": "03",
+          "text": "Feather ridge"
+        },
+        {
+          "value": "04",
+          "text": "Spike ridge"
+        },
+        {
+          "value": "05",
+          "text": "Soft frill"
+        },
+        {
+          "value": "06",
+          "text": "Shark dorsal fin"
+        },
+        {
+          "value": "07",
+          "text": "Featherquill dorsal fin"
+        }
+      ]
+    },
+    "marking1Style": {
+      "id": "marking1Style",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "10",
+          "text": "Dorsal fade"
+        },
+        {
+          "value": "12",
+          "text": "Rear end fade"
+        },
+        {
+          "value": "02",
+          "text": "Tiger stripes"
+        },
+        {
+          "value": "19",
+          "text": "Mackerel stripes"
+        },
+        {
+          "value": "06",
+          "text": "Ring stripes"
+        },
+        {
+          "value": "08",
+          "text": "Dalmation spots"
+        },
+        {
+          "value": "16",
+          "text": "Leopard spots"
+        },
+        {
+          "value": "03",
+          "text": "Speckles"
+        },
+        {
+          "value": "17",
+          "text": "Blotches"
+        },
+        {
+          "value": "29",
+          "text": "Side arrows"
+        },
+        {
+          "value": "25",
+          "text": "Side scales"
+        },
+        {
+          "value": "31",
+          "text": "Side dots"
+        },
+        {
+          "value": "21",
+          "text": "Frosting"
+        },
+        {
+          "value": "32",
+          "text": "Soft Marbling"
+        },
+        {
+          "value": "33",
+          "text": "Lightning"
+        },
+        {
+          "value": "18",
+          "text": "Skeleton"
+        },
+        {
+          "value": "34",
+          "text": "Alternating stripes A"
+        },
+        {
+          "value": "35",
+          "text": "Alternating stripes B"
+        },
+        {
+          "value": "36",
+          "text": "Gills - Axolotl"
+        },
+        {
+          "value": "37",
+          "text": "Gills - Shark"
+        },
+        {
+          "value": "38",
+          "text": "Scar - Nose"
+        },
+        {
+          "value": "40",
+          "text": "Scar - Eye Swipe"
+        },
+        {
+          "value": "39",
+          "text": "Scar - Triple Eye Swipe"
+        }
+      ]
+    },
+    "marking2Style": {
+      "id": "marking2Style",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "10",
+          "text": "Dorsal fade"
+        },
+        {
+          "value": "12",
+          "text": "Rear end fade"
+        },
+        {
+          "value": "02",
+          "text": "Tiger stripes"
+        },
+        {
+          "value": "19",
+          "text": "Mackerel stripes"
+        },
+        {
+          "value": "06",
+          "text": "Ring stripes"
+        },
+        {
+          "value": "08",
+          "text": "Dalmation spots"
+        },
+        {
+          "value": "16",
+          "text": "Leopard spots"
+        },
+        {
+          "value": "03",
+          "text": "Speckles"
+        },
+        {
+          "value": "17",
+          "text": "Blotches"
+        },
+        {
+          "value": "29",
+          "text": "Side arrows"
+        },
+        {
+          "value": "25",
+          "text": "Side scales"
+        },
+        {
+          "value": "31",
+          "text": "Side dots"
+        },
+        {
+          "value": "21",
+          "text": "Frosting"
+        },
+        {
+          "value": "32",
+          "text": "Soft Marbling"
+        },
+        {
+          "value": "33",
+          "text": "Lightning"
+        },
+        {
+          "value": "18",
+          "text": "Skeleton"
+        },
+        {
+          "value": "34",
+          "text": "Alternating stripes A"
+        },
+        {
+          "value": "35",
+          "text": "Alternating stripes B"
+        },
+        {
+          "value": "36",
+          "text": "Gills - Axolotl"
+        },
+        {
+          "value": "37",
+          "text": "Gills - Shark"
+        },
+        {
+          "value": "38",
+          "text": "Scar - Nose"
+        },
+        {
+          "value": "40",
+          "text": "Scar - Eye Swipe"
+        },
+        {
+          "value": "39",
+          "text": "Scar - Triple Eye Swipe"
+        }
+      ]
+    },
+    "marking3Style": {
+      "id": "marking3Style",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "10",
+          "text": "Dorsal fade"
+        },
+        {
+          "value": "12",
+          "text": "Rear end fade"
+        },
+        {
+          "value": "02",
+          "text": "Tiger stripes"
+        },
+        {
+          "value": "19",
+          "text": "Mackerel stripes"
+        },
+        {
+          "value": "06",
+          "text": "Ring stripes"
+        },
+        {
+          "value": "08",
+          "text": "Dalmation spots"
+        },
+        {
+          "value": "16",
+          "text": "Leopard spots"
+        },
+        {
+          "value": "03",
+          "text": "Speckles"
+        },
+        {
+          "value": "17",
+          "text": "Blotches"
+        },
+        {
+          "value": "29",
+          "text": "Side arrows"
+        },
+        {
+          "value": "25",
+          "text": "Side scales"
+        },
+        {
+          "value": "31",
+          "text": "Side dots"
+        },
+        {
+          "value": "21",
+          "text": "Frosting"
+        },
+        {
+          "value": "32",
+          "text": "Soft Marbling"
+        },
+        {
+          "value": "33",
+          "text": "Lightning"
+        },
+        {
+          "value": "18",
+          "text": "Skeleton"
+        },
+        {
+          "value": "34",
+          "text": "Alternating stripes A"
+        },
+        {
+          "value": "35",
+          "text": "Alternating stripes B"
+        },
+        {
+          "value": "36",
+          "text": "Gills - Axolotl"
+        },
+        {
+          "value": "37",
+          "text": "Gills - Shark"
+        },
+        {
+          "value": "38",
+          "text": "Scar - Nose"
+        },
+        {
+          "value": "40",
+          "text": "Scar - Eye Swipe"
+        },
+        {
+          "value": "39",
+          "text": "Scar - Triple Eye Swipe"
+        }
+      ]
+    },
+    "torsoacc": {
+      "id": "torsoacc",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "No torso accessory"
+        },
+        {
+          "value": "01",
+          "text": "Leather harness"
+        },
+        {
+          "value": "02",
+          "text": "Leather bags"
+        },
+        {
+          "value": "03",
+          "text": "Adventuring backpack"
+        },
+        {
+          "value": "04",
+          "text": "Saddle"
+        },
+        {
+          "value": "05",
+          "text": "Draped blanket"
+        }
+      ]
+    },
+    "forelegStyleSelect": {
+      "id": "forelegStyleSelect",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "No forelegs"
+        },
+        {
+          "value": "01",
+          "text": "Hand-paw"
+        },
+        {
+          "value": "05",
+          "text": "Webbed"
+        },
+        {
+          "value": "02",
+          "text": "Bat wing-walker"
+        },
+        {
+          "value": "04",
+          "text": "Feather wing-walker"
+        },
+        {
+          "value": "03",
+          "text": "Flipperfin"
+        },
+        {
+          "value": "06",
+          "text": "Raptor arms"
+        }
+      ]
+    },
+    "forelegdecStyle": {
+      "id": "forelegdecStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Fur"
+        },
+        {
+          "value": "02",
+          "text": "Bony fish fins"
+        },
+        {
+          "value": "05",
+          "text": "Spikes"
+        },
+        {
+          "value": "03",
+          "text": "Feathers"
+        },
+        {
+          "value": "04",
+          "text": "Armor scutes"
+        }
+      ]
+    },
+    "forelegdecStyle2": {
+      "id": "forelegdecStyle2",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Fur"
+        },
+        {
+          "value": "02",
+          "text": "Bony fish fins"
+        },
+        {
+          "value": "05",
+          "text": "Spikes"
+        },
+        {
+          "value": "03",
+          "text": "Feathers"
+        },
+        {
+          "value": "04",
+          "text": "Armor scutes"
+        }
+      ]
+    },
+    "forelegmarkingStyle": {
+      "id": "forelegmarkingStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "99",
+          "text": "Special (specific to limb style)"
+        },
+        {
+          "value": "01",
+          "text": "Ankle socks"
+        },
+        {
+          "value": "06",
+          "text": "Opera gloves"
+        },
+        {
+          "value": "02",
+          "text": "Tabby mackerel"
+        },
+        {
+          "value": "03",
+          "text": "Ring stripes"
+        },
+        {
+          "value": "07",
+          "text": "Swirls"
+        },
+        {
+          "value": "04",
+          "text": "Skele"
+        },
+        {
+          "value": "05",
+          "text": "Bars & dots"
+        }
+      ]
+    },
+    "forelegmarking2Style": {
+      "id": "forelegmarking2Style",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "99",
+          "text": "Special (specific to limb style)"
+        },
+        {
+          "value": "01",
+          "text": "Ankle socks"
+        },
+        {
+          "value": "06",
+          "text": "Opera gloves"
+        },
+        {
+          "value": "02",
+          "text": "Tabby mackerel"
+        },
+        {
+          "value": "03",
+          "text": "Ring stripes"
+        },
+        {
+          "value": "07",
+          "text": "Swirls"
+        },
+        {
+          "value": "04",
+          "text": "Skele"
+        },
+        {
+          "value": "05",
+          "text": "Bars & dots"
+        }
+      ]
+    },
+    "hindlegStyleSelect": {
+      "id": "hindlegStyleSelect",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "No hindlegs"
+        },
+        {
+          "value": "01",
+          "text": "Toe-paw"
+        },
+        {
+          "value": "03",
+          "text": "Flipperfin"
+        },
+        {
+          "value": "05",
+          "text": "Webbed"
+        },
+        {
+          "value": "08",
+          "text": "Theropod"
+        },
+        {
+          "value": "06",
+          "text": "Mammalian paws"
+        },
+        {
+          "value": "07",
+          "text": "Equine hooves"
+        }
+      ]
+    },
+    "hindlegdecStyle": {
+      "id": "hindlegdecStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Fur"
+        },
+        {
+          "value": "02",
+          "text": "Bony fish fins"
+        },
+        {
+          "value": "05",
+          "text": "Spikes"
+        },
+        {
+          "value": "03",
+          "text": "Feathers"
+        },
+        {
+          "value": "04",
+          "text": "Armor scutes"
+        }
+      ]
+    },
+    "hindlegdecStyle2": {
+      "id": "hindlegdecStyle2",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Fur"
+        },
+        {
+          "value": "02",
+          "text": "Bony fish fins"
+        },
+        {
+          "value": "05",
+          "text": "Spikes"
+        },
+        {
+          "value": "03",
+          "text": "Feathers"
+        },
+        {
+          "value": "04",
+          "text": "Armor scutes"
+        }
+      ]
+    },
+    "hindlegmarkingStyle": {
+      "id": "hindlegmarkingStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "99",
+          "text": "Special (specific to limb style)"
+        },
+        {
+          "value": "01",
+          "text": "Ankle socks"
+        },
+        {
+          "value": "06",
+          "text": "Thigh-high socks"
+        },
+        {
+          "value": "02",
+          "text": "Tabby mackerel"
+        },
+        {
+          "value": "04",
+          "text": "Ring stripes"
+        },
+        {
+          "value": "03",
+          "text": "Swirls"
+        },
+        {
+          "value": "05",
+          "text": "Skele"
+        },
+        {
+          "value": "07",
+          "text": "Bars & dots"
+        }
+      ]
+    },
+    "hindlegmarking2Style": {
+      "id": "hindlegmarking2Style",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "99",
+          "text": "Special (specific to limb style)"
+        },
+        {
+          "value": "01",
+          "text": "Ankle socks"
+        },
+        {
+          "value": "06",
+          "text": "Thigh-high socks"
+        },
+        {
+          "value": "02",
+          "text": "Tabby mackerel"
+        },
+        {
+          "value": "04",
+          "text": "Ring stripes"
+        },
+        {
+          "value": "03",
+          "text": "Swirls"
+        },
+        {
+          "value": "05",
+          "text": "Skele"
+        },
+        {
+          "value": "07",
+          "text": "Bars & dots"
+        }
+      ]
+    },
+    "wingStyle": {
+      "id": "wingStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "No wings"
+        },
+        {
+          "value": "01",
+          "text": "Bat-like - default"
+        },
+        {
+          "value": "13",
+          "text": "Bat-like - transparent"
+        },
+        {
+          "value": "12",
+          "text": "Bat-like - big"
+        },
+        {
+          "value": "04",
+          "text": "Bat-like - mini"
+        },
+        {
+          "value": "14",
+          "text": "Paddle"
+        },
+        {
+          "value": "03",
+          "text": "Feather/bat hybrid"
+        },
+        {
+          "value": "02",
+          "text": "Feathered - big"
+        },
+        {
+          "value": "05",
+          "text": "Feathered - mini"
+        },
+        {
+          "value": "10",
+          "text": "Dragonfly"
+        },
+        {
+          "value": "11",
+          "text": "Butterfly"
+        }
+      ]
+    },
+    "wingpatternStyle": {
+      "id": "wingpatternStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "Solid color"
+        },
+        {
+          "value": "01",
+          "text": "Pastel rainbow"
+        },
+        {
+          "value": "02",
+          "text": "Stars in space"
+        }
+      ]
+    },
+    "wingmarkingdorsalStyle": {
+      "id": "wingmarkingdorsalStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Fade toward ends"
+        }
+      ]
+    },
+    "wingmarkingdorsalStyle2": {
+      "id": "wingmarkingdorsalStyle2",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Fade toward ends"
+        }
+      ]
+    },
+    "wingmarkingventralStyle": {
+      "id": "wingmarkingventralStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Fade toward ends"
+        }
+      ]
+    },
+    "wingmarkingventralStyle2": {
+      "id": "wingmarkingventralStyle2",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Fade toward ends"
+        }
+      ]
+    },
+    "taildecStyle": {
+      "id": "taildecStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Spade"
+        },
+        {
+          "value": "02",
+          "text": "Arrowhead"
+        },
+        {
+          "value": "03",
+          "text": "Cone"
+        },
+        {
+          "value": "04",
+          "text": "Feathers"
+        },
+        {
+          "value": "05",
+          "text": "Bony fin"
+        },
+        {
+          "value": "06",
+          "text": "Spikes"
+        },
+        {
+          "value": "07",
+          "text": "Shark fin"
+        },
+        {
+          "value": "08",
+          "text": "Fur fan"
+        },
+        {
+          "value": "09",
+          "text": "Flame"
+        },
+        {
+          "value": "10",
+          "text": "Fur tuft"
+        },
+        {
+          "value": "11",
+          "text": "Snake head"
+        },
+        {
+          "value": "12",
+          "text": "Dolphin fluke"
+        },
+        {
+          "value": "13",
+          "text": "Forked tip"
+        },
+        {
+          "value": "14",
+          "text": "Eel fin"
+        },
+        {
+          "value": "15",
+          "text": "Fur top & bottom"
+        },
+        {
+          "value": "16",
+          "text": "Scorpion stinger"
+        },
+        {
+          "value": "17",
+          "text": "Sand-stinger"
+        },
+        {
+          "value": "18",
+          "text": "Soft frill"
+        },
+        {
+          "value": "19",
+          "text": "Shark tail"
+        },
+        {
+          "value": "20",
+          "text": "Quills"
+        },
+        {
+          "value": "21",
+          "text": "Thagomizer"
+        }
+      ]
+    },
+    "taildecStyle2": {
+      "id": "taildecStyle2",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Spade"
+        },
+        {
+          "value": "02",
+          "text": "Arrowhead"
+        },
+        {
+          "value": "03",
+          "text": "Cone"
+        },
+        {
+          "value": "04",
+          "text": "Feathers"
+        },
+        {
+          "value": "05",
+          "text": "Bony fin"
+        },
+        {
+          "value": "06",
+          "text": "Spikes"
+        },
+        {
+          "value": "07",
+          "text": "Shark fin"
+        },
+        {
+          "value": "08",
+          "text": "Fur fan"
+        },
+        {
+          "value": "09",
+          "text": "Flame"
+        },
+        {
+          "value": "10",
+          "text": "Fur tuft"
+        },
+        {
+          "value": "11",
+          "text": "Snake head"
+        },
+        {
+          "value": "12",
+          "text": "Dolphin fluke"
+        },
+        {
+          "value": "13",
+          "text": "Forked tip"
+        },
+        {
+          "value": "14",
+          "text": "Eel fin"
+        },
+        {
+          "value": "15",
+          "text": "Fur top & bottom"
+        },
+        {
+          "value": "16",
+          "text": "Scorpion stinger"
+        },
+        {
+          "value": "17",
+          "text": "Sand-stinger"
+        },
+        {
+          "value": "18",
+          "text": "Soft frill"
+        },
+        {
+          "value": "19",
+          "text": "Shark tail"
+        },
+        {
+          "value": "20",
+          "text": "Quills"
+        },
+        {
+          "value": "21",
+          "text": "Thagomizer"
+        }
+      ]
+    },
+    "tailmarkingStyle": {
+      "id": "tailmarkingStyle",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Tip dip"
+        },
+        {
+          "value": "04",
+          "text": "Full tail color"
+        },
+        {
+          "value": "02",
+          "text": "Stripes"
+        },
+        {
+          "value": "03",
+          "text": "Icing"
+        }
+      ]
+    },
+    "tailmarking2Style": {
+      "id": "tailmarking2Style",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "None"
+        },
+        {
+          "value": "01",
+          "text": "Tip dip"
+        },
+        {
+          "value": "04",
+          "text": "Full tail color"
+        },
+        {
+          "value": "02",
+          "text": "Stripes"
+        },
+        {
+          "value": "03",
+          "text": "Icing"
+        }
+      ]
+    },
+    "tailacc": {
+      "id": "tailacc",
+      "name": "",
+      "options": [
+        {
+          "value": "none",
+          "text": "No tail base accessory"
+        },
+        {
+          "value": "01",
+          "text": "Gold metal band"
+        },
+        {
+          "value": "02",
+          "text": "Multiple gold bands"
+        },
+        {
+          "value": "03",
+          "text": "Leather belts"
+        },
+        {
+          "value": "04",
+          "text": "Leather bags"
+        }
+      ]
+    },
+    "presetSelect": {
+      "id": "presetSelect",
+      "name": "",
+      "options": [
+        {
+          "value": "",
+          "text": "Choose a Preset Dragon"
+        },
+        {
+          "value": "default",
+          "text": "Default"
+        },
+        {
+          "value": "spicynoodle",
+          "text": "Spicy Noodle"
+        }
+      ]
+    }
+  },
+  "color_inputs": [
+    {
+      "id": "eyeColor",
+      "type": "color",
+      "value": "#FDCD73",
+      "name": ""
+    },
+    {
+      "id": "eyeColorHex",
+      "type": "text",
+      "value": "#FDCD73",
+      "name": ""
+    },
+    {
+      "id": "browColor",
+      "type": "color",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "browColorHex",
+      "type": "text",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "snoutmarkingColor",
+      "type": "color",
+      "value": "#FFC25E",
+      "name": ""
+    },
+    {
+      "id": "snoutmarkingColorHex",
+      "type": "text",
+      "value": "#FFC25E",
+      "name": ""
+    },
+    {
+      "id": "snoutaddColor",
+      "type": "color",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "snoutaddColorHex",
+      "type": "text",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "maneColor",
+      "type": "color",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "maneColorHex",
+      "type": "text",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "headtopColor",
+      "type": "color",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "headtopColorHex",
+      "type": "text",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "jawdecColor",
+      "type": "color",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "jawdecColorHex",
+      "type": "text",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "whiskerColor",
+      "type": "color",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "whiskerColorHex",
+      "type": "text",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "breathColor",
+      "type": "color",
+      "value": "#FFC25E",
+      "name": ""
+    },
+    {
+      "id": "breathColorHex",
+      "type": "text",
+      "value": "#FFC25E",
+      "name": ""
+    },
+    {
+      "id": "baseColor",
+      "type": "color",
+      "value": "#FFFDF0",
+      "name": ""
+    },
+    {
+      "id": "baseColorHex",
+      "type": "text",
+      "value": "#FFFDF0",
+      "name": ""
+    },
+    {
+      "id": "boneColor",
+      "type": "color",
+      "value": "#CCBBA8",
+      "name": ""
+    },
+    {
+      "id": "boneColorHex",
+      "type": "text",
+      "value": "#CCBBA8",
+      "name": ""
+    },
+    {
+      "id": "fleshColor",
+      "type": "color",
+      "value": "#D275BB",
+      "name": ""
+    },
+    {
+      "id": "fleshColorHex",
+      "type": "text",
+      "value": "#D275BB",
+      "name": ""
+    },
+    {
+      "id": "bellyColor",
+      "type": "color",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "bellyColorHex",
+      "type": "text",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "spinedecColor",
+      "type": "color",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "spinedecColorHex",
+      "type": "text",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "marking1Color",
+      "type": "color",
+      "value": "#30537E",
+      "name": ""
+    },
+    {
+      "id": "marking1ColorHex",
+      "type": "text",
+      "value": "#30537E",
+      "name": ""
+    },
+    {
+      "id": "marking2Color",
+      "type": "color",
+      "value": "#30537E",
+      "name": ""
+    },
+    {
+      "id": "marking2ColorHex",
+      "type": "text",
+      "value": "#30537E",
+      "name": ""
+    },
+    {
+      "id": "marking3Color",
+      "type": "color",
+      "value": "#30537E",
+      "name": ""
+    },
+    {
+      "id": "marking3ColorHex",
+      "type": "text",
+      "value": "#30537E",
+      "name": ""
+    },
+    {
+      "id": "forelegdecColor",
+      "type": "color",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "forelegdecColorHex",
+      "type": "text",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "forelegdecColor2",
+      "type": "color",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "forelegdecColorHex2",
+      "type": "text",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "forelegmarkingColor",
+      "type": "color",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "forelegmarkingColorHex",
+      "type": "text",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "forelegmarking2Color",
+      "type": "color",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "forelegmarking2ColorHex",
+      "type": "text",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "hindlegdecColor",
+      "type": "color",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "hindlegdecColorHex",
+      "type": "text",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "hindlegdecColor2",
+      "type": "color",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "hindlegdecColorHex2",
+      "type": "text",
+      "value": "#6ABEFD",
+      "name": ""
+    },
+    {
+      "id": "hindlegmarkingColor",
+      "type": "color",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "hindlegmarkingColorHex",
+      "type": "text",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "hindlegmarking2Color",
+      "type": "color",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "hindlegmarking2ColorHex",
+      "type": "text",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "wingColor",
+      "type": "color",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "wingColorHex",
+      "type": "text",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "wingmarkingdorsalColor",
+      "type": "color",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "wingmarkingdorsalColorHex",
+      "type": "text",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "wingmarkingdorsalColor2",
+      "type": "color",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "wingmarkingdorsalColorHex2",
+      "type": "text",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "wingmarkingventralColor",
+      "type": "color",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "wingmarkingventralColorHex",
+      "type": "text",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "wingmarkingventralColor2",
+      "type": "color",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "wingmarkingventralColorHex2",
+      "type": "text",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "taildecColor",
+      "type": "color",
+      "value": "#FDCD73",
+      "name": ""
+    },
+    {
+      "id": "taildecColorHex",
+      "type": "text",
+      "value": "#FDCD73",
+      "name": ""
+    },
+    {
+      "id": "taildecColor2",
+      "type": "color",
+      "value": "#FDCD73",
+      "name": ""
+    },
+    {
+      "id": "taildecColorHex2",
+      "type": "text",
+      "value": "#FDCD73",
+      "name": ""
+    },
+    {
+      "id": "tailmarkingColor",
+      "type": "color",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "tailmarkingColorHex",
+      "type": "text",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "tailmarking2Color",
+      "type": "color",
+      "value": "#FFFFFF",
+      "name": ""
+    },
+    {
+      "id": "tailmarking2ColorHex",
+      "type": "text",
+      "value": "#FFFFFF",
+      "name": ""
+    }
+  ],
+  "scripts": [
+    {
+      "type": "inline",
+      "preview": "{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebPage\",\"@id\":\"https://www.monsterbrainsoup.com/dragon-builder/\",\"url\":\"https://www.monsterbrainsoup.com/dragon-builder/\",\"name\":\"Dragon Builder - MonsterBrainSoup\",\"isPartOf\":{\"@id\":\"https://www.monsterbrainsoup.com/#website\"},\"primaryImageOfPag"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/wp-dark-mode/assets/js/dark-mode.js?ver=5.3.3"
+    },
+    {
+      "type": "inline",
+      "preview": "/* <![CDATA[ */\nvar wp_dark_mode_json = {\"security_key\":\"a52af1937c\",\"is_pro\":\"\",\"version\":\"5.3.3\",\"is_excluded\":\"\",\"excluded_elements\":\" #wpadminbar, .wp-dark-mode-switch, .elementor-button-content-wrapper\",\"options\":{\"frontend_enabled\":true,\"frontend_mode\":\"device\",\"frontend_time_starts\":\"06:00 P"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/wp-dark-mode/assets/js/app.min.js?ver=5.3.3"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"
+    },
+    {
+      "type": "inline",
+      "preview": "/* <![CDATA[ */\nvar Cli_Data = {\"nn_cookie_ids\":[],\"cookielist\":[],\"non_necessary_cookies\":[],\"ccpaEnabled\":\"\",\"ccpaRegionBased\":\"\",\"ccpaBarEnabled\":\"\",\"strictlyEnabled\":[\"necessary\",\"obligatoire\"],\"ccpaType\":\"gdpr\",\"js_blocking\":\"\",\"custom_integration\":\"\",\"triggerDomRefresh\":\"\",\"secure_cookies\":\"\""
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.4.0"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/assets/magnific/jquery.magnific-popup.min.js?ver=1.2.0"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-includes/js/underscore.min.js?ver=1.13.7"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/assets/infinitescroll/infinite-scroll.pkgd.min.js?ver=4.0.1"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/assets/dompurify/purify.min.js?ver=3.3.1"
+    },
+    {
+      "type": "inline",
+      "preview": "/* <![CDATA[ */\nwindow.RLG = window.RLG || {}; window.RLG.sanitizeAllowedHosts = [\"youtube.com\",\"www.youtube.com\",\"youtu.be\",\"vimeo.com\",\"player.vimeo.com\"];\n//# sourceURL=responsive-lightbox-sanitizer-js-before\n/* ]]> */"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/js/sanitizer.js?ver=2.7.6"
+    },
+    {
+      "type": "inline",
+      "preview": "/* <![CDATA[ */\nvar rlArgs = {\"script\":\"magnific\",\"selector\":\"lightbox\",\"customEvents\":\"ajaxComplete\",\"activeGalleries\":false,\"disableOn\":0,\"midClick\":true,\"preloader\":true,\"closeOnContentClick\":true,\"closeOnBgClick\":true,\"closeBtnInside\":true,\"showCloseBtn\":true,\"enableEscapeKey\":true,\"alignTop\":f"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/js/front.js?ver=2.7.6"
+    },
+    {
+      "type": "external",
+      "src": "https://www.googletagmanager.com/gtag/js?id=G-41M8GMTFNQ"
+    },
+    {
+      "type": "inline",
+      "preview": "/* <![CDATA[ */\nwindow.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}\ngtag(\"set\",\"linker\",{\"domains\":[\"www.monsterbrainsoup.com\"]});\ngtag(\"js\", new Date());\ngtag(\"set\", \"developer_id.dZTNiMT\", true);\ngtag(\"config\", \"G-41M8GMTFNQ\", {\"googlesitekit_post_type\":\"page\"});"
+    },
+    {
+      "type": "inline",
+      "preview": "/* <![CDATA[ */\nvar _EPYT_ = {\"ajaxurl\":\"https://www.monsterbrainsoup.com/wp-admin/admin-ajax.php\",\"security\":\"0af018ff26\",\"gallery_scrolloffset\":\"20\",\"eppathtoscripts\":\"https://www.monsterbrainsoup.com/wp-content/plugins/youtube-embed-plus/scripts/\",\"eppath\":\"https://www.monsterbrainsoup.com/wp-co"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/youtube-embed-plus/scripts/ytprefs.min.js?ver=14.2.5"
+    },
+    {
+      "type": "inline",
+      "preview": "// HIDE LOADING SCREEN\r\ndocument.addEventListener(\"DOMContentLoaded\", () => {\r\n    const hideFrontWingCheckbox = document.getElementById(\"hideFrontWing\");\r\n    if (hideFrontWingCheckbox) {\r\n        hideFrontWingCheckbox.addEventListener(\"change\", () => {\r\n            mergeLayers();\r\n        });"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/dragon-builder//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js",
+      "error": "404 Client Error: Not Found for url: https://www.monsterbrainsoup.com/dragon-builder//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
+    },
+    {
+      "type": "inline",
+      "preview": "(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQu"
+    },
+    {
+      "type": "inline",
+      "preview": "{\"prefetch\":[{\"source\":\"document\",\"where\":{\"and\":[{\"href_matches\":\"/*\"},{\"not\":{\"href_matches\":[\"/wp-*.php\",\"/wp-admin/*\",\"/wp-content/uploads/*\",\"/wp-content/*\",\"/wp-content/plugins/*\",\"/wp-content/themes/virtue-child/*\",\"/wp-content/themes/virtue/*\",\"/*\\\\?(.+)\"]}},{\"not\":{\"selector_matches\":\"a[re"
+    },
+    {
+      "type": "inline",
+      "preview": "const lazyloadRunObserver = () => {\n\t\t\t\t\tconst lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );\n\t\t\t\t\tconst lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {\n\t\t\t\t\t\tentries.forEach( ( entry ) => {\n\t\t\t\t\t\t\tif ( entry.isIntersecting ) {"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/popular-posts-by-webline/admin/assets/js/slick.min.js?ver=1.1.1"
+    },
+    {
+      "type": "inline",
+      "preview": "/* <![CDATA[ */\nvar WLIPP_ScriptsData = {\"slider_options\":{\"dots\":false,\"infinite\":true,\"speed\":300,\"slidesToShow\":1,\"autoplay\":true}};\n//# sourceURL=popular-posts-public-script-js-extra\n/* ]]> */"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/popular-posts-by-webline/admin/assets/js/popular-posts-by-webline-public.js?ver=1.1.1"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.35.8"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.35.8"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3"
+    },
+    {
+      "type": "inline",
+      "preview": "/* <![CDATA[ */\nvar EAELImageMaskingConfig = {\"svg_dir_url\":\"https://www.monsterbrainsoup.com/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/img/image-masking/svg-shapes/\"};\n//# sourceURL=elementor-frontend-js-extra\n/* ]]> */"
+    },
+    {
+      "type": "inline",
+      "preview": "/* <![CDATA[ */\nvar elementorFrontendConfig = {\"environmentMode\":{\"edit\":false,\"wpPreview\":false,\"isScriptDebug\":false},\"i18n\":{\"shareOnFacebook\":\"Share on Facebook\",\"shareOnTwitter\":\"Share on Twitter\",\"pinIt\":\"Pin it\",\"download\":\"Download\",\"downloadImage\":\"Download image\",\"fullscreen\":\"Fullscreen\""
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.35.8"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-wpforms-08f4a4ca33532233b542.js"
+    },
+    {
+      "type": "inline",
+      "preview": "/* <![CDATA[ */\nvar localize = {\"ajaxurl\":\"https://www.monsterbrainsoup.com/wp-admin/admin-ajax.php\",\"nonce\":\"2b45e4c9a3\",\"i18n\":{\"added\":\"Added \",\"compare\":\"Compare\",\"loading\":\"Loading...\"},\"eael_translate_text\":{\"required_text\":\"is a required field\",\"invalid_text\":\"Invalid\",\"billing_text\":\"Billin"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.min.js?ver=6.5.13"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/themes/virtue/assets/js/min/bootstrap-min.js?ver=3.4.14"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-includes/js/hoverIntent.min.js?ver=1.10.2"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-includes/js/masonry.min.js?ver=4.2.2"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/themes/virtue/assets/js/min/plugins-min.js?ver=3.4.14"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/themes/virtue/assets/js/min/main-min.js?ver=3.4.14"
+    },
+    {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/youtube-embed-plus/scripts/fitvids.min.js?ver=14.2.5"
+    },
+    {
+      "type": "inline",
+      "preview": "/* <![CDATA[ */\n_stq = window._stq || [];\n_stq.push([ \"view\", {\"v\":\"ext\",\"blog\":\"155699059\",\"post\":\"8027\",\"tz\":\"-4\",\"srv\":\"www.monsterbrainsoup.com\",\"j\":\"1:15.6\"} ]);\n_stq.push([ \"clickTrackerInit\", \"155699059\", \"8027\" ]);\n//# sourceURL=jetpack-stats-js-before\n/* ]]> */"
+    },
+    {
+      "type": "external",
+      "src": "https://stats.wp.com/e-202613.js"
+    },
+    {
+      "type": "inline",
+      "preview": "{\"baseUrl\":\"https://s.w.org/images/core/emoji/17.0.2/72x72/\",\"ext\":\".png\",\"svgUrl\":\"https://s.w.org/images/core/emoji/17.0.2/svg/\",\"svgExt\":\".svg\",\"source\":{\"concatemoji\":\"https://www.monsterbrainsoup.com/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4\"}}"
+    },
+    {
+      "type": "inline",
+      "preview": "/* <![CDATA[ */\n/*! This file is auto-generated */\nconst a=JSON.parse(document.getElementById(\"wp-emoji-settings\").textContent),o=(window._wpemojiSettings=a,\"wpEmojiSettingsSupports\"),s=[\"flag\",\"emoji\"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o"
+    },
+    {
+      "type": "inline",
+      "preview": "(function() {\n\t\t\t\tfunction applyScrollbarStyles() {\n\t\t\t\t\tif (!document.documentElement.hasAttribute('data-wp-dark-mode-active')) {\n\t\t\t\t\t\tdocument.documentElement.style.removeProperty('scrollbar-color');\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n\t\t\t\t\tdocument.documentElement.style.setProperty('scrollbar-color', '#2E3"
+    }
+  ],
+  "js_files": {
+    "https://www.monsterbrainsoup.com/wp-content/plugins/wp-dark-mode/assets/js/dark-mode.js?ver=5.3.3": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/wp-dark-mode/assets/js/dark-mode.js?ver=5.3.3",
+      "size": 121284,
+      "preview": "(function(){\"use strict\";(()=>{function Fr(jt){if(typeof wp_dark_mode_json>\"u\")return!1;if(jt&&jt.classList&&jt.classList.contains(\"wp-dark-mode-ignore\"))return!0;const Vt=\".wp-dark-mode-ignore\"+(wp_dark_mode_json.excluded_elements?\", \"+wp_dark_mode_json.excluded_elements:\"\");try{const It=document.querySelectorAll(Vt);for(const _t of It)if(_t&&_t.classList.add(\"wp-dark-mode-ignore\"),_t==jt||_t.contains(jt))return!0}catch{}return!1}var No={35:function(jt,Vt){var It,_t,Ir,Wr,Dn;function qr(x,T){va",
+      "svg_paths_count": 83,
+      "svg_paths_sample": [
+        "Cannot call a class as a function",
+        "suspendedStart",
+        "suspendedYield"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/wp-dark-mode/assets/js/app.min.js?ver=5.3.3": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/wp-dark-mode/assets/js/app.min.js?ver=5.3.3",
+      "size": 83166,
+      "preview": "var qn=Object.defineProperty;var $t=v=>{throw TypeError(v)};var Hn=(v,C,y)=>C in v?qn(v,C,{enumerable:!0,configurable:!0,writable:!0,value:y}):v[C]=y;var z=(v,C,y)=>Hn(v,typeof C!=\"symbol\"?C+\"\":C,y),Kt=(v,C,y)=>C.has(v)||$t(\"Cannot \"+y);var F=(v,C,y)=>(Kt(v,C,\"read from private field\"),y?y.call(v):C.get(v)),Ie=(v,C,y)=>C.has(v)?$t(\"Cannot add the same private member more than once\"):C instanceof WeakSet?C.add(v):C.set(v,y),at=(v,C,y,Me)=>(Kt(v,C,\"write to private field\"),Me?Me.call(v,y):C.set(v,",
+      "svg_paths_count": 108,
+      "svg_paths_sample": [
+        "Cannot add the same private member more than once",
+        "ArrayBuffer",
+        "HTMLFormElement"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+      "size": 13577,
+      "preview": "/*! jQuery Migrate v3.4.1 | (c) OpenJS Foundation and other contributors | jquery.org/license */\n\"undefined\"==typeof jQuery.migrateMute&&(jQuery.migrateMute=!0),function(t){\"use strict\";\"function\"==typeof define&&define.amd?define([\"jquery\"],function(e){return t(e,window)}):\"object\"==typeof module&&module.exports?module.exports=t(require(\"jquery\"),window):t(jQuery,window)}(function(s,n){\"use strict\";function e(e){return 0<=function(e,t){for(var r=/^(\\d+)\\.(\\d+)\\.(\\d+)/,n=r.exec(e)||[],o=r.exec(t",
+      "svg_paths_count": 23,
+      "svg_paths_sample": [
+        "selector-empty-id",
+        "selector-empty-id",
+        "selector-empty-id"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.4.0": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/cookie-law-info/legacy/public/js/cookie-law-info-public.js?ver=3.4.0",
+      "size": 34185,
+      "preview": "CLI_ACCEPT_COOKIE_NAME = (typeof CLI_ACCEPT_COOKIE_NAME !== 'undefined' ? CLI_ACCEPT_COOKIE_NAME : 'viewed_cookie_policy');\nCLI_PREFERENCE_COOKIE = (typeof CLI_PREFERENCE_COOKIE !== 'undefined' ? CLI_PREFERENCE_COOKIE : 'CookieLawInfoConsent');\nCLI_ACCEPT_COOKIE_EXPIRE = (typeof CLI_ACCEPT_COOKIE_EXPIRE !== 'undefined' ? CLI_ACCEPT_COOKIE_EXPIRE : 365);\nCLI_COOKIEBAR_AS_POPUP = (typeof CLI_COOKIEBAR_AS_POPUP !== 'undefined' ? CLI_COOKIEBAR_AS_POPUP : false);\nvar CLI_Cookie = {\n\tset: function (na",
+      "svg_paths_count": 34,
+      "svg_paths_sample": [
+        "viewed_cookie_policy",
+        "CookieLawInfoConsent",
+        "CookieLawInfo requires JSON.parse but your browser doesn"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/assets/magnific/jquery.magnific-popup.min.js?ver=1.2.0": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/assets/magnific/jquery.magnific-popup.min.js?ver=1.2.0",
+      "size": 29758,
+      "preview": "/*! Magnific Popup - v1.2.0-patched - 2024-06-08\n * http://dimsemenov.com/plugins/magnific-popup/\n * Copyright (c) 2024 Dmytro Semenov; */\n(function(factory){if(typeof define===\"function\"&&define.amd){define([\"jquery\"],factory)}else if(typeof exports===\"object\"){factory(require(\"jquery\"))}else{factory(window.jQuery||window.Zepto)}})(function($){var CLOSE_EVENT=\"Close\",BEFORE_CLOSE_EVENT=\"BeforeClose\",AFTER_CLOSE_EVENT=\"AfterClose\",BEFORE_APPEND_EVENT=\"BeforeAppend\",MARKUP_PARSE_EVENT=\"MarkupPars",
+      "svg_paths_count": 32,
+      "svg_paths_sample": [
+        "MarkupParse",
+        "mfp-removing",
+        "mfp-prevent-close"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-includes/js/underscore.min.js?ver=1.13.7": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-includes/js/underscore.min.js?ver=1.13.7",
+      "size": 18905,
+      "preview": "/*! This file is auto-generated */\n!function(n,t){var r,e;\"object\"==typeof exports&&\"undefined\"!=typeof module?module.exports=t():\"function\"==typeof define&&define.amd?define(\"underscore\",t):(n=\"undefined\"!=typeof globalThis?globalThis:n||self,r=n._,(e=n._=t()).noConflict=function(){return n._=r,e})}(this,function(){var n=\"1.13.7\",t=\"object\"==typeof self&&self.self===self&&self||\"object\"==typeof global&&global.global===global&&global||Function(\"return this\")()||{},e=Array.prototype,V=Object.prot",
+      "svg_paths_count": 8,
+      "svg_paths_sample": [
+        "hasOwnProperty",
+        "toLocaleString",
+        "ArrayBuffer"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/assets/infinitescroll/infinite-scroll.pkgd.min.js?ver=4.0.1": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/assets/infinitescroll/infinite-scroll.pkgd.min.js?ver=4.0.1",
+      "size": 22450,
+      "preview": "/*!\n * Infinite Scroll PACKAGED v5.0.0\n * Automatically add next page\n * MIT License\n * https://infinite-scroll.com\n * Copyright 2018-2025 Metafizzy\n */\n!function(t,e){\"object\"==typeof module&&module.exports?module.exports=e(t,require(\"jquery\")):t.jQueryBridget=e(t,t.jQuery)}(window,(function(t,e){let i=t.console,n=void 0===i?function(){}:function(t){i.error(t)};return function(i,o,s){(s=s||e||t.jQuery)&&(o.prototype.option||(o.prototype.option=function(t){t&&(this.options=Object.assign(this.opt",
+      "svg_paths_count": 6,
+      "svg_paths_sample": [
+        "template string",
+        "scrollThreshold",
+        "stopPrefill"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/assets/dompurify/purify.min.js?ver=3.3.1": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/assets/dompurify/purify.min.js?ver=3.3.1",
+      "size": 23129,
+      "preview": "/*! @license DOMPurify 3.3.1 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/3.3.1/LICENSE */\n!function(e,t){\"object\"==typeof exports&&\"undefined\"!=typeof module?module.exports=t():\"function\"==typeof define&&define.amd?define(t):(e=\"undefined\"!=typeof globalThis?globalThis:e||self).DOMPurify=t()}(this,(function(){\"use strict\";const{entries:e,setPrototypeOf:t,isFrozen:n,getPrototypeOf:o,getOwnPropertyDes",
+      "svg_paths_count": 98,
+      "svg_paths_sample": [
+        "altglyphdef",
+        "altglyphitem",
+        "animatecolor"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/js/sanitizer.js?ver=2.7.6": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/js/sanitizer.js?ver=2.7.6",
+      "size": 1217,
+      "preview": "(e=>{const t=e.RLG||(e.RLG={}),i=e=>e&&\"function\"==typeof e.sanitize;t.getPurifier=()=>i(t.DOMPurify)?t.DOMPurify:i(e.DOMPurify)?e.DOMPurify:null,t.sanitizeConfig=t.sanitizeConfig||{ALLOWED_TAGS:[\"a\",\"abbr\",\"b\",\"br\",\"code\",\"em\",\"i\",\"li\",\"ol\",\"p\",\"pre\",\"small\",\"strong\",\"sub\",\"sup\",\"u\",\"ul\",\"img\",\"div\",\"span\"],ALLOWED_ATTR:[\"href\",\"src\",\"alt\",\"title\",\"width\",\"height\",\"class\",\"id\",\"rel\",\"target\",\"data-*\"],ALLOWED_URI_REGEXP:/^(?:(?:https?|mailto|tel):|[^a-z]|data:image\\/(?:png|jpeg|gif|webp);base64"
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/js/front.js?ver=2.7.6": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/responsive-lightbox/js/front.js?ver=2.7.6",
+      "size": 14551,
+      "preview": "(e=>{const t=(e,t)=>{const a=new RegExp(\"[?&]\"+e.replace(/[\\[\\]]/g,\"\\\\$&\")+\"(=([^&#]*)|&|#|$)\").exec(\"&\"+t);return a&&a[2]?decodeURIComponent(a[2].replace(/\\+/g,\" \")):\"\"},a=(e,t,a)=>{\"undefined\"!=typeof MutationObserver&&new MutationObserver((e,l)=>{t?e[0].addedNodes.length&&a():(e[0].addedNodes.length||e[0].removedNodes.length)&&a()}).observe(e,{childList:!0,subtree:!0})};e(()=>{l()}),e(document).on(rlArgs.customEvents,()=>{l()});const l=()=>{const t=[];if(e(\".rl-gallery-container\").each((a,l)=",
+      "svg_paths_count": 20,
+      "svg_paths_sample": [
+        "lightgallery",
+        "click.lgcustom-item-",
+        "a[data-rel]"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/youtube-embed-plus/scripts/ytprefs.min.js?ver=14.2.5": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/youtube-embed-plus/scripts/ytprefs.min.js?ver=14.2.5",
+      "size": 16003,
+      "preview": "!function(e,t){e._EPYT_=e._EPYT_||{ajaxurl:\"/wp-admin/admin-ajax.php\",security:\"\",gallery_scrolloffset:100,eppathtoscripts:\"/wp-content/plugins/youtube-embed-plus/scripts/\",eppath:\"/wp-content/plugins/youtube-embed-plus/\",epresponsiveselector:[\"iframe.__youtube_prefs_widget__\"],epdovol:!0,evselector:'iframe.__youtube_prefs__[src], iframe[src*=\"youtube.com/embed/\"], iframe[src*=\"youtube-nocookie.com/embed/\"]',stopMobileBuffer:!0,ajax_compat:!1,usingdefault:!0,ytapi_load:\"light\",pause_others:!1,fa",
+      "svg_paths_count": 28,
+      "svg_paths_sample": [
+        "load._EPYT_",
+        "live_stream",
+        "Setting up YT API events: "
+      ]
+    },
+    "https://www.monsterbrainsoup.com/dragon-builder//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/dragon-builder//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js",
+      "error": "404 Client Error: Not Found for url: https://www.monsterbrainsoup.com/dragon-builder//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/popular-posts-by-webline/admin/assets/js/slick.min.js?ver=1.1.1": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/popular-posts-by-webline/admin/assets/js/slick.min.js?ver=1.1.1",
+      "size": 42864,
+      "preview": "!function(i){\"use strict\";\"function\"==typeof define&&define.amd?define([\"jquery\"],i):\"undefined\"!=typeof exports?module.exports=i(require(\"jquery\")):i(jQuery)}(function(i){\"use strict\";var e=window.Slick||{};(e=function(){var e=0;return function(t,o){var s,n=this;n.defaults={accessibility:!0,adaptiveHeight:!1,appendArrows:i(t),appendDots:i(t),arrows:!0,asNavFor:null,prevArrow:'<button class=\"slick-prev\" aria-label=\"Previous\" type=\"button\">Previous</button>',nextArrow:'<button class=\"slick-next\" ",
+      "svg_paths_count": 140,
+      "svg_paths_sample": [
+        "visibilitychange",
+        "mozvisibilitychange",
+        "aria-hidden"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/popular-posts-by-webline/admin/assets/js/popular-posts-by-webline-public.js?ver=1.1.1": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/popular-posts-by-webline/admin/assets/js/popular-posts-by-webline-public.js?ver=1.1.1",
+      "size": 230,
+      "preview": "(function( $ ) {\r\n\t$(document).ready(function(){\r\n\r\n\t\t//Initialize slider\r\n\t\tif( $('.wli_popular_posts-slider').length > 0 ) {\r\n\t\t\t$('.wli_popular_posts-slider').slick( WLIPP_ScriptsData.slider_options );\r\n\t\t}\r\n\t});\r\n})( jQuery );"
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.35.8": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.35.8",
+      "size": 5722,
+      "preview": "(()=>{\"use strict\";var e,r,_,t,a,n={},i={};function __webpack_require__(e){var r=i[e];if(void 0!==r)return r.exports;var _=i[e]={exports:{}};return n[e].call(_.exports,_,_.exports,__webpack_require__),_.exports}__webpack_require__.m=n,e=[],__webpack_require__.O=(r,_,t,a)=>{if(!_){var n=1/0;for(b=0;b<e.length;b++){for(var[_,t,a]=e[b],i=!0,c=0;c<_.length;c++)(!1&a||n>=a)&&Object.keys(__webpack_require__.O).every(e=>__webpack_require__.O[e](_[c]))?_.splice(c--,1):(i=!1,a<n&&(n=a));if(i){e.splice(b-",
+      "svg_paths_count": 18,
+      "svg_paths_sample": [
+        "lightbox.570c05c5a283cfb6b223.bundle.min.js",
+        "text-path.a67c1f3a78d208bc7e1b.bundle.min.js",
+        "accordion.8b0db5058afeb74622f5.bundle.min.js"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.35.8": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.35.8",
+      "size": 50502,
+      "preview": "(self.webpackChunkelementorFrontend=self.webpackChunkelementorFrontend||[]).push([[941],{1:(e,t,r)=>{\"use strict\";var n=r(5578),i=r(7255),s=r(5755),o=r(1866),a=r(6029),c=r(5022),l=n.Symbol,u=i(\"wks\"),p=c?l.for||l:l&&l.withoutSetter||o;e.exports=function(e){return s(u,e)||(u[e]=a&&s(l,e)?l[e]:p(\"Symbol.\"+e)),u[e]}},41:e=>{\"use strict\";e.exports=function(e){return{iterator:e,next:e.next,done:!1}}},169:(e,t,r)=>{\"use strict\";var n=r(4762),i=r(8473),s=r(1483),o=r(5755),a=r(382),c=r(2048).CONFIGURABL",
+      "svg_paths_count": 44,
+      "svg_paths_sample": [
+        "constructor",
+        "t convert object to primitive value",
+        "An error occurs"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3",
+      "size": 21462,
+      "preview": "/*! jQuery UI - v1.13.3 - 2024-04-26\n* https://jqueryui.com\n* Includes: widget.js, position.js, data.js, disable-selection.js, effect.js, effects/effect-blind.js, effects/effect-bounce.js, effects/effect-clip.js, effects/effect-drop.js, effects/effect-explode.js, effects/effect-fade.js, effects/effect-fold.js, effects/effect-highlight.js, effects/effect-puff.js, effects/effect-pulsate.js, effects/effect-scale.js, effects/effect-shake.js, effects/effect-size.js, effects/effect-slide.js, effects/e",
+      "svg_paths_count": 6,
+      "svg_paths_sample": [
+        "selectstart",
+        "height:300px;width:auto;",
+        "marginRight"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.35.8": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.35.8",
+      "size": 31928,
+      "preview": "\"use strict\";(self.webpackChunkelementorFrontend=self.webpackChunkelementorFrontend||[]).push([[313],{607:(e,t)=>{Object.defineProperty(t,\"__esModule\",{value:!0}),t.default=void 0;t.default=class Controls{getControlValue(e,t,n){let r;return r=\"object\"==typeof e[t]&&n?e[t][n]:e[t],r}getResponsiveControlValue(e,t,n=\"\",r=null){const o=r||elementorFrontend.getCurrentDeviceMode(),s=this.getControlValue(e,t,n);if(\"widescreen\"===o){const r=this.getControlValue(e,`${t}_widescreen`,n);return r||0===r?r:s",
+      "svg_paths_count": 33,
+      "svg_paths_sample": [
+        "HIERARCHY_REQUEST_ERR",
+        "VALIDATION_ERR",
+        "TYPE_MISMATCH_ERR"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-wpforms-08f4a4ca33532233b542.js": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-wpforms-08f4a4ca33532233b542.js",
+      "size": 3046,
+      "preview": "(()=>{\"use strict\";var e={};e.g=function(){if(\"object\"==typeof globalThis)return globalThis;try{return this||new Function(\"return this\")()}catch(e){if(\"object\"==typeof window)return window}}();const t=\"email\",n=\"phone\",r=\"name\",i={[t]:[\"email\",\"e-mail\",\"mail\",\"email address\"],[n]:[\"phone\",\"tel\",\"mobile\",\"cell\",\"telephone\",\"phone number\"],[r]:[\"name\",\"full-name\",\"full name\",\"full_name\",\"fullname\",\"first-name\",\"first name\",\"first_name\",\"firstname\",\"last-name\",\"last name\",\"last_name\",\"lastname\",\"gi",
+      "svg_paths_count": 1,
+      "svg_paths_sample": [
+        "submit_lead_form"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.min.js?ver=6.5.13": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.min.js?ver=6.5.13",
+      "size": 11619,
+      "preview": "!function(e){var t={};function n(r){if(t[r])return t[r].exports;var o=t[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,n),o.l=!0,o.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){\"undefined\"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:\"Module\"}),Object.defineProperty(e,\"__esModule\",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&\"object\"==typeof e&&e",
+      "svg_paths_count": 15,
+      "svg_paths_sample": [
+        "The namespace must be a non-empty string.",
+        "The namespace can only contain numbers, letters, dashes, periods, underscores and slashes.",
+        "The hook name must be a non-empty string."
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/themes/virtue/assets/js/min/bootstrap-min.js?ver=3.4.14": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/themes/virtue/assets/js/min/bootstrap-min.js?ver=3.4.14",
+      "size": 27622,
+      "preview": "if(\"undefined\"==typeof jQuery)throw new Error(\"Bootstrap's JavaScript requires jQuery\");+function(t){\"use strict\";var e=t.fn.jquery.split(\" \")[0].split(\".\");if(e[0]<2&&e[1]<9||1==e[0]&&9==e[1]&&e[2]<1||e[0]>3)throw new Error(\"Bootstrap's JavaScript requires jQuery version 1.9.1 or higher, but lower than version 4\")}(jQuery),function(t){\"use strict\";function e(e,o){return this.each(function(){var s=t(this),n=s.data(\"bs.modal\"),r=t.extend({},i.DEFAULTS,s.data(),\"object\"==typeof e&&e);n||s.data(\"bs",
+      "svg_paths_count": 57,
+      "svg_paths_sample": [
+        "s JavaScript requires jQuery",
+        "s JavaScript requires jQuery version 1.9.1 or higher, but lower than version 4",
+        "loaded.bs.modal"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-includes/js/hoverIntent.min.js?ver=1.10.2": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-includes/js/hoverIntent.min.js?ver=1.10.2",
+      "size": 1499,
+      "preview": "/*! This file is auto-generated */\n!function(e){\"use strict\";\"function\"==typeof define&&define.amd?define([\"jquery\"],e):\"object\"==typeof module&&module.exports?module.exports=e(require(\"jquery\")):jQuery&&!jQuery.fn.hoverIntent&&e(jQuery)}(function(f){\"use strict\";function u(e){return\"function\"==typeof e}var i,r,v={interval:100,sensitivity:6,timeout:0},s=0,a=function(e){i=e.pageX,r=e.pageY},p=function(e,t,n,o){if(Math.sqrt((n.pX-i)*(n.pX-i)+(n.pY-r)*(n.pY-r))<o.sensitivity)return t.off(n.event,a)",
+      "svg_paths_count": 6,
+      "svg_paths_sample": [
+        "hoverIntent",
+        "hoverIntent",
+        "mousemove.hoverIntent.hoverIntent"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0",
+      "size": 5520,
+      "preview": "/*! This file is auto-generated */\n/*!\n * imagesLoaded PACKAGED v5.0.0\n * JavaScript is all like \"You images are done yet or what?\"\n * MIT License\n */\n!function(t,e){\"object\"==typeof module&&module.exports?module.exports=e():t.EvEmitter=e()}(\"undefined\"!=typeof window?window:this,(function(){function t(){}let e=t.prototype;return e.on=function(t,e){if(!t||!e)return this;let i=this._events=this._events||{},s=i[t]=i[t]||[];return s.includes(e)||s.push(e),this},e.once=function(t,e){if(!t||!e)return"
+    },
+    "https://www.monsterbrainsoup.com/wp-includes/js/masonry.min.js?ver=4.2.2": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-includes/js/masonry.min.js?ver=4.2.2",
+      "size": 24138,
+      "preview": "/*! This file is auto-generated */\n/*!\n * Masonry PACKAGED v4.2.2\n * Cascading grid layout library\n * https://masonry.desandro.com\n * MIT License\n * by David DeSandro\n */\n\n!function(t,e){\"function\"==typeof define&&define.amd?define(\"jquery-bridget/jquery-bridget\",[\"jquery\"],function(i){return e(t,i)}):\"object\"==typeof module&&module.exports?module.exports=e(t,require(\"jquery\")):t.jQueryBridget=e(t,t.jQuery)}(window,function(t,e){\"use strict\";function i(i,r,a){function h(t,e,n){var o,r=\"$().\"+i+'",
+      "svg_paths_count": 14,
+      "svg_paths_sample": [
+        "Style returned ",
+        "marginRight",
+        "marginBottom"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/themes/virtue/assets/js/min/plugins-min.js?ver=3.4.14": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/themes/virtue/assets/js/min/plugins-min.js?ver=3.4.14",
+      "size": 71090,
+      "preview": "!function(e){\"use strict\";\"function\"==typeof define&&define.amd?define([\"jquery\"],e):\"undefined\"!=typeof exports?module.exports=e(require(\"jquery\")):e(jQuery)}(function(e){\"use strict\";var t=window.Slick||{};(t=function(){function t(t,o){var s,n=this;n.defaults={accessibility:!0,adaptiveHeight:!1,appendArrows:e(t),appendDots:e(t),arrows:!0,asNavFor:null,prevArrow:'<button type=\"button\" data-role=\"none\" class=\"slick-prev\" aria-label=\"Previous\" tabindex=\"0\" role=\"button\">Previous</button>',nextArr",
+      "svg_paths_count": 177,
+      "svg_paths_sample": [
+        "visibilitychange",
+        "mozvisibilitychange",
+        "aria-hidden"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/themes/virtue/assets/js/min/main-min.js?ver=3.4.14": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/themes/virtue/assets/js/min/main-min.js?ver=3.4.14",
+      "size": 4723,
+      "preview": "!function(e){\"use strict\";var t;e.fn.kt_imagesLoaded=(t=function(t,i,s){var a,o=!1,l=e(t).parent(),n=e(\"<img />\"),d=e(t).attr(\"srcset\"),r=e(t).attr(\"sizes\")||\"100vw\",c=e(t).attr(\"src\"),h=function(){n.off(\"load error\",h),clearTimeout(a),i()};s&&(a=setTimeout(h,s)),n.on(\"load error\",h),l.is(\"picture\")&&((l=l.clone()).find(\"img\").remove().end(),l.append(n),o=!0),d?(n.attr(\"sizes\",r),n.attr(\"srcset\",d),o||n.appendTo(document.createElement(\"div\")),o=!0):c&&n.attr(\"src\",c),o&&!window.HTMLPictureElemen",
+      "svg_paths_count": 17,
+      "svg_paths_sample": [
+        "slider-speed",
+        "slider-fade",
+        "slider-anim-speed"
+      ]
+    },
+    "https://www.monsterbrainsoup.com/wp-content/plugins/youtube-embed-plus/scripts/fitvids.min.js?ver=14.2.5": {
+      "type": "external",
+      "src": "https://www.monsterbrainsoup.com/wp-content/plugins/youtube-embed-plus/scripts/fitvids.min.js?ver=14.2.5",
+      "size": 2987,
+      "preview": "'use strict';var epdofitvids=epdofitvids||function(b){b.fn.fitVidsEP=function(h){_EPYT_.epresponsiveselector.constructor!==Array&&(_EPYT_.epresponsiveselector=JSON.parse(_EPYT_.epresponsiveselector));var d={customSelector:null};if(!document.getElementById(\"fit-vids-style\")){var f=document.createElement(\"style\"),l=document.getElementsByTagName(\"base\")[0]||document.getElementsByTagName(\"script\")[0];f.className=\"fit-vids-style\";f.id=\"fit-vids-style\";f.textContent=\".fluid-width-video-wrapper{width:1"
+    },
+    "https://stats.wp.com/e-202613.js": {
+      "type": "external",
+      "src": "https://stats.wp.com/e-202613.js",
+      "size": 3812,
+      "preview": "window.wpcom=window.wpcom||{};window._stq=window._stq||[];function st_go(t){window._stq.push([\"view\",t])};function linktracker_init(t,e){window._stq.push([\"clickTrackerInit\",t,e])};window.wpcom.stats=function(){var t=function(){var t,n;var o=function(t,e,n){if(\"function\"===typeof t.addEventListener){t.addEventListener(e,n)}else if(\"object\"===typeof t.attachEvent){t.attachEvent(\"on\"+e,n)}};var i=function(t){if(\"object\"===typeof t&&t.target){return t.target}else{return window.event.srcElement}};va",
+      "svg_paths_count": 6,
+      "svg_paths_sample": [
+        "clickTrackerInit",
+        "contextmenu",
+        "contextmenu"
+      ]
+    }
+  }
+}
