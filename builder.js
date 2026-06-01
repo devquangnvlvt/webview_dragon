@@ -1,78 +1,156 @@
+// ============================================================
+//  Dragon Builder — Game-style UI
+// ============================================================
+
 const CONFIG = {
     BASE_URL: "assets/",
-    CANVAS_SIZE: 1000,
-    DISPLAY_SIZE: 600,
-    TAB_MAPPING: {
-        'head': ['snoutStyle', 'eyeStyle', 'browStyle', 'maneStyle', 'hornStyle', 'earStyle', 'fangStyle', 'jawdecStyle', 'whiskerStyle', 'headtopStyle', 'headacc'],
-        'torso': ['bellyStyle', 'spinedecStyle', 'marking1Style', 'marking2Style', 'marking3Style', 'torsoacc', 'neckacc'],
-        'legs': ['forelegStyleSelect', 'hindlegStyleSelect', 'forelegmarkingStyle', 'hindlegmarkingStyle', 'forelegdecStyle', 'hindlegdecStyle'],
-        'wings': ['wingStyle', 'wingpatternStyle', 'wingmarkingdorsalStyle', 'wingmarkingventralStyle'],
-        'tail': ['taildecStyle', 'taildecStyle2', 'tailmarkingStyle', 'tailmarking2Style', 'tailacc']
+    CANVAS_SIZE: 1500,
+    THUMB_SIZE: 120,          // px for thumbnail offscreen canvas
+
+    // Each entry: { partId, colorId } — rendered as one row (color wheel + thumb strip)
+    // colorId: null means no color picker for that trait
+    TAB_ROWS: {
+        head: [
+            { partId: 'eyeStyle',      colorId: 'eyeColor',     label: 'Eyes' },
+            { partId: 'browStyle',     colorId: 'browColor',    label: 'Brows' },
+            { partId: 'snoutStyle',    colorId: 'baseColor',    label: 'Snout Shape' },
+            { partId: 'maneStyle',     colorId: 'maneColor',    label: 'Mane' },
+            { partId: 'hornStyle',     colorId: 'boneColor',    label: 'Horns' },
+            { partId: 'earStyle',      colorId: 'fleshColor',   label: 'Ears' },
+            { partId: 'fangStyle',     colorId: 'boneColor',    label: 'Fangs' },
+            { partId: 'jawdecStyle',   colorId: 'jawdecColor',  label: 'Jaw Decor' },
+            { partId: 'whiskerStyle',  colorId: 'whiskerColor', label: 'Whiskers' },
+            { partId: 'headtopStyle',  colorId: 'headtopColor', label: 'Head Top' },
+            { partId: 'headacc',       colorId: null,           label: 'Head Accessory' },
+            { partId: 'breath',        colorId: 'breathColor',  label: 'Breath' },
+        ],
+        torso: [
+            { partId: 'bellyStyle',    colorId: 'bellyColor',   label: 'Belly' },
+            { partId: 'spinedecStyle', colorId: 'spinedecColor',label: 'Spine Decor' },
+            { partId: 'marking1Style', colorId: 'marking1Color',label: 'Marking 1' },
+            { partId: 'marking2Style', colorId: 'marking2Color',label: 'Marking 2' },
+            { partId: 'marking3Style', colorId: 'marking3Color',label: 'Marking 3' },
+            { partId: 'torsoacc',      colorId: null,           label: 'Torso Accessory' },
+            { partId: 'neckacc',       colorId: null,           label: 'Neck Accessory' },
+        ],
+        legs: [
+            { partId: 'forelegStyleSelect',  colorId: 'baseColor',          label: 'Forelegs' },
+            { partId: 'hindlegStyleSelect',  colorId: 'baseColor',          label: 'Hindlegs' },
+            { partId: 'forelegmarkingStyle', colorId: 'forelegmarkingColor', label: 'Foreleg Marking' },
+            { partId: 'hindlegmarkingStyle', colorId: 'hindlegmarkingColor', label: 'Hindleg Marking' },
+        ],
+        wings: [
+            { partId: 'wingStyle',              colorId: 'wingColor',              label: 'Wings' },
+            { partId: 'wingmarkingdorsalStyle',  colorId: 'wingmarkingdorsalColor', label: 'Wing Marking (Dorsal)' },
+            { partId: 'wingmarkingventralStyle', colorId: 'wingmarkingventralColor',label: 'Wing Marking (Ventral)' },
+        ],
+        tail: [
+            { partId: 'taildecStyle',    colorId: 'taildecColor',   label: 'Tail Decor 1' },
+            { partId: 'taildecStyle2',   colorId: 'taildecColor2',  label: 'Tail Decor 2' },
+            { partId: 'tailmarkingStyle',colorId: 'tailmarkingColor',label: 'Tail Marking 1' },
+            { partId: 'tailmarking2Style',colorId:'tailmarking2Color',label: 'Tail Marking 2' },
+            { partId: 'tailacc',         colorId: null,             label: 'Tail Accessory' },
+        ],
     },
-    COLOR_MAPPING: {
-        'head': ['baseColor', 'eyeColor', 'boneColor', 'fleshColor', 'browColor', 'snoutmarkingColor', 'snoutaddColor', 'maneColor', 'headtopColor', 'jawdecColor', 'breathColor', 'whiskerColor'],
-        'torso': ['baseColor', 'bellyColor', 'spinedecColor', 'marking1Color', 'marking2Color', 'marking3Color'],
-        'legs': ['baseColor', 'fleshColor', 'boneColor', 'forelegdecColor', 'forelegdecColor2', 'forelegmarkingColor', 'forelegmarking2Color', 'hindlegdecColor', 'hindlegdecColor2', 'hindlegmarkingColor', 'hindlegmarking2Color'],
-        'wings': ['baseColor', 'wingColor', 'wingmarkingdorsalColor', 'wingmarkingdorsalColor2', 'wingmarkingventralColor', 'wingmarkingventralColor2'],
-        'tail': ['baseColor', 'taildecColor', 'taildecColor2', 'tailmarkingColor', 'tailmarking2Color']
+
+    // Keep for backward compat with getDrawOrder
+    TAB_MAPPING: {
+        head:  ['eyeStyle','browStyle','snoutStyle','maneStyle','hornStyle','earStyle','fangStyle','jawdecStyle','whiskerStyle','headtopStyle','headacc','breath'],
+        torso: ['bellyStyle','spinedecStyle','marking1Style','marking2Style','marking3Style','torsoacc','neckacc'],
+        legs:  ['forelegStyleSelect','hindlegStyleSelect','forelegmarkingStyle','hindlegmarkingStyle'],
+        wings: ['wingStyle','wingmarkingdorsalStyle','wingmarkingventralStyle'],
+        tail:  ['taildecStyle','taildecStyle2','tailmarkingStyle','tailmarking2Style','tailacc']
+    },
+
+    // Thumbnail: color layer so cards show colored previews
+    THUMB_PATH: {
+        eyeStyle:               (v) => v === 'none' ? null : `head/eyes/eyes_${v}_color.png`,
+        browStyle:              (v) => v === 'none' ? null : `head/brows/brow_${v}_color.png`,
+        snoutStyle:             (v) => v === 'none' ? null : `head/snouts/snout_${v}_color.png`,
+        maneStyle:              (v) => v === 'none' ? null : `head/manes/mane_${v}_color.png`,
+        hornStyle:              (v) => v === 'none' ? null : `head/horns/horn_${v}_front_color.png`,
+        earStyle:               (v) => v === 'none' ? null : `head/ears/ear_${v}_front_base.png`,
+        fangStyle:              (v) => v === 'none' ? null : `head/fangs/fang_${v}_lines.png`,
+        jawdecStyle:            (v) => v === 'none' ? null : `head/jawdecor/jawdec_${v}_color.png`,
+        whiskerStyle:           (v) => v === 'none' ? null : `head/whiskers/whisker_front_${v}.png`,
+        headtopStyle:           (v) => v === 'none' ? null : `head/headtop/headtop_${v}_color.png`,
+        headacc:                (v) => v === 'none' ? null : `accessories/acc_head/${v}.png`,
+        breath:                 (v) => v === 'none' ? null : `breath/breath_${v}.png`,
+        bellyStyle:             (v) => v === 'none' ? null : `torso/belly/belly_${v}_color.png`,
+        spinedecStyle:          (v) => v === 'none' ? null : `torso/spinedecor/spinedec_${v}_color.png`,
+        marking1Style:          (v) => v === 'none' ? null : `torso/markings/marking_${v}.png`,
+        marking2Style:          (v) => v === 'none' ? null : `torso/markings/marking_${v}.png`,
+        marking3Style:          (v) => v === 'none' ? null : `torso/markings/marking_${v}.png`,
+        torsoacc:               (v) => v === 'none' ? null : `accessories/acc_torso/${v}.png`,
+        neckacc:                (v) => v === 'none' ? null : `accessories/acc_neck/${v}.png`,
+        forelegStyleSelect:     (v) => v === 'none' ? null : `legs/forelegs/foreleg_front_${v}_base.png`,
+        hindlegStyleSelect:     (v) => v === 'none' ? null : `legs/hindlegs/hindleg_front_${v}_base.png`,
+        forelegmarkingStyle:    (v) => v === 'none' ? null : `legs/markings_foreleg/marking_01_front_${v}.png`,
+        hindlegmarkingStyle:    (v) => v === 'none' ? null : `legs/markings_hindleg/marking_01_front_${v}.png`,
+        wingStyle:              (v) => v === 'none' ? null : `wings/wings/wing_${v}_front_base.png`,
+        wingmarkingdorsalStyle: (v) => v === 'none' ? null : `wings/markings_wing/wingmarking_dorsal_${v}.png`,
+        wingmarkingventralStyle:(v) => v === 'none' ? null : `wings/markings_wing/wingmarking_ventral_${v}.png`,
+        taildecStyle:           (v) => v === 'none' ? null : `tail/decor/tail_${v}_color.png`,
+        taildecStyle2:          (v) => v === 'none' ? null : `tail/decor/tail_${v}_color.png`,
+        tailmarkingStyle:       (v) => v === 'none' ? null : `tail/markings_tail/tailmarking_${v}.png`,
+        tailmarking2Style:      (v) => v === 'none' ? null : `tail/markings_tail/tailmarking_${v}.png`,
+        tailacc:                (v) => v === 'none' ? null : `accessories/acc_tail/${v}.png`,
     }
 };
 
 const STATE = {
     data: null,
-    selections: {}, // { partId: { style: '01', color: '#ff0000' } }
+    selections: {},
     activeTab: 'head',
-    layers: {}, // Cached colored canvases
-    imageBuffer: {} // Cached original images
+    imageBuffer: {},
+    layers: {},
+    thumbBuffer: {}   // cache for thumbnail canvases
 };
 
+// ---- DOM refs ----
 const UI = {
-    canvas: document.getElementById('dragonCanvas'),
-    ctx: document.getElementById('dragonCanvas').getContext('2d'),
-    tabContent: document.getElementById('tab-content'),
-    tabs: document.querySelectorAll('.tab-btn'),
-    loading: document.getElementById('loadingOverlay'),
-    downloadBtn: document.getElementById('downloadBtn'),
-    headerDownloadBtn: document.getElementById('headerDownloadBtn'),
-    randomizeBtn: document.getElementById('randomizeBtn'),
-    headerRandomizeBtn: document.getElementById('headerRandomizeBtn'),
-    themeToggle: document.getElementById('themeToggle')
+    canvas:       document.getElementById('dragonCanvas'),
+    ctx:          document.getElementById('dragonCanvas').getContext('2d'),
+    panelContent: document.getElementById('panelContent'),
+    tabs:         document.querySelectorAll('.btab'),
+    loading:      document.getElementById('loadingOverlay'),
+    randomTraits: document.getElementById('randomTraitsBtn'),
+    randomColor:  document.getElementById('randomColorBtn'),
+    topRand:      document.getElementById('topRandBtn'),
+    nextBtn:      document.getElementById('nextBtn'),
+    backBtn:      document.getElementById('backBtn'),
+    addBtn:       document.getElementById('addBtn'),
 };
 
-// --- INITIALIZATION ---
-
+// ============================================================
+//  INIT
+// ============================================================
 async function init() {
     try {
-        const response = await fetch('dragon_builder_data.json');
-        STATE.data = await response.json();
-        
+        const res = await fetch('dragon_builder_data.json');
+        STATE.data = await res.json();
         setupDefaultSelections();
         setupTabs();
-        setupUtilities();
-        
-        renderTabContent();
+        setupButtons();
+        renderPanel();
         await updatePreview();
-    } catch (err) {
-        console.error("Initialization failed:", err);
+    } catch (e) {
+        console.error('Init failed:', e);
     }
 }
 
 function setupDefaultSelections() {
-    // Selects
     for (let id in STATE.data.selects) {
-        STATE.selections[id] = {
-            style: STATE.data.selects[id].options[0].value
-        };
+        STATE.selections[id] = { style: STATE.data.selects[id].options[0].value };
     }
-    // Colors
     STATE.data.color_inputs.forEach(ci => {
-        STATE.selections[ci.id] = { color: ci.value || "#FFFFFF" };
+        STATE.selections[ci.id] = { color: ci.value || '#FFFFFF' };
     });
-    
-    // Default aesthetics
-    STATE.selections['baseColor'].color = "#FFDB8F";
-    STATE.selections['eyeColor'].color = "#FFFFFF";
-    STATE.selections['boneColor'].color = "#8F9E67";
+    // Nice defaults
+    STATE.selections['baseColor'].color  = '#FFDB8F';
+    STATE.selections['eyeColor'].color   = '#FFFFFF';
+    STATE.selections['boneColor'].color  = '#8F9E67';
+    STATE.selections['wingColor'] = STATE.selections['wingColor'] || { color: '#AACCFF' };
 }
 
 function setupTabs() {
@@ -81,146 +159,203 @@ function setupTabs() {
             UI.tabs.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             STATE.activeTab = btn.dataset.tab;
-            renderTabContent();
+            renderPanel();
         };
     });
 }
 
-function setupUtilities() {
-    UI.downloadBtn.onclick = UI.headerDownloadBtn.onclick = downloadPNG;
-    UI.randomizeBtn.onclick = UI.headerRandomizeBtn.onclick = randomize;
-    UI.themeToggle.onclick = () => document.body.classList.toggle('dark-mode');
+function setupButtons() {
+    UI.randomTraits.onclick = randomizeTraits;
+    UI.randomColor.onclick  = randomizeColors;
+    UI.topRand.onclick      = randomizeAll;
+    UI.nextBtn.onclick      = downloadPNG;
+    UI.backBtn.onclick      = () => history.back();
+    UI.addBtn.onclick       = () => {};  // placeholder
 }
 
-// --- UI RENDERING ---
+// ============================================================
+//  PANEL RENDERING — each row: Label / [ColorWheel] [ThumbStrip]
+// ============================================================
+function renderPanel() {
+    UI.panelContent.innerHTML = '';
 
-function renderTabContent() {
-    UI.tabContent.innerHTML = '';
-    
-    const partIds = CONFIG.TAB_MAPPING[STATE.activeTab] || [];
-    const colorIds = CONFIG.COLOR_MAPPING[STATE.activeTab] || [];
-    
-    // Filter out duplicates (baseColor appears in many) and unique them
-    const uniqueColorIds = [...new Set(colorIds)];
+    const rows = CONFIG.TAB_ROWS[STATE.activeTab] || [];
 
-    // 1. Render Selects
-    partIds.forEach(id => {
-        const partData = STATE.data.selects[id];
+    rows.forEach(({ partId, colorId, label }) => {
+        const partData = STATE.data.selects[partId];
         if (!partData) return;
 
-        const group = document.createElement('div');
-        group.className = 'control-group';
-        
-        const label = document.createElement('label');
-        label.textContent = partData.id.replace('Style', '').replace('Select', '');
-        group.appendChild(label);
+        const section = document.createElement('div');
+        section.className = 'trait-section';
 
-        const select = document.createElement('select');
-        partData.options.forEach(opt => {
-            const el = document.createElement('option');
-            el.value = opt.value;
-            el.textContent = opt.text;
-            if (STATE.selections[id].style === opt.value) el.selected = true;
-            select.appendChild(el);
-        });
+        // Label
+        const lbl = document.createElement('div');
+        lbl.className = 'trait-label';
+        lbl.textContent = label;
+        section.appendChild(lbl);
 
-        select.onchange = (e) => {
-            STATE.selections[id].style = e.target.value;
-            updatePreview();
-        };
-
-        group.appendChild(select);
-        UI.tabContent.appendChild(group);
-    });
-
-    // 2. Render Color Inputs
-    uniqueColorIds.forEach(id => {
-        const colorData = STATE.data.color_inputs.find(ci => ci.id === id);
-        if (!colorData) return;
-
-        const group = document.createElement('div');
-        group.className = 'control-group';
-
-        const label = document.createElement('label');
-        label.textContent = colorData.id.replace('Color', '') + " Color";
-        group.appendChild(label);
-
+        // Row: [color wheel?] + [thumb strip]
         const row = document.createElement('div');
-        row.className = 'input-row';
+        row.className = 'trait-row';
 
-        const picker = document.createElement('input');
-        picker.type = 'color';
-        picker.value = STATE.selections[id].color;
+        // Color wheel (only if colorId provided)
+        if (colorId) {
+            const currentColor = STATE.selections[colorId]?.color || '#FFFFFF';
+            const wheel = buildColorWheel(colorId, currentColor);
+            row.appendChild(wheel);
+        }
 
-        const hex = document.createElement('input');
-        hex.type = 'text';
-        hex.className = 'hex-input';
-        hex.value = STATE.selections[id].color;
+        // Thumbnail strip
+        const strip = buildThumbStrip(partId, partData);
+        row.appendChild(strip);
 
-        picker.oninput = (e) => {
-            STATE.selections[id].color = e.target.value;
-            hex.value = e.target.value.toUpperCase();
-            updatePreview();
-        };
-
-        hex.oninput = (e) => {
-            let val = e.target.value;
-            if (!val.startsWith('#')) val = '#' + val;
-            if (/^#[0-9A-F]{6}$/i.test(val)) {
-                STATE.selections[id].color = val;
-                picker.value = val;
-                updatePreview();
-            }
-        };
-
-        row.appendChild(picker);
-        row.appendChild(hex);
-        group.appendChild(row);
-        UI.tabContent.appendChild(group);
+        section.appendChild(row);
+        UI.panelContent.appendChild(section);
     });
 }
 
-// --- RENDERING LOGIC ---
+// ---- Color wheel button ----
+function buildColorWheel(colorId, currentColor) {
+    const wrap = document.createElement('div');
+    wrap.className = 'color-wheel-btn';
+    wrap.title = 'Pick color';
 
-async function updatePreview() {
-    UI.loading.classList.remove('hidden');
-    
-    const drawOrder = getDrawOrder();
-    UI.ctx.clearRect(0, 0, UI.canvas.width, UI.canvas.height);
-    
-    // Resolve all images first to detect dimensions
-    const layers = await Promise.all(drawOrder.map(async (l) => ({
-        img: await getLayerImage(l.path, l.color),
-        path: l.path
-    })));
-    
-    // Find first valid image to get natural dimensions
-    const reference = layers.find(l => l.img);
-    if (!reference) {
-        UI.loading.classList.add('hidden');
+    // Show current color as a small dot in center
+    const dot = document.createElement('div');
+    dot.className = 'color-wheel-dot';
+    dot.style.background = currentColor;
+    wrap.appendChild(dot);
+
+    const picker = document.createElement('input');
+    picker.type = 'color';
+    picker.value = currentColor;
+
+    picker.oninput = (e) => {
+        STATE.selections[colorId].color = e.target.value;
+        dot.style.background = e.target.value;
+        STATE.layers = {};
+        updatePreview();
+    };
+
+    wrap.appendChild(picker);
+    return wrap;
+}
+
+// ---- Thumbnail strip ----
+function buildThumbStrip(partId, partData) {
+    const strip = document.createElement('div');
+    strip.className = 'thumb-strip';
+
+    partData.options.forEach(opt => {
+        const card = document.createElement('div');
+        card.className = 'thumb-card' + (STATE.selections[partId]?.style === opt.value ? ' selected' : '');
+        card.title = opt.text;
+
+        if (opt.value === 'none') {
+            card.classList.add('none-card');
+            card.innerHTML = '<i class="fas fa-ban"></i>';
+        } else {
+            renderThumb(partId, opt.value, card);
+        }
+
+        card.onclick = () => {
+            strip.querySelectorAll('.thumb-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            STATE.selections[partId].style = opt.value;
+            updatePreview();
+        };
+
+        strip.appendChild(card);
+    });
+
+    return strip;
+}
+
+// ============================================================
+//  THUMBNAIL RENDERING
+// ============================================================
+async function renderThumb(partId, value, cardEl) {
+    const pathFn = CONFIG.THUMB_PATH[partId];
+    if (!pathFn) return;
+
+    const relPath = pathFn(value);
+    if (!relPath) return;
+
+    const fullPath = CONFIG.BASE_URL + relPath;
+    const cacheKey = fullPath;
+
+    if (STATE.thumbBuffer[cacheKey]) {
+        appendThumbCanvas(cardEl, STATE.thumbBuffer[cacheKey]);
         return;
     }
-    
+
+    const img = await loadImage(fullPath);
+    if (!img) {
+        // Show text fallback
+        cardEl.style.fontSize = '0.55rem';
+        cardEl.style.color = '#888';
+        cardEl.style.padding = '4px';
+        cardEl.style.textAlign = 'center';
+        cardEl.textContent = value;
+        return;
+    }
+
+    // Draw to small canvas
+    const tc = document.createElement('canvas');
+    tc.width = CONFIG.THUMB_SIZE;
+    tc.height = CONFIG.THUMB_SIZE;
+    const tctx = tc.getContext('2d');
+
+    const scale = Math.min(CONFIG.THUMB_SIZE / img.width, CONFIG.THUMB_SIZE / img.height);
+    const dx = (CONFIG.THUMB_SIZE - img.width * scale) / 2;
+    const dy = (CONFIG.THUMB_SIZE - img.height * scale) / 2;
+    tctx.drawImage(img, dx, dy, img.width * scale, img.height * scale);
+
+    STATE.thumbBuffer[cacheKey] = tc;
+    appendThumbCanvas(cardEl, tc);
+}
+
+function appendThumbCanvas(cardEl, tc) {
+    // Clone so each card has its own element
+    const img = document.createElement('img');
+    img.src = tc.toDataURL();
+    img.style.cssText = 'width:100%;height:100%;object-fit:contain;';
+    cardEl.innerHTML = '';
+    cardEl.appendChild(img);
+}
+
+// ============================================================
+//  MAIN PREVIEW RENDERING
+// ============================================================
+async function updatePreview() {
+    UI.loading.classList.remove('hidden');
+
+    const drawOrder = getDrawOrder();
+    UI.ctx.clearRect(0, 0, UI.canvas.width, UI.canvas.height);
+
+    const layers = await Promise.all(
+        drawOrder.map(async (l) => ({
+            img: await getLayerImage(l.path, l.color),
+            path: l.path
+        }))
+    );
+
+    const reference = layers.find(l => l.img);
+    if (!reference) { UI.loading.classList.add('hidden'); return; }
+
     const assetW = reference.img.width;
     const assetH = reference.img.height;
-    
-    // Calculate dynamic scale to fit within 50% - 80% of canvas (allowing for huge wings)
-    // We'll target fitting the asset into 75% of the canvas for extreme safety
-    const targetDim = UI.canvas.width * 0.75;
+    const targetDim = UI.canvas.width * 0.78;
     const scale = Math.min(targetDim / assetW, targetDim / assetH);
-    
-    const offsetW = (UI.canvas.width - (assetW * scale)) / 2;
-    const offsetH = (UI.canvas.height - (assetH * scale)) / 2;
-    
+    const offsetW = (UI.canvas.width  - assetW * scale) / 2;
+    const offsetH = (UI.canvas.height - assetH * scale) / 2;
+
     UI.ctx.save();
     UI.ctx.translate(offsetW, offsetH);
     UI.ctx.scale(scale, scale);
-    
-    layers.forEach(l => {
-        if (l.img) UI.ctx.drawImage(l.img, 0, 0);
-    });
-    
+    layers.forEach(l => { if (l.img) UI.ctx.drawImage(l.img, 0, 0); });
     UI.ctx.restore();
+
     UI.loading.classList.add('hidden');
 }
 
@@ -233,186 +368,227 @@ function getDrawOrder() {
         order.push({ path: CONFIG.BASE_URL + path, color: s[colorKey]?.color || null });
     };
 
-    const hl = s.hindlegStyleSelect.style;
-    const fl = s.forelegStyleSelect.style;
-    const w = s.wingStyle.style;
-    const sn = s.snoutStyle.style;
-    const eye = s.eyeStyle.style;
-    const brow = s.browStyle.style;
-    const mane = s.maneStyle.style;
-    const horn = s.hornStyle.style;
-    const ear = s.earStyle.style;
-    const fang = s.fangStyle.style;
-    const jaw = s.jawdecStyle.style;
-    const whisker = s.whiskerStyle.style;
-    const belly = s.bellyStyle.style;
-    const spine = s.spinedecStyle.style;
-    const mouth = s.mouthStyle.style;
+    const hl  = s.hindlegStyleSelect?.style;
+    const fl  = s.forelegStyleSelect?.style;
+    const w   = s.wingStyle?.style;
+    const sn  = s.snoutStyle?.style;
+    const eye = s.eyeStyle?.style;
+    const brow= s.browStyle?.style;
+    const mane= s.maneStyle?.style;
+    const horn= s.hornStyle?.style;
+    const ear = s.earStyle?.style;
+    const fang= s.fangStyle?.style;
+    const jaw = s.jawdecStyle?.style;
+    const whisker = s.whiskerStyle?.style;
+    const belly   = s.bellyStyle?.style;
+    const spine   = s.spinedecStyle?.style;
 
-    // Drawing logic to preserve the dragon assembly
-    // [Same as original builder.js logic]
-    if (hl !== 'none') {
-        add(`legs/hindlegs/hindleg_rear_${hl}_base.png`, 'baseColor');
-        add(`legs/markings_hindleg/marking_${hl}_rear_${s.hindlegmarkingStyle.style}.png`, 'hindlegmarkingColor');
-        add(`legs/hindlegs/hindleg_rear_${hl}_bone.png`, 'boneColor');
+    if (hl && hl !== 'none') {
+        add(`legs/hindlegs/hindleg_rear_${hl}_base.png`,  'baseColor');
+        add(`legs/markings_hindleg/marking_${hl}_rear_${s.hindlegmarkingStyle?.style}.png`, 'hindlegmarkingColor');
+        add(`legs/hindlegs/hindleg_rear_${hl}_bone.png`,  'boneColor');
         add(`legs/hindlegs/hindleg_rear_${hl}_flesh.png`, 'fleshColor');
         add(`legs/hindlegs/hindleg_rear_${hl}_lines.png`, null);
     }
-    if (fl !== 'none') {
-        add(`legs/forelegs/foreleg_rear_${fl}_base.png`, 'baseColor');
-        add(`legs/forelegs/foreleg_rear_${fl}_bone.png`, 'boneColor');
+    if (fl && fl !== 'none') {
+        add(`legs/forelegs/foreleg_rear_${fl}_base.png`,  'baseColor');
+        add(`legs/forelegs/foreleg_rear_${fl}_bone.png`,  'boneColor');
         add(`legs/forelegs/foreleg_rear_${fl}_flesh.png`, 'fleshColor');
         add(`legs/forelegs/foreleg_rear_${fl}_lines.png`, null);
     }
-    if (w !== 'none') {
-        add(`wings/wings/wing_${w}_rear_base.png`, 'baseColor');
+    if (w && w !== 'none') {
+        add(`wings/wings/wing_${w}_rear_base.png`,  'baseColor');
         add(`wings/wings/wing_${w}_rear_color.png`, 'wingColor');
-        add(`wings/wings/wing_${w}_rear_bone.png`, 'boneColor');
+        add(`wings/wings/wing_${w}_rear_bone.png`,  'boneColor');
         add(`wings/wings/wing_${w}_rear_lines.png`, null);
     }
     add(`torso/base/newbase_c1.png`, 'baseColor');
-    add(`torso/markings/marking_${s.marking1Style.style}.png`, 'marking1Color');
-    add(`torso/markings/marking_${s.marking2Style.style}.png`, 'marking2Color');
-    add(`torso/markings/marking_${s.marking3Style.style}.png`, 'marking3Color');
-    add(`tail/markings_tail/tailmarking_${s.tailmarkingStyle.style}.png`, 'tailmarkingColor');
+    add(`torso/markings/marking_${s.marking1Style?.style}.png`, 'marking1Color');
+    add(`torso/markings/marking_${s.marking2Style?.style}.png`, 'marking2Color');
+    add(`torso/markings/marking_${s.marking3Style?.style}.png`, 'marking3Color');
+    add(`tail/markings_tail/tailmarking_${s.tailmarkingStyle?.style}.png`,  'tailmarkingColor');
     add(`tail/markings_tail/tailmarking_${s.tailmarking2Style?.style}.png`, 'tailmarking2Color');
     add(`torso/base/baselineart.png`, null);
     add(`torso/belly/belly_${belly}_color.png`, 'bellyColor');
     add(`torso/belly/belly_${belly}_lines.png`, null);
-    add(`head/snouts/snout_${sn}_color.png`, 'baseColor');
-    add(`head/markings_snout/${sn}_${s.snoutmarkingStyle.style}.png`, 'snoutmarkingColor');
-    add(`head/snouts/snout_${sn}_lines.png`, null);
-    add(`head/mouth/mouth_neutral_flesh.png`, 'fleshColor'); // Using neutral mouth as fallback
-    add(`head/mouth/mouth_neutral_bone.png`, 'boneColor');
+    if (sn && sn !== 'none') {
+        add(`head/snouts/snout_${sn}_color.png`, 'baseColor');
+        add(`head/markings_snout/${sn}_${s.snoutmarkingStyle?.style}.png`, 'snoutmarkingColor');
+        add(`head/snouts/snout_${sn}_lines.png`, null);
+    }
+    add(`head/mouth/mouth_neutral_flesh.png`, 'fleshColor');
+    add(`head/mouth/mouth_neutral_bone.png`,  'boneColor');
     add(`head/mouth/mouth_neutral_lines.png`, null);
     add(`head/eyes/eyes_${eye}_color.png`, 'eyeColor');
     add(`head/eyes/eyes_${eye}_lines.png`, null);
-    add(`head/brows/brow_${brow}_color.png`, 'browColor');
-    add(`head/brows/brow_${brow}_lines.png`, null);
-    add(`head/manes/mane_${mane}_color.png`, 'maneColor');
-    add(`head/manes/mane_${mane}_lines.png`, null);
-    add(`torso/spinedecor/spinedec_${spine}_color.png`, 'spinedecColor');
-    add(`torso/spinedecor/spinedec_${spine}_lines.png`, null);
+    if (brow && brow !== 'none') {
+        add(`head/brows/brow_${brow}_color.png`, 'browColor');
+        add(`head/brows/brow_${brow}_lines.png`, null);
+    }
+    if (mane && mane !== 'none') {
+        add(`head/manes/mane_${mane}_color.png`, 'maneColor');
+        add(`head/manes/mane_${mane}_lines.png`, null);
+    }
+    if (spine && spine !== 'none') {
+        add(`torso/spinedecor/spinedec_${spine}_color.png`, 'spinedecColor');
+        add(`torso/spinedecor/spinedec_${spine}_lines.png`, null);
+    }
     add(`accessories/acc_tail/${s.tailacc?.style}.png`, null);
-    if (hl !== 'none') {
-        add(`legs/hindlegs/hindleg_front_${hl}_base.png`, 'baseColor');
-        add(`legs/markings_hindleg/marking_${hl}_front_${s.hindlegmarkingStyle.style}.png`, 'hindlegmarkingColor');
-        add(`legs/hindlegs/hindleg_front_${hl}_bone.png`, 'boneColor');
+    if (hl && hl !== 'none') {
+        add(`legs/hindlegs/hindleg_front_${hl}_base.png`,  'baseColor');
+        add(`legs/markings_hindleg/marking_${hl}_front_${s.hindlegmarkingStyle?.style}.png`, 'hindlegmarkingColor');
+        add(`legs/hindlegs/hindleg_front_${hl}_bone.png`,  'boneColor');
         add(`legs/hindlegs/hindleg_front_${hl}_flesh.png`, 'fleshColor');
         add(`legs/hindlegs/hindleg_front_${hl}_lines.png`, null);
     }
     add(`accessories/acc_torso/${s.torsoacc?.style}.png`, null);
-    if (w !== 'none') {
-        add(`wings/wings/wing_${w}_front_base.png`, 'baseColor');
+    if (w && w !== 'none') {
+        add(`wings/wings/wing_${w}_front_base.png`,  'baseColor');
         add(`wings/wings/wing_${w}_front_color.png`, 'wingColor');
-        add(`wings/wings/wing_${w}_front_bone.png`, 'boneColor');
+        add(`wings/wings/wing_${w}_front_bone.png`,  'boneColor');
         add(`wings/wings/wing_${w}_front_lines.png`, null);
     }
-    add(`head/ears/ear_${ear}_front_base.png`, 'baseColor');
-    add(`head/ears/ear_${ear}_front_flesh.png`, 'fleshColor');
-    add(`head/ears/ear_${ear}_front_lines.png`, null);
-    add(`head/jawdecor/jawdec_${jaw}_color.png`, 'jawdecColor');
-    add(`head/jawdecor/jawdec_${jaw}_lines.png`, null);
-    add(`head/headtop/headtop_${s.headtopStyle.style}_color.png`, 'headtopColor');
-    add(`head/headtop/headtop_${s.headtopStyle.style}_lines.png`, null);
-    add(`head/horns/horn_${horn}_front_color.png`, 'boneColor');
-    add(`head/horns/horn_${horn}_front_lines.png`, null);
-    add(`tail/decor/tail_${s.taildecStyle.style}_color.png`, 'taildecColor');
-    add(`tail/decor/tail_${s.taildecStyle.style}_lines.png`, null);
-    add(`tail/decor/tail_${s.taildecStyle2.style}_color.png`, 'taildecColor2');
-    add(`tail/decor/tail_${s.taildecStyle2.style}_lines.png`, null);
-    if (fl !== 'none') {
-        add(`legs/forelegs/foreleg_front_${fl}_base.png`, 'baseColor');
-        add(`legs/markings_foreleg/marking_${fl}_front_${s.forelegmarkingStyle.style}.png`, 'forelegmarkingColor');
-        add(`legs/forelegs/foreleg_front_${fl}_bone.png`, 'boneColor');
+    if (ear && ear !== 'none') {
+        add(`head/ears/ear_${ear}_front_base.png`,  'baseColor');
+        add(`head/ears/ear_${ear}_front_flesh.png`, 'fleshColor');
+        add(`head/ears/ear_${ear}_front_lines.png`, null);
+    }
+    if (jaw && jaw !== 'none') {
+        add(`head/jawdecor/jawdec_${jaw}_color.png`, 'jawdecColor');
+        add(`head/jawdecor/jawdec_${jaw}_lines.png`, null);
+    }
+    const ht = s.headtopStyle?.style;
+    if (ht && ht !== 'none') {
+        add(`head/headtop/headtop_${ht}_color.png`, 'headtopColor');
+        add(`head/headtop/headtop_${ht}_lines.png`, null);
+    }
+    if (horn && horn !== 'none') {
+        add(`head/horns/horn_${horn}_front_color.png`, 'boneColor');
+        add(`head/horns/horn_${horn}_front_lines.png`, null);
+    }
+    const td1 = s.taildecStyle?.style;
+    const td2 = s.taildecStyle2?.style;
+    if (td1 && td1 !== 'none') {
+        add(`tail/decor/tail_${td1}_color.png`, 'taildecColor');
+        add(`tail/decor/tail_${td1}_lines.png`, null);
+    }
+    if (td2 && td2 !== 'none') {
+        add(`tail/decor/tail_${td2}_color.png`, 'taildecColor2');
+        add(`tail/decor/tail_${td2}_lines.png`, null);
+    }
+    if (fl && fl !== 'none') {
+        add(`legs/forelegs/foreleg_front_${fl}_base.png`,  'baseColor');
+        add(`legs/markings_foreleg/marking_${fl}_front_${s.forelegmarkingStyle?.style}.png`, 'forelegmarkingColor');
+        add(`legs/forelegs/foreleg_front_${fl}_bone.png`,  'boneColor');
         add(`legs/forelegs/foreleg_front_${fl}_flesh.png`, 'fleshColor');
         add(`legs/forelegs/foreleg_front_${fl}_lines.png`, null);
     }
     add(`accessories/acc_neck/${s.neckacc?.style}.png`, null);
     add(`accessories/acc_head/${s.headacc?.style}.png`, null);
-    add(`head/whiskers/whisker_front_${whisker}.png`, 'whiskerColor');
-    add(`breath/breath_${s.breath?.style}.png`, 'breathColor');
+    if (whisker && whisker !== 'none') {
+        add(`head/whiskers/whisker_front_${whisker}.png`, 'whiskerColor');
+    }
+    const breath = s.breath?.style;
+    if (breath && breath !== 'none') {
+        add(`breath/breath_${breath}.png`, 'breathColor');
+    }
 
     return order;
 }
 
+// ============================================================
+//  IMAGE HELPERS
+// ============================================================
 async function getLayerImage(path, color) {
-    const cacheKey = `${path}_${color || 'none'}`;
-    if (STATE.layers[cacheKey]) return STATE.layers[cacheKey];
+    const key = `${path}_${color || 'none'}`;
+    if (STATE.layers[key]) return STATE.layers[key];
 
     const img = await loadImage(path);
     if (!img) return null;
 
-    if (!color) {
-        STATE.layers[cacheKey] = img;
+    if (!color || color === '#FFFFFF' || color === '#ffffff') {
+        STATE.layers[key] = img;
         return img;
     }
 
-    const coloredCanvas = recolorImage(img, color);
-    STATE.layers[cacheKey] = coloredCanvas;
-    return coloredCanvas;
+    const colored = recolorImage(img, color);
+    STATE.layers[key] = colored;
+    return colored;
 }
 
 function loadImage(src) {
     if (STATE.imageBuffer[src]) return Promise.resolve(STATE.imageBuffer[src]);
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
         const img = new Image();
-        img.crossOrigin = "anonymous";
-        img.onload = () => {
-            STATE.imageBuffer[src] = img;
-            resolve(img);
-        };
-        img.onerror = () => {
-            console.warn("Failed to load:", src);
-            resolve(null);
-        };
+        img.crossOrigin = 'anonymous';
+        img.onload  = () => { STATE.imageBuffer[src] = img; resolve(img); };
+        img.onerror = () => { resolve(null); };
         img.src = src;
     });
 }
 
 function recolorImage(img, color) {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = img.width;
-    canvas.height = img.height;
+    const c = document.createElement('canvas');
+    c.width = img.width; c.height = img.height;
+    const ctx = c.getContext('2d');
     ctx.drawImage(img, 0, 0);
 
-    if (color === "#FFFFFF" || color === "#ffffff" || !color) return canvas;
+    const data = ctx.getImageData(0, 0, c.width, c.height);
+    const d = data.data;
+    const r = parseInt(color.slice(1,3), 16);
+    const g = parseInt(color.slice(3,5), 16);
+    const b = parseInt(color.slice(5,7), 16);
 
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const data = imageData.data;
-    const r = parseInt(color.slice(1, 3), 16);
-    const g = parseInt(color.slice(3, 5), 16);
-    const b = parseInt(color.slice(5, 7), 16);
-
-    for (let i = 0; i < data.length; i += 4) {
-        if (data[i + 3] > 10) {
-            data[i] = r;
-            data[i+1] = g;
-            data[i+2] = b;
+    for (let i = 0; i < d.length; i += 4) {
+        if (d[i+3] > 10) {
+            // Multiply blend: preserve shading
+            d[i]   = Math.round(d[i]   / 255 * r);
+            d[i+1] = Math.round(d[i+1] / 255 * g);
+            d[i+2] = Math.round(d[i+2] / 255 * b);
         }
     }
-    ctx.putImageData(imageData, 0, 0);
-    return canvas;
+    ctx.putImageData(data, 0, 0);
+    return c;
 }
 
-function downloadPNG() {
-    const link = document.createElement('a');
-    link.download = 'my-dragon.png';
-    link.href = UI.canvas.toDataURL("image/png");
-    link.click();
-}
-
-function randomize() {
+// ============================================================
+//  RANDOMIZE
+// ============================================================
+function randomizeTraits() {
     for (let id in STATE.data.selects) {
-        const options = STATE.data.selects[id].options;
-        STATE.selections[id].style = options[Math.floor(Math.random() * options.length)].value;
+        const opts = STATE.data.selects[id].options;
+        STATE.selections[id].style = opts[Math.floor(Math.random() * opts.length)].value;
     }
-    STATE.data.color_inputs.forEach(ci => {
-        STATE.selections[ci.id].color = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
-    });
-    renderTabContent();
+    STATE.layers = {};
+    renderPanel();
     updatePreview();
 }
 
+function randomizeColors() {
+    STATE.data.color_inputs.forEach(ci => {
+        STATE.selections[ci.id].color = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+    });
+    STATE.layers = {};
+    renderPanel();
+    updatePreview();
+}
+
+function randomizeAll() {
+    randomizeTraits();
+    randomizeColors();
+}
+
+// ============================================================
+//  DOWNLOAD
+// ============================================================
+function downloadPNG() {
+    const link = document.createElement('a');
+    link.download = 'my-dragon.png';
+    link.href = UI.canvas.toDataURL('image/png');
+    link.click();
+}
+
+// ============================================================
+//  START
+// ============================================================
 init();
