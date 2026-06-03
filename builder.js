@@ -104,7 +104,18 @@ const STATE = {
     activeTab: 'head',
     imageBuffer: {},
     layers: {},
-    thumbBuffer: {}   // cache for thumbnail canvases
+    thumbBuffer: {},
+
+    // URL overrides từ Kotlin/API
+    urlOverrides: {},
+
+    // Transform: di chuyển, xoay, scale rồng trên canvas
+    transform: {
+        offsetX: 0,     // px offset từ center (canvas units)
+        offsetY: 0,
+        rotate: 0,      // degrees
+        scale: 1.0      // multiplier (1.0 = default fit)
+    }
 };
 
 // ---- DOM refs ----
@@ -123,12 +134,44 @@ const UI = {
 };
 
 // ============================================================
+//  XHR fallback cho Android WebView (fetch bị block bởi CORS)
+// ============================================================
+function loadJsonXHR(url) {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onload = () => {
+            if (xhr.status === 200 || xhr.status === 0) {
+                try {
+                    resolve(JSON.parse(xhr.responseText));
+                } catch (e) {
+                    reject(new Error('JSON parse error: ' + e.message));
+                }
+            } else {
+                reject(new Error('XHR status: ' + xhr.status));
+            }
+        };
+        xhr.onerror = () => reject(new Error('XHR network error'));
+        xhr.send();
+    });
+}
+
+// ============================================================
 //  INIT
 // ============================================================
 async function init() {
     try {
-        const res = await fetch('dragon_builder_data.json');
-        STATE.data = await res.json();
+        // Thử fetch thông thường trước
+        let data;
+        try {
+            const res = await fetch('dragon_builder_data.json');
+            data = await res.json();
+        } catch (fetchErr) {
+            // Fallback: dùng XMLHttpRequest (hoạt động tốt hơn trong Android WebView)
+            console.log('[init] fetch failed, trying XHR:', fetchErr.message);
+            data = await loadJsonXHR('dragon_builder_data.json');
+        }
+        STATE.data = data;
         setupDefaultSelections();
         setupTabs();
         setupButtons();
@@ -346,13 +389,19 @@ async function updatePreview() {
     const assetW = reference.img.width;
     const assetH = reference.img.height;
     const targetDim = UI.canvas.width * 0.78;
-    const scale = Math.min(targetDim / assetW, targetDim / assetH);
-    const offsetW = (UI.canvas.width  - assetW * scale) / 2;
-    const offsetH = (UI.canvas.height - assetH * scale) / 2;
+    const fitScale = Math.min(targetDim / assetW, targetDim / assetH);
+
+    // Apply user transform on top of auto-fit
+    const finalScale = fitScale * STATE.transform.scale;
+    const centerX = UI.canvas.width  / 2 + STATE.transform.offsetX;
+    const centerY = UI.canvas.height / 2 + STATE.transform.offsetY;
 
     UI.ctx.save();
-    UI.ctx.translate(offsetW, offsetH);
-    UI.ctx.scale(scale, scale);
+    UI.ctx.translate(centerX, centerY);
+    UI.ctx.rotate(STATE.transform.rotate * Math.PI / 180);
+    UI.ctx.scale(finalScale, finalScale);
+    // Draw centered on origin
+    UI.ctx.translate(-assetW / 2, -assetH / 2);
     layers.forEach(l => { if (l.img) UI.ctx.drawImage(l.img, 0, 0); });
     UI.ctx.restore();
 
@@ -366,6 +415,17 @@ function getDrawOrder() {
     const add = (path, colorKey) => {
         if (!path || path.includes('none') || path.includes('undefined')) return;
         order.push({ path: CONFIG.BASE_URL + path, color: s[colorKey]?.color || null });
+    };
+
+    // add với URL override — nếu partId có override thì dùng URL đó
+    const addWithOverride = (partId, path, colorKey) => {
+        const overrideUrl = STATE.urlOverrides[partId];
+        if (overrideUrl) {
+            // URL từ API — dùng trực tiếp, không prefix BASE_URL
+            order.push({ path: overrideUrl, color: s[colorKey]?.color || null });
+        } else {
+            add(path, colorKey);
+        }
     };
 
     const hl  = s.hindlegStyleSelect?.style;
@@ -490,7 +550,7 @@ function getDrawOrder() {
     }
     const breath = s.breath?.style;
     if (breath && breath !== 'none') {
-        add(`breath/breath_${breath}.png`, 'breathColor');
+        addWithOverride('breath', `breath/breath_${breath}.png`, 'breathColor');
     }
 
     return order;
@@ -520,9 +580,16 @@ function loadImage(src) {
     if (STATE.imageBuffer[src]) return Promise.resolve(STATE.imageBuffer[src]);
     return new Promise(resolve => {
         const img = new Image();
-        img.crossOrigin = 'anonymous';
+        // Chỉ set crossOrigin cho URL bên ngoài (http/https)
+        // File local (file://) không cần và sẽ bị lỗi nếu set
+        if (src.startsWith('http://') || src.startsWith('https://')) {
+            img.crossOrigin = 'anonymous';
+        }
         img.onload  = () => { STATE.imageBuffer[src] = img; resolve(img); };
-        img.onerror = () => { resolve(null); };
+        img.onerror = () => {
+            console.warn('[loadImage] Failed:', src);
+            resolve(null);
+        };
         img.src = src;
     });
 }
@@ -582,11 +649,187 @@ function randomizeAll() {
 //  DOWNLOAD
 // ============================================================
 function downloadPNG() {
+    // If running inside Android WebView, use native bridge
+    if (window.AndroidBridge) {
+        const dataUrl = UI.canvas.toDataURL('image/png');
+        AndroidBridge.onEvent(JSON.stringify({
+            type: 'DOWNLOAD_READY',
+            data: dataUrl
+        }));
+        return;
+    }
+    // Fallback: browser download
     const link = document.createElement('a');
     link.download = 'my-dragon.png';
     link.href = UI.canvas.toDataURL('image/png');
     link.click();
 }
+
+// ============================================================
+//  ANDROID BRIDGE — dispatch(actionJson)
+//  Kotlin gọi: window.dispatch('{"type":"SET_STYLE",...}')
+// ============================================================
+window.dispatch = function(actionJson) {
+    let action;
+    try {
+        action = (typeof actionJson === 'string') ? JSON.parse(actionJson) : actionJson;
+    } catch (e) {
+        console.error('[dispatch] Invalid JSON:', actionJson);
+        return;
+    }
+
+    switch (action.type) {
+
+        // Đổi style bộ phận: { type, partId, value }
+        case 'SET_STYLE': {
+            const sel = STATE.selections[action.partId];
+            if (!sel) { console.warn('[dispatch] Unknown partId:', action.partId); return; }
+            sel.style = action.value;
+            STATE.layers = {};
+            updatePreview();
+            break;
+        }
+
+        // Đổi màu: { type, colorId, hex }
+        case 'SET_COLOR': {
+            const sel = STATE.selections[action.colorId];
+            if (!sel) { console.warn('[dispatch] Unknown colorId:', action.colorId); return; }
+            sel.color = action.hex;
+            STATE.layers = {};
+            updatePreview();
+            break;
+        }
+
+        // Override 1 layer bằng URL từ API/Kotlin
+        // { type: "SET_LAYER", partId: "breath", url: "https://api.example.com/fire.png" }
+        // Để xóa override: { type: "SET_LAYER", partId: "breath", url: "" }
+        case 'SET_LAYER': {
+            const { partId, url } = action;
+            if (!partId) { console.warn('[dispatch] SET_LAYER missing partId'); return; }
+            if (url && url.length > 0) {
+                STATE.urlOverrides[partId] = url;
+            } else {
+                // url rỗng = xóa override, dùng lại file local
+                delete STATE.urlOverrides[partId];
+            }
+            // Xóa cache của layer này
+            Object.keys(STATE.layers).forEach(k => {
+                if (k.includes(url) || k.includes(partId)) delete STATE.layers[k];
+            });
+            delete STATE.imageBuffer[url];
+            updatePreview();
+            break;
+        }
+
+        // Override nhiều layer cùng lúc từ API response
+        // { type: "SET_LAYERS_BATCH", layers: { "breath": "https://...", "eyeStyle": "https://..." } }
+        case 'SET_LAYERS_BATCH': {
+            const { layers } = action;
+            if (!layers) { console.warn('[dispatch] SET_LAYERS_BATCH missing layers'); return; }
+            Object.entries(layers).forEach(([partId, url]) => {
+                if (url && url.length > 0) {
+                    STATE.urlOverrides[partId] = url;
+                } else {
+                    delete STATE.urlOverrides[partId];
+                }
+            });
+            STATE.layers = {};      // clear toàn bộ layer cache
+            STATE.imageBuffer = {}; // clear image cache để load lại từ URL mới
+            updatePreview();
+            break;
+        }
+
+        // Random traits only
+        case 'RANDOMIZE_TRAITS':
+            randomizeTraits();
+            break;
+
+        // Random colors only
+        case 'RANDOMIZE_COLORS':
+            randomizeColors();
+            break;
+
+        // Random everything
+        case 'RANDOMIZE_ALL':
+            randomizeAll();
+            break;
+
+        // Download / share
+        case 'DOWNLOAD':
+            downloadPNG();
+            break;
+
+        // Switch active tab: { type, tab }
+        case 'SET_TAB': {
+            const btn = document.querySelector(`.btab[data-tab="${action.tab}"]`);
+            if (btn) {
+                btn.click();
+            }
+            break;
+        }
+
+        // Reset to defaults
+        case 'RESET':
+            setupDefaultSelections();
+            STATE.layers = {};
+            renderPanel();
+            updatePreview();
+            break;
+
+        // Reset chỉ transform (vị trí/góc/size)
+        case 'RESET_TRANSFORM':
+            STATE.transform = { offsetX: 0, offsetY: 0, rotate: 0, scale: 1.0 };
+            updatePreview();
+            break;
+
+        // Di chuyển / xoay / scale rồng trên canvas
+        // { type: "SET_TRANSFORM", offsetX, offsetY, rotate, scale }
+        // Chỉ cần gửi các field muốn thay đổi, các field khác giữ nguyên
+        case 'SET_TRANSFORM': {
+            const t = STATE.transform;
+            if (action.offsetX !== undefined) t.offsetX = parseFloat(action.offsetX);
+            if (action.offsetY !== undefined) t.offsetY = parseFloat(action.offsetY);
+            if (action.rotate  !== undefined) t.rotate  = parseFloat(action.rotate);
+            if (action.scale   !== undefined) t.scale   = parseFloat(action.scale);
+            updatePreview();
+            break;
+        }
+
+        // Di chuyển tương đối (cộng thêm vào giá trị hiện tại)
+        // { type: "MOVE", dx, dy }
+        case 'MOVE': {
+            STATE.transform.offsetX += parseFloat(action.dx || 0);
+            STATE.transform.offsetY += parseFloat(action.dy || 0);
+            updatePreview();
+            break;
+        }
+
+        // Xoay tương đối
+        // { type: "ROTATE", deg }
+        case 'ROTATE': {
+            STATE.transform.rotate += parseFloat(action.deg || 0);
+            updatePreview();
+            break;
+        }
+
+        // Scale tương đối
+        // { type: "SCALE", factor } — ví dụ 1.1 để zoom in 10%
+        case 'SCALE': {
+            const newScale = STATE.transform.scale * parseFloat(action.factor || 1);
+            STATE.transform.scale = Math.max(0.1, Math.min(5.0, newScale));
+            updatePreview();
+            break;
+        }
+
+        // Get full state JSON — result returned via callback
+        // Kotlin: webView.evaluateJavascript("window.dispatch({type:'GET_STATE'})", { result -> })
+        case 'GET_STATE':
+            return JSON.stringify(STATE.selections);
+
+        default:
+            console.warn('[dispatch] Unknown action type:', action.type);
+    }
+};
 
 // ============================================================
 //  START
