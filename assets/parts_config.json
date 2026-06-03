@@ -1,0 +1,518 @@
+{
+  "tabs": [
+    { "id": "head",  "label": "HEAD",  "icon": "assets/topbar/head.png",  "icon_active": "assets/topbar/head_hover.png"  },
+    { "id": "torso", "label": "TORSO", "icon": "assets/topbar/torso.png", "icon_active": "assets/topbar/torso_hover.png" },
+    { "id": "legs",  "label": "LEGS",  "icon": "assets/topbar/legs.png",  "icon_active": "assets/topbar/legs_hover.png"  },
+    { "id": "wings", "label": "WINGS", "icon": "assets/topbar/wing.png",  "icon_active": "assets/topbar/wing_hover.png"  },
+    { "id": "tail",  "label": "TAIL",  "icon": "assets/topbar/tail.png",  "icon_active": "assets/topbar/tail_hover.png"  }
+  ],
+  "parts": {
+    "head": [
+      {
+        "partId": "eyeStyle",
+        "label": "Eyes",
+        "colorId": "eyeColor",
+        "options": [
+          { "value": "01", "label": "Default",      "thumb": "assets/head/eyes/eyes_01_color.png" },
+          { "value": "02", "label": "Almond",       "thumb": "assets/head/eyes/eyes_02_color.png" },
+          { "value": "03", "label": "Narrow",       "thumb": "assets/head/eyes/eyes_03_color.png" },
+          { "value": "04", "label": "Mystic",       "thumb": "assets/head/eyes/eyes_04_color.png" },
+          { "value": "05", "label": "Buggy",        "thumb": "assets/head/eyes/eyes_05_color.png" },
+          { "value": "06", "label": "Hollow",       "thumb": "assets/head/eyes/eyes_06_color.png" },
+          { "value": "07", "label": "Closed happy", "thumb": "assets/head/eyes/eyes_07_color.png" },
+          { "value": "08", "label": "Closed calm",  "thumb": "assets/head/eyes/eyes_08_color.png" },
+          { "value": "09", "label": "Darksight",    "thumb": "assets/head/eyes/eyes_09_color.png" }
+        ]
+      },
+      {
+        "partId": "browStyle",
+        "label": "Brows",
+        "colorId": "browColor",
+        "options": [
+          { "value": "none", "label": "None",           "thumb": null },
+          { "value": "01",   "label": "Armored scutes", "thumb": "assets/head/brows/brow_01_color.png" },
+          { "value": "02",   "label": "Fur",            "thumb": "assets/head/brows/brow_02_color.png" },
+          { "value": "03",   "label": "Spikes",         "thumb": "assets/head/brows/brow_03_color.png" }
+        ]
+      },
+      {
+        "partId": "snoutStyle",
+        "label": "Snout Shape",
+        "colorId": "baseColor",
+        "options": [
+          { "value": "none", "label": "Short",       "thumb": null },
+          { "value": "01",   "label": "Canine",      "thumb": "assets/head/snouts/snout_01_color.png" },
+          { "value": "02",   "label": "Slim",        "thumb": "assets/head/snouts/snout_02_color.png" },
+          { "value": "03",   "label": "Equine",      "thumb": "assets/head/snouts/snout_03_color.png" },
+          { "value": "04",   "label": "Short beak",  "thumb": "assets/head/snouts/snout_04_color.png" },
+          { "value": "05",   "label": "Upturned",    "thumb": "assets/head/snouts/snout_05_color.png" },
+          { "value": "06",   "label": "Shark",       "thumb": "assets/head/snouts/snout_06_color.png" },
+          { "value": "07",   "label": "Panther",     "thumb": "assets/head/snouts/snout_07_color.png" },
+          { "value": "08",   "label": "Square",      "thumb": "assets/head/snouts/snout_08_color.png" },
+          { "value": "09",   "label": "Blocky",      "thumb": "assets/head/snouts/snout_09_color.png" },
+          { "value": "10",   "label": "Wedge",       "thumb": "assets/head/snouts/snout_10_color.png" },
+          { "value": "11",   "label": "Nubby",       "thumb": "assets/head/snouts/snout_11_color.png" },
+          { "value": "12",   "label": "Chomper",     "thumb": "assets/head/snouts/snout_12_color.png" },
+          { "value": "13",   "label": "Scissorbeak", "thumb": "assets/head/snouts/snout_13_color.png" },
+          { "value": "14",   "label": "Snippy",      "thumb": "assets/head/snouts/snout_14_color.png" },
+          { "value": "15",   "label": "Bulky",       "thumb": "assets/head/snouts/snout_15_color.png" },
+          { "value": "16",   "label": "Fluted",      "thumb": "assets/head/snouts/snout_16_color.png" },
+          { "value": "17",   "label": "Kitty",       "thumb": "assets/head/snouts/snout_17_color.png" },
+          { "value": "18",   "label": "Noble",       "thumb": "assets/head/snouts/snout_18_color.png" },
+          { "value": "19",   "label": "Axenose",     "thumb": "assets/head/snouts/snout_19_color.png" }
+        ]
+      },
+      {
+        "partId": "maneStyle",
+        "label": "Mane",
+        "colorId": "maneColor",
+        "options": [
+          { "value": "none", "label": "None",               "thumb": null },
+          { "value": "01",   "label": "Medium fluffy fur",  "thumb": "assets/head/manes/mane_01_color.png" },
+          { "value": "02",   "label": "Medium wavy fur",    "thumb": "assets/head/manes/mane_02_color.png" },
+          { "value": "03",   "label": "Short fur mohawk",   "thumb": "assets/head/manes/mane_03_color.png" },
+          { "value": "04",   "label": "Long wispy fur",     "thumb": "assets/head/manes/mane_04_color.png" },
+          { "value": "05",   "label": "Bony fin",           "thumb": "assets/head/manes/mane_05_color.png" },
+          { "value": "06",   "label": "Spikes",             "thumb": "assets/head/manes/mane_06_color.png" },
+          { "value": "07",   "label": "Feathers",           "thumb": "assets/head/manes/mane_07_color.png" },
+          { "value": "08",   "label": "Lion mane",          "thumb": "assets/head/manes/mane_08_color.png" },
+          { "value": "09",   "label": "Crest",              "thumb": "assets/head/manes/mane_09_color.png" },
+          { "value": "10",   "label": "Forward floofy fur", "thumb": "assets/head/manes/mane_10_color.png" },
+          { "value": "11",   "label": "Frill fin",          "thumb": "assets/head/manes/mane_11_color.png" },
+          { "value": "12",   "label": "Furry neck",         "thumb": "assets/head/manes/mane_12_color.png" },
+          { "value": "13",   "label": "Quills",             "thumb": "assets/head/manes/mane_13_color.png" },
+          { "value": "14",   "label": "Quill crown",        "thumb": "assets/head/manes/mane_14_color.png" }
+        ]
+      },
+      {
+        "partId": "hornStyle",
+        "label": "Horns",
+        "colorId": "boneColor",
+        "options": [
+          { "value": "none", "label": "None",             "thumb": null },
+          { "value": "01",   "label": "Short hooked",     "thumb": "assets/head/horns/horn_01_front_color.png" },
+          { "value": "02",   "label": "Gently curved",    "thumb": "assets/head/horns/horn_02_front_color.png" },
+          { "value": "03",   "label": "Straight sharp",   "thumb": "assets/head/horns/horn_03_front_color.png" },
+          { "value": "04",   "label": "Big swoops",       "thumb": "assets/head/horns/horn_04_front_color.png" },
+          { "value": "05",   "label": "Chargers",         "thumb": "assets/head/horns/horn_05_front_color.png" },
+          { "value": "06",   "label": "Uni-horn",         "thumb": "assets/head/horns/horn_06_front_color.png" },
+          { "value": "07",   "label": "Double uni-horn",  "thumb": "assets/head/horns/horn_07_front_color.png" },
+          { "value": "08",   "label": "Deer antlers",     "thumb": "assets/head/horns/horn_08_front_color.png" },
+          { "value": "09",   "label": "Curved-back",      "thumb": "assets/head/horns/horn_09_front_color.png" },
+          { "value": "10",   "label": "Curled ram",       "thumb": "assets/head/horns/horn_10_front_color.png" }
+        ]
+      },
+      {
+        "partId": "earStyle",
+        "label": "Ears",
+        "colorId": "fleshColor",
+        "options": [
+          { "value": "none", "label": "None",             "thumb": null },
+          { "value": "01",   "label": "Elven",            "thumb": "assets/head/ears/ear_01_front_base.png" },
+          { "value": "02",   "label": "Cupped",           "thumb": "assets/head/ears/ear_02_front_base.png" },
+          { "value": "03",   "label": "Kittywolf",        "thumb": "assets/head/ears/ear_03_front_base.png" },
+          { "value": "04",   "label": "Fin",              "thumb": "assets/head/ears/ear_04_front_base.png" },
+          { "value": "05",   "label": "Feathers",         "thumb": "assets/head/ears/ear_05_front_base.png" },
+          { "value": "06",   "label": "Winged",           "thumb": "assets/head/ears/ear_06_front_base.png" },
+          { "value": "07",   "label": "Alien knobs",      "thumb": "assets/head/ears/ear_07_front_base.png" },
+          { "value": "08",   "label": "Gecko slit",       "thumb": "assets/head/ears/ear_08_front_base.png" },
+          { "value": "09",   "label": "Tympanic shield",  "thumb": "assets/head/ears/ear_09_front_base.png" },
+          { "value": "11",   "label": "Perky wolfish",    "thumb": "assets/head/ears/ear_11_front_base.png" },
+          { "value": "12",   "label": "Flappynubs",       "thumb": "assets/head/ears/ear_12_front_base.png" }
+        ]
+      },
+      {
+        "partId": "fangStyle",
+        "label": "Fangs",
+        "colorId": "boneColor",
+        "options": [
+          { "value": "none", "label": "None", "thumb": null },
+          { "value": "01",   "label": "Vamp", "thumb": "assets/head/fangs/fang_01_front_color.png" }
+        ]
+      },
+      {
+        "partId": "jawdecStyle",
+        "label": "Jaw Decor",
+        "colorId": "jawdecColor",
+        "options": [
+          { "value": "none", "label": "None",       "thumb": null },
+          { "value": "01",   "label": "Fin high",   "thumb": "assets/head/jawdecor/jawdec_01_color.png" },
+          { "value": "02",   "label": "Fin low",    "thumb": "assets/head/jawdecor/jawdec_02_color.png" },
+          { "value": "03",   "label": "Spikes",     "thumb": "assets/head/jawdecor/jawdec_03_color.png" },
+          { "value": "04",   "label": "Fur",        "thumb": "assets/head/jawdecor/jawdec_04_color.png" },
+          { "value": "05",   "label": "Feathers",   "thumb": "assets/head/jawdecor/jawdec_05_color.png" },
+          { "value": "06",   "label": "Big spikes", "thumb": "assets/head/jawdecor/jawdec_06_color.png" },
+          { "value": "07",   "label": "Nubbies",    "thumb": "assets/head/jawdecor/jawdec_07_color.png" },
+          { "value": "08",   "label": "Sub-horn",   "thumb": "assets/head/jawdecor/jawdec_08_color.png" }
+        ]
+      },
+      {
+        "partId": "whiskerStyle",
+        "label": "Whiskers",
+        "colorId": "whiskerColor",
+        "options": [
+          { "value": "none", "label": "None",           "thumb": null },
+          { "value": "01",   "label": "Short noodle",   "thumb": "assets/head/whiskers/whisker_front_01.png" },
+          { "value": "02",   "label": "Long noodle",    "thumb": "assets/head/whiskers/whisker_front_02.png" },
+          { "value": "03",   "label": "Kitty",          "thumb": "assets/head/whiskers/whisker_front_03.png" },
+          { "value": "04",   "label": "Chin danglies",  "thumb": "assets/head/whiskers/whisker_front_04.png" },
+          { "value": "05",   "label": "Viper eel",      "thumb": "assets/head/whiskers/whisker_front_05.png" },
+          { "value": "06",   "label": "Thin antennae",  "thumb": "assets/head/whiskers/whisker_front_06.png" },
+          { "value": "07",   "label": "Moth antennae",  "thumb": "assets/head/whiskers/whisker_front_07.png" }
+        ]
+      },
+      {
+        "partId": "headtopStyle",
+        "label": "Head Top",
+        "colorId": "headtopColor",
+        "options": [
+          { "value": "none", "label": "None",                    "thumb": null },
+          { "value": "01",   "label": "Small forward hair fluff","thumb": "assets/head/headtop/headtop_01_color.png" },
+          { "value": "02",   "label": "Center parted fluff",     "thumb": "assets/head/headtop/headtop_02_color.png" },
+          { "value": "03",   "label": "Forward fluffy hair",     "thumb": "assets/head/headtop/headtop_03_color.png" },
+          { "value": "04",   "label": "Medium wavy hair",        "thumb": "assets/head/headtop/headtop_04_color.png" },
+          { "value": "06",   "label": "Long hair",               "thumb": "assets/head/headtop/headtop_06_color.png" },
+          { "value": "07",   "label": "Angler lure",             "thumb": "assets/head/headtop/headtop_07_color.png" },
+          { "value": "08",   "label": "Upward ahoge",            "thumb": "assets/head/headtop/headtop_08_color.png" },
+          { "value": "09",   "label": "Double forward ahoge",    "thumb": "assets/head/headtop/headtop_09_color.png" },
+          { "value": "10",   "label": "Bouncy forward ahoge",    "thumb": "assets/head/headtop/headtop_10_color.png" }
+        ]
+      },
+      {
+        "partId": "headacc",
+        "label": "Head Accessory",
+        "colorId": null,
+        "options": [
+          { "value": "none", "label": "None",               "thumb": null },
+          { "value": "01",   "label": "Skull mask white",   "thumb": "assets/accessories/acc_head/01.png" },
+          { "value": "02",   "label": "Skull mask black",   "thumb": "assets/accessories/acc_head/02.png" },
+          { "value": "03",   "label": "Crown gold",         "thumb": "assets/accessories/acc_head/03.png" },
+          { "value": "04",   "label": "Crown black",        "thumb": "assets/accessories/acc_head/04.png" },
+          { "value": "05",   "label": "Bridle",             "thumb": "assets/accessories/acc_head/05.png" },
+          { "value": "06",   "label": "Tucked flower",      "thumb": "assets/accessories/acc_head/06.png" },
+          { "value": "07",   "label": "Eye patch",          "thumb": "assets/accessories/acc_head/07.png" },
+          { "value": "08",   "label": "Glasses",            "thumb": "assets/accessories/acc_head/08.png" }
+        ]
+      },
+      {
+        "partId": "breath",
+        "label": "Breath",
+        "colorId": "breathColor",
+        "options": [
+          { "value": "none", "label": "No breath",  "thumb": null },
+          { "value": "01",   "label": "Fire",        "thumb": "assets/breath/breath_01.png" },
+          { "value": "02",   "label": "Smoke",       "thumb": "assets/breath/breath_02.png" },
+          { "value": "03",   "label": "Clouds",      "thumb": "assets/breath/breath_03.png" },
+          { "value": "04",   "label": "Swirls",      "thumb": "assets/breath/breath_04.png" },
+          { "value": "05",   "label": "Lightning",   "thumb": "assets/breath/breath_05.png" },
+          { "value": "06",   "label": "Snow-swirl",  "thumb": "assets/breath/breath_06.png" }
+        ]
+      }
+    ],
+    "torso": [
+      {
+        "partId": "bellyStyle",
+        "label": "Belly",
+        "colorId": "bellyColor",
+        "options": [
+          { "value": "none", "label": "None",         "thumb": null },
+          { "value": "01",   "label": "Soft fade",    "thumb": "assets/torso/belly/belly_01_color.png" },
+          { "value": "02",   "label": "Hard fade",    "thumb": "assets/torso/belly/belly_02_color.png" },
+          { "value": "03",   "label": "Armor plates", "thumb": "assets/torso/belly/belly_03_color.png" },
+          { "value": "04",   "label": "Square scutes","thumb": "assets/torso/belly/belly_04_color.png" },
+          { "value": "05",   "label": "Pointy armor", "thumb": "assets/torso/belly/belly_05_color.png" },
+          { "value": "06",   "label": "Furry belly",  "thumb": "assets/torso/belly/belly_06_color.png" }
+        ]
+      },
+      {
+        "partId": "spinedecStyle",
+        "label": "Spine Decor",
+        "colorId": "spinedecColor",
+        "options": [
+          { "value": "none", "label": "None",                    "thumb": null },
+          { "value": "01",   "label": "Bony fish fin",           "thumb": "assets/torso/spinedecor/spinedec_01_color.png" },
+          { "value": "02",   "label": "Fur ridge",               "thumb": "assets/torso/spinedecor/spinedec_02_color.png" },
+          { "value": "03",   "label": "Feather ridge",           "thumb": "assets/torso/spinedecor/spinedec_03_color.png" },
+          { "value": "04",   "label": "Spike ridge",             "thumb": "assets/torso/spinedecor/spinedec_04_color.png" },
+          { "value": "05",   "label": "Soft frill",              "thumb": "assets/torso/spinedecor/spinedec_05_color.png" },
+          { "value": "06",   "label": "Shark dorsal fin",        "thumb": "assets/torso/spinedecor/spinedec_06_color.png" },
+          { "value": "07",   "label": "Featherquill dorsal fin", "thumb": "assets/torso/spinedecor/spinedec_07_color.png" }
+        ]
+      },
+      {
+        "partId": "marking1Style",
+        "label": "Marking 1",
+        "colorId": "marking1Color",
+        "options": [
+          { "value": "none", "label": "None",                "thumb": null },
+          { "value": "02",   "label": "Tiger stripes",       "thumb": "assets/torso/markings/marking_02.png" },
+          { "value": "03",   "label": "Speckles",            "thumb": "assets/torso/markings/marking_03.png" },
+          { "value": "06",   "label": "Ring stripes",        "thumb": "assets/torso/markings/marking_06.png" },
+          { "value": "08",   "label": "Dalmation spots",     "thumb": "assets/torso/markings/marking_08.png" },
+          { "value": "10",   "label": "Dorsal fade",         "thumb": "assets/torso/markings/marking_10.png" },
+          { "value": "12",   "label": "Rear end fade",       "thumb": "assets/torso/markings/marking_12.png" },
+          { "value": "16",   "label": "Leopard spots",       "thumb": "assets/torso/markings/marking_16.png" },
+          { "value": "17",   "label": "Blotches",            "thumb": "assets/torso/markings/marking_17.png" },
+          { "value": "18",   "label": "Skeleton",            "thumb": "assets/torso/markings/marking_18.png" },
+          { "value": "19",   "label": "Mackerel stripes",    "thumb": "assets/torso/markings/marking_19.png" },
+          { "value": "21",   "label": "Frosting",            "thumb": "assets/torso/markings/marking_21.png" },
+          { "value": "25",   "label": "Side scales",         "thumb": "assets/torso/markings/marking_25.png" },
+          { "value": "29",   "label": "Side arrows",         "thumb": "assets/torso/markings/marking_29.png" },
+          { "value": "31",   "label": "Side dots",           "thumb": "assets/torso/markings/marking_31.png" },
+          { "value": "32",   "label": "Soft marbling",       "thumb": "assets/torso/markings/marking_32.png" },
+          { "value": "33",   "label": "Lightning",           "thumb": "assets/torso/markings/marking_33.png" },
+          { "value": "34",   "label": "Alternating A",       "thumb": "assets/torso/markings/marking_34.png" },
+          { "value": "35",   "label": "Alternating B",       "thumb": "assets/torso/markings/marking_35.png" },
+          { "value": "36",   "label": "Gills Axolotl",       "thumb": "assets/torso/markings/marking_36.png" },
+          { "value": "37",   "label": "Gills Shark",         "thumb": "assets/torso/markings/marking_37.png" },
+          { "value": "38",   "label": "Scar Nose",           "thumb": "assets/torso/markings/marking_38.png" },
+          { "value": "39",   "label": "Scar Triple",         "thumb": "assets/torso/markings/marking_39.png" },
+          { "value": "40",   "label": "Scar Eye Swipe",      "thumb": "assets/torso/markings/marking_40.png" }
+        ]
+      },
+      {
+        "partId": "marking2Style",
+        "label": "Marking 2",
+        "colorId": "marking2Color",
+        "options": [
+          { "value": "none", "label": "None",             "thumb": null },
+          { "value": "02",   "label": "Tiger stripes",    "thumb": "assets/torso/markings/marking_02.png" },
+          { "value": "03",   "label": "Speckles",         "thumb": "assets/torso/markings/marking_03.png" },
+          { "value": "06",   "label": "Ring stripes",     "thumb": "assets/torso/markings/marking_06.png" },
+          { "value": "08",   "label": "Dalmation spots",  "thumb": "assets/torso/markings/marking_08.png" },
+          { "value": "10",   "label": "Dorsal fade",      "thumb": "assets/torso/markings/marking_10.png" },
+          { "value": "12",   "label": "Rear end fade",    "thumb": "assets/torso/markings/marking_12.png" },
+          { "value": "16",   "label": "Leopard spots",    "thumb": "assets/torso/markings/marking_16.png" },
+          { "value": "17",   "label": "Blotches",         "thumb": "assets/torso/markings/marking_17.png" },
+          { "value": "19",   "label": "Mackerel stripes", "thumb": "assets/torso/markings/marking_19.png" },
+          { "value": "21",   "label": "Frosting",         "thumb": "assets/torso/markings/marking_21.png" }
+        ]
+      },
+      {
+        "partId": "marking3Style",
+        "label": "Marking 3",
+        "colorId": "marking3Color",
+        "options": [
+          { "value": "none", "label": "None",           "thumb": null },
+          { "value": "02",   "label": "Tiger stripes",  "thumb": "assets/torso/markings/marking_02.png" },
+          { "value": "03",   "label": "Speckles",       "thumb": "assets/torso/markings/marking_03.png" },
+          { "value": "10",   "label": "Dorsal fade",    "thumb": "assets/torso/markings/marking_10.png" },
+          { "value": "17",   "label": "Blotches",       "thumb": "assets/torso/markings/marking_17.png" }
+        ]
+      },
+      {
+        "partId": "torsoacc",
+        "label": "Torso Accessory",
+        "colorId": null,
+        "options": [
+          { "value": "none", "label": "None",                  "thumb": null },
+          { "value": "01",   "label": "Leather harness",       "thumb": "assets/accessories/acc_torso/01.png" },
+          { "value": "02",   "label": "Leather bags",          "thumb": "assets/accessories/acc_torso/02.png" },
+          { "value": "03",   "label": "Adventuring backpack",  "thumb": "assets/accessories/acc_torso/03.png" },
+          { "value": "04",   "label": "Saddle",                "thumb": "assets/accessories/acc_torso/04.png" },
+          { "value": "05",   "label": "Draped blanket",        "thumb": "assets/accessories/acc_torso/05.png" }
+        ]
+      },
+      {
+        "partId": "neckacc",
+        "label": "Neck Accessory",
+        "colorId": null,
+        "options": [
+          { "value": "none", "label": "None",                    "thumb": null },
+          { "value": "01",   "label": "Brown leather collar",    "thumb": "assets/accessories/acc_neck/01.png" },
+          { "value": "02",   "label": "Black leather collar",    "thumb": "assets/accessories/acc_neck/02.png" },
+          { "value": "03",   "label": "Black collar spiked",     "thumb": "assets/accessories/acc_neck/03.png" },
+          { "value": "04",   "label": "Black collar clawed",     "thumb": "assets/accessories/acc_neck/04.png" },
+          { "value": "05",   "label": "Chain collar",            "thumb": "assets/accessories/acc_neck/05.png" },
+          { "value": "06",   "label": "Gold metal band",         "thumb": "assets/accessories/acc_neck/06.png" },
+          { "value": "07",   "label": "Scarf white",             "thumb": "assets/accessories/acc_neck/07.png" },
+          { "value": "08",   "label": "Scarf black",             "thumb": "assets/accessories/acc_neck/08.png" },
+          { "value": "09",   "label": "Scarf red",               "thumb": "assets/accessories/acc_neck/09.png" },
+          { "value": "10",   "label": "Gold pendant necklace",   "thumb": "assets/accessories/acc_neck/10.png" },
+          { "value": "11",   "label": "Leather pouch on string", "thumb": "assets/accessories/acc_neck/11.png" },
+          { "value": "12",   "label": "Lots of gold jewelry",    "thumb": "assets/accessories/acc_neck/12.png" }
+        ]
+      }
+    ],
+    "legs": [
+      {
+        "partId": "forelegStyleSelect",
+        "label": "Forelegs",
+        "colorId": "baseColor",
+        "options": [
+          { "value": "none", "label": "No forelegs",         "thumb": null },
+          { "value": "01",   "label": "Hand-paw",            "thumb": "assets/legs/forelegs/foreleg_front_01_base.png" },
+          { "value": "02",   "label": "Bat wing-walker",     "thumb": "assets/legs/forelegs/foreleg_front_02_base.png" },
+          { "value": "03",   "label": "Flipperfin",          "thumb": "assets/legs/forelegs/foreleg_front_03_base.png" },
+          { "value": "04",   "label": "Feather wing-walker", "thumb": "assets/legs/forelegs/foreleg_front_04_base.png" },
+          { "value": "05",   "label": "Webbed",              "thumb": "assets/legs/forelegs/foreleg_front_05_base.png" },
+          { "value": "06",   "label": "Raptor arms",         "thumb": "assets/legs/forelegs/foreleg_front_06_base.png" }
+        ]
+      },
+      {
+        "partId": "hindlegStyleSelect",
+        "label": "Hindlegs",
+        "colorId": "baseColor",
+        "options": [
+          { "value": "none", "label": "No hindlegs",     "thumb": null },
+          { "value": "01",   "label": "Toe-paw",         "thumb": "assets/legs/hindlegs/hindleg_front_01_base.png" },
+          { "value": "03",   "label": "Flipperfin",      "thumb": "assets/legs/hindlegs/hindleg_front_03_base.png" },
+          { "value": "05",   "label": "Webbed",          "thumb": "assets/legs/hindlegs/hindleg_front_05_base.png" },
+          { "value": "06",   "label": "Mammalian paws",  "thumb": "assets/legs/hindlegs/hindleg_front_06_base.png" },
+          { "value": "07",   "label": "Equine hooves",   "thumb": "assets/legs/hindlegs/hindleg_front_07_base.png" },
+          { "value": "08",   "label": "Theropod",        "thumb": "assets/legs/hindlegs/hindleg_front_08_base.png" }
+        ]
+      },
+      {
+        "partId": "forelegmarkingStyle",
+        "label": "Foreleg Marking",
+        "colorId": "forelegmarkingColor",
+        "options": [
+          { "value": "none", "label": "None",            "thumb": null },
+          { "value": "01",   "label": "Ankle socks",     "thumb": "assets/legs/markings_foreleg/marking_01_front_01.png" },
+          { "value": "02",   "label": "Tabby mackerel",  "thumb": "assets/legs/markings_foreleg/marking_01_front_02.png" },
+          { "value": "03",   "label": "Ring stripes",    "thumb": "assets/legs/markings_foreleg/marking_01_front_03.png" },
+          { "value": "04",   "label": "Skele",           "thumb": "assets/legs/markings_foreleg/marking_01_front_04.png" },
+          { "value": "05",   "label": "Bars and dots",   "thumb": "assets/legs/markings_foreleg/marking_01_front_05.png" },
+          { "value": "06",   "label": "Opera gloves",    "thumb": "assets/legs/markings_foreleg/marking_01_front_06.png" },
+          { "value": "07",   "label": "Swirls",          "thumb": "assets/legs/markings_foreleg/marking_01_front_07.png" },
+          { "value": "99",   "label": "Special",         "thumb": "assets/legs/markings_foreleg/marking_01_front_99.png" }
+        ]
+      },
+      {
+        "partId": "hindlegmarkingStyle",
+        "label": "Hindleg Marking",
+        "colorId": "hindlegmarkingColor",
+        "options": [
+          { "value": "none", "label": "None",              "thumb": null },
+          { "value": "01",   "label": "Ankle socks",       "thumb": "assets/legs/markings_hindleg/marking_01_front_01.png" },
+          { "value": "02",   "label": "Tabby mackerel",    "thumb": "assets/legs/markings_hindleg/marking_01_front_02.png" },
+          { "value": "03",   "label": "Swirls",            "thumb": "assets/legs/markings_hindleg/marking_01_front_03.png" },
+          { "value": "04",   "label": "Ring stripes",      "thumb": "assets/legs/markings_hindleg/marking_01_front_04.png" },
+          { "value": "05",   "label": "Skele",             "thumb": "assets/legs/markings_hindleg/marking_01_front_05.png" },
+          { "value": "06",   "label": "Thigh-high socks",  "thumb": "assets/legs/markings_hindleg/marking_01_front_06.png" },
+          { "value": "07",   "label": "Bars and dots",     "thumb": "assets/legs/markings_hindleg/marking_01_front_07.png" },
+          { "value": "99",   "label": "Special",           "thumb": "assets/legs/markings_hindleg/marking_01_front_99.png" }
+        ]
+      }
+    ],
+    "wings": [
+      {
+        "partId": "wingStyle",
+        "label": "Wings",
+        "colorId": "wingColor",
+        "options": [
+          { "value": "none", "label": "No wings",            "thumb": null },
+          { "value": "01",   "label": "Bat-like default",    "thumb": "assets/wings/wings/wing_01_front_base.png" },
+          { "value": "02",   "label": "Feathered big",       "thumb": "assets/wings/wings/wing_02_front_base.png" },
+          { "value": "03",   "label": "Feather-bat hybrid",  "thumb": "assets/wings/wings/wing_03_front_base.png" },
+          { "value": "04",   "label": "Bat-like mini",       "thumb": "assets/wings/wings/wing_04_front_base.png" },
+          { "value": "05",   "label": "Feathered mini",      "thumb": "assets/wings/wings/wing_05_front_base.png" },
+          { "value": "10",   "label": "Dragonfly",           "thumb": "assets/wings/wings/wing_10_front_base.png" },
+          { "value": "11",   "label": "Butterfly",           "thumb": "assets/wings/wings/wing_11_front_base.png" },
+          { "value": "12",   "label": "Bat-like big",        "thumb": "assets/wings/wings/wing_12_front_base.png" },
+          { "value": "13",   "label": "Bat-like transparent","thumb": "assets/wings/wings/wing_13_front_base.png" },
+          { "value": "14",   "label": "Paddle",              "thumb": "assets/wings/wings/wing_14_front_base.png" }
+        ]
+      },
+      {
+        "partId": "wingmarkingdorsalStyle",
+        "label": "Wing Marking Dorsal",
+        "colorId": "wingmarkingdorsalColor",
+        "options": [
+          { "value": "none", "label": "None",             "thumb": null },
+          { "value": "01",   "label": "Fade toward ends", "thumb": "assets/wings/markings_wing/dorsal_01_front_01.png" }
+        ]
+      },
+      {
+        "partId": "wingmarkingventralStyle",
+        "label": "Wing Marking Ventral",
+        "colorId": "wingmarkingventralColor",
+        "options": [
+          { "value": "none", "label": "None",             "thumb": null },
+          { "value": "01",   "label": "Fade toward ends", "thumb": "assets/wings/markings_wing/ventral_01_front_01.png" }
+        ]
+      }
+    ],
+    "tail": [
+      {
+        "partId": "taildecStyle",
+        "label": "Tail Decor 1",
+        "colorId": "taildecColor",
+        "options": [
+          { "value": "none", "label": "None",  "thumb": null },
+          { "value": "01",   "label": "Style 01", "thumb": "assets/tail/decor/tail_01_color.png" },
+          { "value": "02",   "label": "Style 02", "thumb": "assets/tail/decor/tail_02_color.png" },
+          { "value": "03",   "label": "Style 03", "thumb": "assets/tail/decor/tail_03_color.png" },
+          { "value": "04",   "label": "Style 04", "thumb": "assets/tail/decor/tail_04_color.png" },
+          { "value": "05",   "label": "Style 05", "thumb": "assets/tail/decor/tail_05_color.png" },
+          { "value": "06",   "label": "Style 06", "thumb": "assets/tail/decor/tail_06_color.png" },
+          { "value": "07",   "label": "Style 07", "thumb": "assets/tail/decor/tail_07_color.png" },
+          { "value": "08",   "label": "Style 08", "thumb": "assets/tail/decor/tail_08_color.png" },
+          { "value": "09",   "label": "Style 09", "thumb": "assets/tail/decor/tail_09_color.png" },
+          { "value": "10",   "label": "Style 10", "thumb": "assets/tail/decor/tail_10_color.png" },
+          { "value": "11",   "label": "Style 11", "thumb": "assets/tail/decor/tail_11_color.png" },
+          { "value": "12",   "label": "Style 12", "thumb": "assets/tail/decor/tail_12_color.png" },
+          { "value": "13",   "label": "Style 13", "thumb": "assets/tail/decor/tail_13_color.png" },
+          { "value": "14",   "label": "Style 14", "thumb": "assets/tail/decor/tail_14_color.png" },
+          { "value": "15",   "label": "Style 15", "thumb": "assets/tail/decor/tail_15_color.png" },
+          { "value": "16",   "label": "Style 16", "thumb": "assets/tail/decor/tail_16_color.png" },
+          { "value": "17",   "label": "Style 17", "thumb": "assets/tail/decor/tail_17_color.png" },
+          { "value": "18",   "label": "Style 18", "thumb": "assets/tail/decor/tail_18_color.png" },
+          { "value": "19",   "label": "Style 19", "thumb": "assets/tail/decor/tail_19_color.png" },
+          { "value": "20",   "label": "Style 20", "thumb": "assets/tail/decor/tail_20_color.png" },
+          { "value": "21",   "label": "Style 21", "thumb": "assets/tail/decor/tail_21_color.png" }
+        ]
+      },
+      {
+        "partId": "taildecStyle2",
+        "label": "Tail Decor 2",
+        "colorId": "taildecColor2",
+        "options": [
+          { "value": "none", "label": "None",     "thumb": null },
+          { "value": "01",   "label": "Style 01", "thumb": "assets/tail/decor/tail_01_color.png" },
+          { "value": "02",   "label": "Style 02", "thumb": "assets/tail/decor/tail_02_color.png" },
+          { "value": "03",   "label": "Style 03", "thumb": "assets/tail/decor/tail_03_color.png" },
+          { "value": "04",   "label": "Style 04", "thumb": "assets/tail/decor/tail_04_color.png" },
+          { "value": "05",   "label": "Style 05", "thumb": "assets/tail/decor/tail_05_color.png" }
+        ]
+      },
+      {
+        "partId": "tailmarkingStyle",
+        "label": "Tail Marking 1",
+        "colorId": "tailmarkingColor",
+        "options": [
+          { "value": "none", "label": "None",       "thumb": null },
+          { "value": "01",   "label": "Tip fade",   "thumb": "assets/tail/markings_tail/tailmarking_01.png" },
+          { "value": "02",   "label": "Stripes",    "thumb": "assets/tail/markings_tail/tailmarking_02.png" },
+          { "value": "03",   "label": "Spots",      "thumb": "assets/tail/markings_tail/tailmarking_03.png" },
+          { "value": "04",   "label": "Ring stripes","thumb": "assets/tail/markings_tail/tailmarking_04.png" }
+        ]
+      },
+      {
+        "partId": "tailmarking2Style",
+        "label": "Tail Marking 2",
+        "colorId": "tailmarking2Color",
+        "options": [
+          { "value": "none", "label": "None",        "thumb": null },
+          { "value": "01",   "label": "Tip fade",    "thumb": "assets/tail/markings_tail/tailmarking_01.png" },
+          { "value": "02",   "label": "Stripes",     "thumb": "assets/tail/markings_tail/tailmarking_02.png" },
+          { "value": "03",   "label": "Spots",       "thumb": "assets/tail/markings_tail/tailmarking_03.png" },
+          { "value": "04",   "label": "Ring stripes","thumb": "assets/tail/markings_tail/tailmarking_04.png" }
+        ]
+      },
+      {
+        "partId": "tailacc",
+        "label": "Tail Accessory",
+        "colorId": null,
+        "options": [
+          { "value": "none", "label": "None",        "thumb": null },
+          { "value": "01",   "label": "Accessory 1", "thumb": "assets/accessories/acc_tail/01.png" },
+          { "value": "02",   "label": "Accessory 2", "thumb": "assets/accessories/acc_tail/02.png" },
+          { "value": "03",   "label": "Accessory 3", "thumb": "assets/accessories/acc_tail/03.png" },
+          { "value": "04",   "label": "Accessory 4", "thumb": "assets/accessories/acc_tail/04.png" }
+        ]
+      }
+    ]
+  }
+}
