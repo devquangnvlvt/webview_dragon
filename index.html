@@ -12,7 +12,7 @@
 <div id="app">
 
     <!-- TOP BAR -->
-    <div class="top-bar">
+    <div class="top-bar" style="display: none;">
         <button class="top-btn back-btn" id="backBtn"><i class="fas fa-chevron-left"></i></button>
         <button class="top-btn rand-btn" id="topRandBtn"><i class="fas fa-dice"></i></button>
         <button class="top-btn next-btn" id="nextBtn">NEXT <i class="fas fa-chevron-right"></i></button>
@@ -23,6 +23,35 @@
         <canvas id="dragonCanvas" width="1500" height="1500"></canvas>
         <div id="loadingOverlay" class="hidden">
             <div class="loader"></div>
+        </div>
+
+        <!-- Move toggle button — góc phải dưới preview -->
+        <button id="moveToggleBtn" class="move-toggle-btn" title="Move dragon">
+            <i class="fas fa-arrows-up-down-left-right"></i>
+        </button>
+
+        <!-- Move control panel — hiện khi bấm toggle -->
+        <div id="movePanel" class="move-panel hidden">
+            <button class="move-reset-btn" id="moveResetBtn">Reset</button>
+
+            <!-- D-pad -->
+            <div class="dpad">
+                <button class="dpad-btn dpad-up"    id="moveUp">↑</button>
+                <div class="dpad-row">
+                    <button class="dpad-btn dpad-left"  id="moveLeft">←</button>
+                    <div class="dpad-center"></div>
+                    <button class="dpad-btn dpad-right" id="moveRight">→</button>
+                </div>
+                <button class="dpad-btn dpad-down"  id="moveDown">↓</button>
+            </div>
+
+            <!-- Rotate + Scale -->
+            <div class="move-extra-row">
+                <button class="move-extra-btn" id="rotateLeft">↺</button>
+                <button class="move-extra-btn" id="rotateRight">↻</button>
+                <button class="move-extra-btn" id="scaleDown">🔍-</button>
+                <button class="move-extra-btn" id="scaleUp">🔍+</button>
+            </div>
         </div>
     </div>
 
@@ -40,14 +69,14 @@
     </div>
 
     <!-- PANEL AREA -->
-    <div class="panel-area">
+    <div class="panel-area" >
         <div id="panelContent" class="panel-content">
             <!-- Injected dynamically -->
         </div>
     </div>
 
     <!-- BOTTOM TABS -->
-    <nav class="bottom-tabs">
+    <nav class="bottom-tabs" >
         <button class="btab active" data-tab="head">
             <div class="btab-icon">
                 <img src="assets/topbar/head.png" alt="" width="28px" height="28px">

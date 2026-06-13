@@ -214,6 +214,45 @@ function setupButtons() {
     UI.nextBtn.onclick      = downloadPNG;
     UI.backBtn.onclick      = () => history.back();
     UI.addBtn.onclick       = () => {};  // placeholder
+
+    setupMoveControls();
+}
+
+function setupMoveControls() {
+    const STEP    = 60;   // px di chuyển mỗi lần bấm (canvas units)
+    const DEG     = 15;   // độ xoay mỗi lần
+    const SCALE_F = 0.12; // bước scale
+
+    const toggleBtn  = document.getElementById('moveToggleBtn');
+    const movePanel  = document.getElementById('movePanel');
+    const resetBtn   = document.getElementById('moveResetBtn');
+
+    if (!toggleBtn) return;
+
+    // Toggle show/hide
+    toggleBtn.onclick = () => movePanel.classList.toggle('hidden');
+
+    resetBtn.onclick = () => {
+        STATE.transform = { offsetX: 0, offsetY: 0, rotate: 0, scale: 1.0 };
+        updatePreview();
+    };
+
+    document.getElementById('moveUp').onclick    = () => { STATE.transform.offsetY -= STEP; updatePreview(); };
+    document.getElementById('moveDown').onclick  = () => { STATE.transform.offsetY += STEP; updatePreview(); };
+    document.getElementById('moveLeft').onclick  = () => { STATE.transform.offsetX -= STEP; updatePreview(); };
+    document.getElementById('moveRight').onclick = () => { STATE.transform.offsetX += STEP; updatePreview(); };
+
+    document.getElementById('rotateLeft').onclick  = () => { STATE.transform.rotate -= DEG; updatePreview(); };
+    document.getElementById('rotateRight').onclick = () => { STATE.transform.rotate += DEG; updatePreview(); };
+
+    document.getElementById('scaleDown').onclick = () => {
+        STATE.transform.scale = Math.max(0.1, STATE.transform.scale - SCALE_F);
+        updatePreview();
+    };
+    document.getElementById('scaleUp').onclick = () => {
+        STATE.transform.scale = Math.min(5.0, STATE.transform.scale + SCALE_F);
+        updatePreview();
+    };
 }
 
 // ============================================================
@@ -371,10 +410,7 @@ function appendThumbCanvas(cardEl, tc) {
 //  MAIN PREVIEW RENDERING
 // ============================================================
 async function updatePreview() {
-    UI.loading.classList.remove('hidden');
-
     const drawOrder = getDrawOrder();
-    UI.ctx.clearRect(0, 0, UI.canvas.width, UI.canvas.height);
 
     const layers = await Promise.all(
         drawOrder.map(async (l) => ({
@@ -384,7 +420,7 @@ async function updatePreview() {
     );
 
     const reference = layers.find(l => l.img);
-    if (!reference) { UI.loading.classList.add('hidden'); return; }
+    if (!reference) { return; }
 
     const assetW = reference.img.width;
     const assetH = reference.img.height;
@@ -396,6 +432,9 @@ async function updatePreview() {
     const centerX = UI.canvas.width  / 2 + STATE.transform.offsetX;
     const centerY = UI.canvas.height / 2 + STATE.transform.offsetY;
 
+    // Xóa canvas ngay trước khi vẽ để tránh bị nháy
+    UI.ctx.clearRect(0, 0, UI.canvas.width, UI.canvas.height);
+
     UI.ctx.save();
     UI.ctx.translate(centerX, centerY);
     UI.ctx.rotate(STATE.transform.rotate * Math.PI / 180);
@@ -404,8 +443,6 @@ async function updatePreview() {
     UI.ctx.translate(-assetW / 2, -assetH / 2);
     layers.forEach(l => { if (l.img) UI.ctx.drawImage(l.img, 0, 0); });
     UI.ctx.restore();
-
-    UI.loading.classList.add('hidden');
 }
 
 function getDrawOrder() {
@@ -598,23 +635,19 @@ function recolorImage(img, color) {
     const c = document.createElement('canvas');
     c.width = img.width; c.height = img.height;
     const ctx = c.getContext('2d');
+    
+    // Đổ màu nền
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, c.width, c.height);
+
+    // Blend multiply ảnh gốc đè lên (để giữ khối và shading)
+    ctx.globalCompositeOperation = 'multiply';
     ctx.drawImage(img, 0, 0);
 
-    const data = ctx.getImageData(0, 0, c.width, c.height);
-    const d = data.data;
-    const r = parseInt(color.slice(1,3), 16);
-    const g = parseInt(color.slice(3,5), 16);
-    const b = parseInt(color.slice(5,7), 16);
-
-    for (let i = 0; i < d.length; i += 4) {
-        if (d[i+3] > 10) {
-            // Multiply blend: preserve shading
-            d[i]   = Math.round(d[i]   / 255 * r);
-            d[i+1] = Math.round(d[i+1] / 255 * g);
-            d[i+2] = Math.round(d[i+2] / 255 * b);
-        }
-    }
-    ctx.putImageData(data, 0, 0);
+    // Giữ lại phần alpha của ảnh gốc (xóa các vùng trong suốt)
+    ctx.globalCompositeOperation = 'destination-in';
+    ctx.drawImage(img, 0, 0);
+    
     return c;
 }
 
