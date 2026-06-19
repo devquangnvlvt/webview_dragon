@@ -2,6 +2,9 @@
 //  Dragon Builder — Game-style UI
 // ============================================================
 
+const SHOULD_AUTO_RANDOM_ALL =
+    new URLSearchParams(window.location.search).get('autoRandom') === 'all';
+
 const CONFIG = {
     BASE_URL: "assets/",
     CANVAS_SIZE: 1500,
@@ -11,90 +14,90 @@ const CONFIG = {
     // colorId: null means no color picker for that trait
     TAB_ROWS: {
         head: [
-            { partId: 'eyeStyle',      colorId: 'eyeColor',     label: 'Eyes' },
-            { partId: 'browStyle',     colorId: 'browColor',    label: 'Brows' },
-            { partId: 'snoutStyle',    colorId: 'baseColor',    label: 'Snout Shape' },
-            { partId: 'maneStyle',     colorId: 'maneColor',    label: 'Mane' },
-            { partId: 'hornStyle',     colorId: 'boneColor',    label: 'Horns' },
-            { partId: 'earStyle',      colorId: 'fleshColor',   label: 'Ears' },
-            { partId: 'fangStyle',     colorId: 'boneColor',    label: 'Fangs' },
-            { partId: 'jawdecStyle',   colorId: 'jawdecColor',  label: 'Jaw Decor' },
-            { partId: 'whiskerStyle',  colorId: 'whiskerColor', label: 'Whiskers' },
-            { partId: 'headtopStyle',  colorId: 'headtopColor', label: 'Head Top' },
-            { partId: 'headacc',       colorId: null,           label: 'Head Accessory' },
-            { partId: 'breath',        colorId: 'breathColor',  label: 'Breath' },
+            { partId: 'eyeStyle', colorId: 'eyeColor', label: 'Eyes' },
+            { partId: 'browStyle', colorId: 'browColor', label: 'Brows' },
+            { partId: 'snoutStyle', colorId: 'baseColor', label: 'Snout Shape' },
+            { partId: 'maneStyle', colorId: 'maneColor', label: 'Mane' },
+            { partId: 'hornStyle', colorId: 'boneColor', label: 'Horns' },
+            { partId: 'earStyle', colorId: 'fleshColor', label: 'Ears' },
+            { partId: 'fangStyle', colorId: 'boneColor', label: 'Fangs' },
+            { partId: 'jawdecStyle', colorId: 'jawdecColor', label: 'Jaw Decor' },
+            { partId: 'whiskerStyle', colorId: 'whiskerColor', label: 'Whiskers' },
+            { partId: 'headtopStyle', colorId: 'headtopColor', label: 'Head Top' },
+            { partId: 'headacc', colorId: null, label: 'Head Accessory' },
+            { partId: 'breath', colorId: 'breathColor', label: 'Breath' },
         ],
         torso: [
-            { partId: 'bellyStyle',    colorId: 'bellyColor',   label: 'Belly' },
-            { partId: 'spinedecStyle', colorId: 'spinedecColor',label: 'Spine Decor' },
-            { partId: 'marking1Style', colorId: 'marking1Color',label: 'Marking 1' },
-            { partId: 'marking2Style', colorId: 'marking2Color',label: 'Marking 2' },
-            { partId: 'marking3Style', colorId: 'marking3Color',label: 'Marking 3' },
-            { partId: 'torsoacc',      colorId: null,           label: 'Torso Accessory' },
-            { partId: 'neckacc',       colorId: null,           label: 'Neck Accessory' },
+            { partId: 'bellyStyle', colorId: 'bellyColor', label: 'Belly' },
+            { partId: 'spinedecStyle', colorId: 'spinedecColor', label: 'Spine Decor' },
+            { partId: 'marking1Style', colorId: 'marking1Color', label: 'Marking 1' },
+            { partId: 'marking2Style', colorId: 'marking2Color', label: 'Marking 2' },
+            { partId: 'marking3Style', colorId: 'marking3Color', label: 'Marking 3' },
+            { partId: 'torsoacc', colorId: null, label: 'Torso Accessory' },
+            { partId: 'neckacc', colorId: null, label: 'Neck Accessory' },
         ],
         legs: [
-            { partId: 'forelegStyleSelect',  colorId: 'baseColor',          label: 'Forelegs' },
-            { partId: 'hindlegStyleSelect',  colorId: 'baseColor',          label: 'Hindlegs' },
+            { partId: 'forelegStyleSelect', colorId: 'baseColor', label: 'Forelegs' },
+            { partId: 'hindlegStyleSelect', colorId: 'baseColor', label: 'Hindlegs' },
             { partId: 'forelegmarkingStyle', colorId: 'forelegmarkingColor', label: 'Foreleg Marking' },
             { partId: 'hindlegmarkingStyle', colorId: 'hindlegmarkingColor', label: 'Hindleg Marking' },
         ],
         wings: [
-            { partId: 'wingStyle',              colorId: 'wingColor',              label: 'Wings' },
-            { partId: 'wingmarkingdorsalStyle',  colorId: 'wingmarkingdorsalColor', label: 'Wing Marking (Dorsal)' },
-            { partId: 'wingmarkingventralStyle', colorId: 'wingmarkingventralColor',label: 'Wing Marking (Ventral)' },
+            { partId: 'wingStyle', colorId: 'wingColor', label: 'Wings' },
+            { partId: 'wingmarkingdorsalStyle', colorId: 'wingmarkingdorsalColor', label: 'Wing Marking (Dorsal)' },
+            { partId: 'wingmarkingventralStyle', colorId: 'wingmarkingventralColor', label: 'Wing Marking (Ventral)' },
         ],
         tail: [
-            { partId: 'taildecStyle',    colorId: 'taildecColor',   label: 'Tail Decor 1' },
-            { partId: 'taildecStyle2',   colorId: 'taildecColor2',  label: 'Tail Decor 2' },
-            { partId: 'tailmarkingStyle',colorId: 'tailmarkingColor',label: 'Tail Marking 1' },
-            { partId: 'tailmarking2Style',colorId:'tailmarking2Color',label: 'Tail Marking 2' },
-            { partId: 'tailacc',         colorId: null,             label: 'Tail Accessory' },
+            { partId: 'taildecStyle', colorId: 'taildecColor', label: 'Tail Decor 1' },
+            { partId: 'taildecStyle2', colorId: 'taildecColor2', label: 'Tail Decor 2' },
+            { partId: 'tailmarkingStyle', colorId: 'tailmarkingColor', label: 'Tail Marking 1' },
+            { partId: 'tailmarking2Style', colorId: 'tailmarking2Color', label: 'Tail Marking 2' },
+            { partId: 'tailacc', colorId: null, label: 'Tail Accessory' },
         ],
     },
 
     // Keep for backward compat with getDrawOrder
     TAB_MAPPING: {
-        head:  ['eyeStyle','browStyle','snoutStyle','maneStyle','hornStyle','earStyle','fangStyle','jawdecStyle','whiskerStyle','headtopStyle','headacc','breath'],
-        torso: ['bellyStyle','spinedecStyle','marking1Style','marking2Style','marking3Style','torsoacc','neckacc'],
-        legs:  ['forelegStyleSelect','hindlegStyleSelect','forelegmarkingStyle','hindlegmarkingStyle'],
-        wings: ['wingStyle','wingmarkingdorsalStyle','wingmarkingventralStyle'],
-        tail:  ['taildecStyle','taildecStyle2','tailmarkingStyle','tailmarking2Style','tailacc']
+        head: ['eyeStyle', 'browStyle', 'snoutStyle', 'maneStyle', 'hornStyle', 'earStyle', 'fangStyle', 'jawdecStyle', 'whiskerStyle', 'headtopStyle', 'headacc', 'breath'],
+        torso: ['bellyStyle', 'spinedecStyle', 'marking1Style', 'marking2Style', 'marking3Style', 'torsoacc', 'neckacc'],
+        legs: ['forelegStyleSelect', 'hindlegStyleSelect', 'forelegmarkingStyle', 'hindlegmarkingStyle'],
+        wings: ['wingStyle', 'wingmarkingdorsalStyle', 'wingmarkingventralStyle'],
+        tail: ['taildecStyle', 'taildecStyle2', 'tailmarkingStyle', 'tailmarking2Style', 'tailacc']
     },
 
     // Thumbnail: color layer so cards show colored previews
     THUMB_PATH: {
-        eyeStyle:               (v) => v === 'none' ? null : `head/eyes/eyes_${v}_color.png`,
-        browStyle:              (v) => v === 'none' ? null : `head/brows/brow_${v}_color.png`,
-        snoutStyle:             (v) => v === 'none' ? null : `head/snouts/snout_${v}_color.png`,
-        maneStyle:              (v) => v === 'none' ? null : `head/manes/mane_${v}_color.png`,
-        hornStyle:              (v) => v === 'none' ? null : `head/horns/horn_${v}_front_color.png`,
-        earStyle:               (v) => v === 'none' ? null : `head/ears/ear_${v}_front_base.png`,
-        fangStyle:              (v) => v === 'none' ? null : `head/fangs/fang_${v}_lines.png`,
-        jawdecStyle:            (v) => v === 'none' ? null : `head/jawdecor/jawdec_${v}_color.png`,
-        whiskerStyle:           (v) => v === 'none' ? null : `head/whiskers/whisker_front_${v}.png`,
-        headtopStyle:           (v) => v === 'none' ? null : `head/headtop/headtop_${v}_color.png`,
-        headacc:                (v) => v === 'none' ? null : `accessories/acc_head/${v}.png`,
-        breath:                 (v) => v === 'none' ? null : `breath/breath_${v}.png`,
-        bellyStyle:             (v) => v === 'none' ? null : `torso/belly/belly_${v}_color.png`,
-        spinedecStyle:          (v) => v === 'none' ? null : `torso/spinedecor/spinedec_${v}_color.png`,
-        marking1Style:          (v) => v === 'none' ? null : `torso/markings/marking_${v}.png`,
-        marking2Style:          (v) => v === 'none' ? null : `torso/markings/marking_${v}.png`,
-        marking3Style:          (v) => v === 'none' ? null : `torso/markings/marking_${v}.png`,
-        torsoacc:               (v) => v === 'none' ? null : `accessories/acc_torso/${v}.png`,
-        neckacc:                (v) => v === 'none' ? null : `accessories/acc_neck/${v}.png`,
-        forelegStyleSelect:     (v) => v === 'none' ? null : `legs/forelegs/foreleg_front_${v}_base.png`,
-        hindlegStyleSelect:     (v) => v === 'none' ? null : `legs/hindlegs/hindleg_front_${v}_base.png`,
-        forelegmarkingStyle:    (v) => v === 'none' ? null : `legs/markings_foreleg/marking_01_front_${v}.png`,
-        hindlegmarkingStyle:    (v) => v === 'none' ? null : `legs/markings_hindleg/marking_01_front_${v}.png`,
-        wingStyle:              (v) => v === 'none' ? null : `wings/wings/wing_${v}_front_base.png`,
+        eyeStyle: (v) => v === 'none' ? null : `head/eyes/eyes_${v}_color.png`,
+        browStyle: (v) => v === 'none' ? null : `head/brows/brow_${v}_color.png`,
+        snoutStyle: (v) => v === 'none' ? null : `head/snouts/snout_${v}_color.png`,
+        maneStyle: (v) => v === 'none' ? null : `head/manes/mane_${v}_color.png`,
+        hornStyle: (v) => v === 'none' ? null : `head/horns/horn_${v}_front_color.png`,
+        earStyle: (v) => v === 'none' ? null : `head/ears/ear_${v}_front_base.png`,
+        fangStyle: (v) => v === 'none' ? null : `head/fangs/fang_${v}_lines.png`,
+        jawdecStyle: (v) => v === 'none' ? null : `head/jawdecor/jawdec_${v}_color.png`,
+        whiskerStyle: (v) => v === 'none' ? null : `head/whiskers/whisker_front_${v}.png`,
+        headtopStyle: (v) => v === 'none' ? null : `head/headtop/headtop_${v}_color.png`,
+        headacc: (v) => v === 'none' ? null : `accessories/acc_head/${v}.png`,
+        breath: (v) => v === 'none' ? null : `breath/breath_${v}.png`,
+        bellyStyle: (v) => v === 'none' ? null : `torso/belly/belly_${v}_color.png`,
+        spinedecStyle: (v) => v === 'none' ? null : `torso/spinedecor/spinedec_${v}_color.png`,
+        marking1Style: (v) => v === 'none' ? null : `torso/markings/marking_${v}.png`,
+        marking2Style: (v) => v === 'none' ? null : `torso/markings/marking_${v}.png`,
+        marking3Style: (v) => v === 'none' ? null : `torso/markings/marking_${v}.png`,
+        torsoacc: (v) => v === 'none' ? null : `accessories/acc_torso/${v}.png`,
+        neckacc: (v) => v === 'none' ? null : `accessories/acc_neck/${v}.png`,
+        forelegStyleSelect: (v) => v === 'none' ? null : `legs/forelegs/foreleg_front_${v}_base.png`,
+        hindlegStyleSelect: (v) => v === 'none' ? null : `legs/hindlegs/hindleg_front_${v}_base.png`,
+        forelegmarkingStyle: (v) => v === 'none' ? null : `legs/markings_foreleg/marking_01_front_${v}.png`,
+        hindlegmarkingStyle: (v) => v === 'none' ? null : `legs/markings_hindleg/marking_01_front_${v}.png`,
+        wingStyle: (v) => v === 'none' ? null : `wings/wings/wing_${v}_front_base.png`,
         wingmarkingdorsalStyle: (v) => v === 'none' ? null : `wings/markings_wing/wingmarking_dorsal_${v}.png`,
-        wingmarkingventralStyle:(v) => v === 'none' ? null : `wings/markings_wing/wingmarking_ventral_${v}.png`,
-        taildecStyle:           (v) => v === 'none' ? null : `tail/decor/tail_${v}_color.png`,
-        taildecStyle2:          (v) => v === 'none' ? null : `tail/decor/tail_${v}_color.png`,
-        tailmarkingStyle:       (v) => v === 'none' ? null : `tail/markings_tail/tailmarking_${v}.png`,
-        tailmarking2Style:      (v) => v === 'none' ? null : `tail/markings_tail/tailmarking_${v}.png`,
-        tailacc:                (v) => v === 'none' ? null : `accessories/acc_tail/${v}.png`,
+        wingmarkingventralStyle: (v) => v === 'none' ? null : `wings/markings_wing/wingmarking_ventral_${v}.png`,
+        taildecStyle: (v) => v === 'none' ? null : `tail/decor/tail_${v}_color.png`,
+        taildecStyle2: (v) => v === 'none' ? null : `tail/decor/tail_${v}_color.png`,
+        tailmarkingStyle: (v) => v === 'none' ? null : `tail/markings_tail/tailmarking_${v}.png`,
+        tailmarking2Style: (v) => v === 'none' ? null : `tail/markings_tail/tailmarking_${v}.png`,
+        tailacc: (v) => v === 'none' ? null : `accessories/acc_tail/${v}.png`,
     }
 };
 
@@ -104,34 +107,30 @@ const STATE = {
     activeTab: 'head',
     imageBuffer: {},
     layers: {},
-    thumbBuffer: {},
+    thumbBuffer: {},  // cache for thumbnail canvases
 
     // URL overrides từ Kotlin/API
-    urlOverrides: {},
-
-    // Transform: di chuyển, xoay, scale rồng trên canvas
-    transform: {
-        offsetX: 0,     // px offset từ center (canvas units)
-        offsetY: 0,
-        rotate: 0,      // degrees
-        scale: 1.0      // multiplier (1.0 = default fit)
-    }
+    // key = partId, value = URL string
+    // Khi có override, getDrawOrder sẽ dùng URL này thay vì path local
+    urlOverrides: {}
 };
 
 // ---- DOM refs ----
 const UI = {
-    canvas:       document.getElementById('dragonCanvas'),
-    ctx:          document.getElementById('dragonCanvas').getContext('2d'),
+    canvas: document.getElementById('dragonCanvas'),
+    ctx: document.getElementById('dragonCanvas').getContext('2d'),
     panelContent: document.getElementById('panelContent'),
-    tabs:         document.querySelectorAll('.btab'),
-    loading:      document.getElementById('loadingOverlay'),
+    tabs: document.querySelectorAll('.btab'),
+    loading: document.getElementById('loadingOverlay'),
     randomTraits: document.getElementById('randomTraitsBtn'),
-    randomColor:  document.getElementById('randomColorBtn'),
-    topRand:      document.getElementById('topRandBtn'),
-    nextBtn:      document.getElementById('nextBtn'),
-    backBtn:      document.getElementById('backBtn'),
-    addBtn:       document.getElementById('addBtn'),
+    randomColor: document.getElementById('randomColorBtn'),
+    topRand: document.getElementById('topRandBtn'),
+    nextBtn: document.getElementById('nextBtn'),
+    backBtn: document.getElementById('backBtn'),
+    addBtn: document.getElementById('addBtn'),
 };
+
+let previewRenderVersion = 0;
 
 // ============================================================
 //  XHR fallback cho Android WebView (fetch bị block bởi CORS)
@@ -173,6 +172,12 @@ async function init() {
         }
         STATE.data = data;
         setupDefaultSelections();
+
+        if (SHOULD_AUTO_RANDOM_ALL) {
+            randomizeTraitsStateOnly();
+            randomizeColorsStateOnly();
+        }
+
         setupTabs();
         setupButtons();
         renderPanel();
@@ -190,9 +195,9 @@ function setupDefaultSelections() {
         STATE.selections[ci.id] = { color: ci.value || '#FFFFFF' };
     });
     // Nice defaults
-    STATE.selections['baseColor'].color  = '#FFDB8F';
-    STATE.selections['eyeColor'].color   = '#FFFFFF';
-    STATE.selections['boneColor'].color  = '#8F9E67';
+    STATE.selections['baseColor'].color = '#FFDB8F';
+    STATE.selections['eyeColor'].color = '#FFFFFF';
+    STATE.selections['boneColor'].color = '#8F9E67';
     STATE.selections['wingColor'] = STATE.selections['wingColor'] || { color: '#AACCFF' };
 }
 
@@ -209,50 +214,11 @@ function setupTabs() {
 
 function setupButtons() {
     UI.randomTraits.onclick = randomizeTraits;
-    UI.randomColor.onclick  = randomizeColors;
-    UI.topRand.onclick      = randomizeAll;
-    UI.nextBtn.onclick      = downloadPNG;
-    UI.backBtn.onclick      = () => history.back();
-    UI.addBtn.onclick       = () => {};  // placeholder
-
-    setupMoveControls();
-}
-
-function setupMoveControls() {
-    const STEP    = 60;   // px di chuyển mỗi lần bấm (canvas units)
-    const DEG     = 15;   // độ xoay mỗi lần
-    const SCALE_F = 0.12; // bước scale
-
-    const toggleBtn  = document.getElementById('moveToggleBtn');
-    const movePanel  = document.getElementById('movePanel');
-    const resetBtn   = document.getElementById('moveResetBtn');
-
-    if (!toggleBtn) return;
-
-    // Toggle show/hide
-    toggleBtn.onclick = () => movePanel.classList.toggle('hidden');
-
-    resetBtn.onclick = () => {
-        STATE.transform = { offsetX: 0, offsetY: 0, rotate: 0, scale: 1.0 };
-        updatePreview();
-    };
-
-    document.getElementById('moveUp').onclick    = () => { STATE.transform.offsetY -= STEP; updatePreview(); };
-    document.getElementById('moveDown').onclick  = () => { STATE.transform.offsetY += STEP; updatePreview(); };
-    document.getElementById('moveLeft').onclick  = () => { STATE.transform.offsetX -= STEP; updatePreview(); };
-    document.getElementById('moveRight').onclick = () => { STATE.transform.offsetX += STEP; updatePreview(); };
-
-    document.getElementById('rotateLeft').onclick  = () => { STATE.transform.rotate -= DEG; updatePreview(); };
-    document.getElementById('rotateRight').onclick = () => { STATE.transform.rotate += DEG; updatePreview(); };
-
-    document.getElementById('scaleDown').onclick = () => {
-        STATE.transform.scale = Math.max(0.1, STATE.transform.scale - SCALE_F);
-        updatePreview();
-    };
-    document.getElementById('scaleUp').onclick = () => {
-        STATE.transform.scale = Math.min(5.0, STATE.transform.scale + SCALE_F);
-        updatePreview();
-    };
+    UI.randomColor.onclick = randomizeColors;
+    UI.topRand.onclick = randomizeAll;
+    UI.nextBtn.onclick = downloadPNG;
+    UI.backBtn.onclick = () => history.back();
+    UI.addBtn.onclick = () => { };  // placeholder
 }
 
 // ============================================================
@@ -269,6 +235,7 @@ function renderPanel() {
 
         const section = document.createElement('div');
         section.className = 'trait-section';
+        section.dataset.partId = partId;
 
         // Label
         const lbl = document.createElement('div');
@@ -296,6 +263,85 @@ function renderPanel() {
     });
 }
 
+function centerSelectedThumbsInCurrentTab() {
+    requestAnimationFrame(() => {
+        UI.panelContent.querySelectorAll('.thumb-strip').forEach(strip => {
+            const selected = strip.querySelector('.thumb-card.selected');
+            if (!selected) return;
+            selected.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+            });
+        });
+    });
+}
+
+function getEditablePartIds() {
+    return [...new Set(Object.values(CONFIG.TAB_ROWS)
+        .flat()
+        .map(row => row.partId)
+        .filter(Boolean))];
+}
+
+function getEditableColorIds() {
+    return [...new Set(Object.values(CONFIG.TAB_ROWS)
+        .flat()
+        .map(row => row.colorId)
+        .filter(Boolean))];
+}
+
+const LEG_MARKING_REQUIREMENTS = {
+    forelegmarkingStyle: 'forelegStyleSelect',
+    hindlegmarkingStyle: 'hindlegStyleSelect'
+};
+
+function normalizeLegMarkings() {
+    Object.entries(LEG_MARKING_REQUIREMENTS).forEach(([markingId, legId]) => {
+        const legStyle = STATE.selections[legId]?.style;
+        if (!legStyle || legStyle === 'none') {
+            if (STATE.selections[markingId]) {
+                STATE.selections[markingId].style = 'none';
+            }
+        }
+    });
+}
+
+function serializeEditableSelections() {
+    const editableState = {};
+
+    getEditablePartIds().forEach(partId => {
+        const sel = STATE.selections[partId];
+        if (sel?.style != null) {
+            editableState[partId] = { style: sel.style };
+        }
+    });
+
+    getEditableColorIds().forEach(colorId => {
+        const sel = STATE.selections[colorId];
+        if (sel?.color != null) {
+            editableState[colorId] = { color: sel.color };
+        }
+    });
+
+    return JSON.stringify(editableState);
+}
+
+function notifySelectedTraits() {
+    if (!window.AndroidBridge || typeof window.AndroidBridge.onEvent !== 'function') return;
+
+    const styles = {};
+    getEditablePartIds().forEach(partId => {
+        const style = STATE.selections[partId]?.style;
+        if (style != null) styles[partId] = style;
+    });
+
+    AndroidBridge.onEvent(JSON.stringify({
+        type: 'TRAITS_SELECTED',
+        styles
+    }));
+}
+
 // ---- Color wheel button ----
 function buildColorWheel(colorId, currentColor) {
     const wrap = document.createElement('div');
@@ -315,7 +361,12 @@ function buildColorWheel(colorId, currentColor) {
     picker.oninput = (e) => {
         STATE.selections[colorId].color = e.target.value;
         dot.style.background = e.target.value;
-        STATE.layers = {};
+        // Clean up cache only for this colorId
+        Object.keys(STATE.layers).forEach(k => {
+            if (k.includes(`_${colorId}_`)) {
+                delete STATE.layers[k];
+            }
+        });
         updatePreview();
     };
 
@@ -409,40 +460,64 @@ function appendThumbCanvas(cardEl, tc) {
 // ============================================================
 //  MAIN PREVIEW RENDERING
 // ============================================================
+function notifyRenderComplete() {
+    if (!window.AndroidBridge || typeof window.AndroidBridge.onEvent !== 'function') return;
+    try {
+        window.AndroidBridge.onEvent(JSON.stringify({ type: 'RENDER_COMPLETE' }));
+    } catch (e) {
+        console.warn('[render] notifyRenderComplete failed:', e);
+    }
+}
+
+function waitForCanvasPaint() {
+    return new Promise(resolve => {
+        requestAnimationFrame(() => requestAnimationFrame(resolve));
+    });
+}
+
 async function updatePreview() {
+    const renderVersion = ++previewRenderVersion;
+    UI.loading.classList.remove('hidden');
+
     const drawOrder = getDrawOrder();
 
     const layers = await Promise.all(
         drawOrder.map(async (l) => ({
-            img: await getLayerImage(l.path, l.color),
+            img: await getLayerImage(l.path, l.color, l.colorKey),
             path: l.path
         }))
     );
 
+    // A newer state is already rendering, so this result must not close native loading.
+    if (renderVersion !== previewRenderVersion) return;
+
     const reference = layers.find(l => l.img);
-    if (!reference) { return; }
+    if (!reference) {
+        await waitForCanvasPaint();
+        if (renderVersion !== previewRenderVersion) return;
+        UI.loading.classList.add('hidden');
+        notifyRenderComplete();
+        return;
+    }
 
     const assetW = reference.img.width;
     const assetH = reference.img.height;
-    const targetDim = UI.canvas.width * 0.78;
-    const fitScale = Math.min(targetDim / assetW, targetDim / assetH);
+    const targetDim = UI.canvas.width * 1;
+    const scale = Math.min(targetDim / assetW, targetDim / assetH);
+    const offsetW = (UI.canvas.width - assetW * scale) / 2;
+    const offsetH = (UI.canvas.height - assetH * scale) / 2;
 
-    // Apply user transform on top of auto-fit
-    const finalScale = fitScale * STATE.transform.scale;
-    const centerX = UI.canvas.width  / 2 + STATE.transform.offsetX;
-    const centerY = UI.canvas.height / 2 + STATE.transform.offsetY;
-
-    // Xóa canvas ngay trước khi vẽ để tránh bị nháy
     UI.ctx.clearRect(0, 0, UI.canvas.width, UI.canvas.height);
-
     UI.ctx.save();
-    UI.ctx.translate(centerX, centerY);
-    UI.ctx.rotate(STATE.transform.rotate * Math.PI / 180);
-    UI.ctx.scale(finalScale, finalScale);
-    // Draw centered on origin
-    UI.ctx.translate(-assetW / 2, -assetH / 2);
+    UI.ctx.translate(offsetW, offsetH);
+    UI.ctx.scale(scale, scale);
     layers.forEach(l => { if (l.img) UI.ctx.drawImage(l.img, 0, 0); });
     UI.ctx.restore();
+
+    await waitForCanvasPaint();
+    if (renderVersion !== previewRenderVersion) return;
+    UI.loading.classList.add('hidden');
+    notifyRenderComplete();
 }
 
 function getDrawOrder() {
@@ -451,7 +526,11 @@ function getDrawOrder() {
 
     const add = (path, colorKey) => {
         if (!path || path.includes('none') || path.includes('undefined')) return;
-        order.push({ path: CONFIG.BASE_URL + path, color: s[colorKey]?.color || null });
+        order.push({
+            path: CONFIG.BASE_URL + path,
+            color: s[colorKey]?.color || null,
+            colorKey: colorKey || null
+        });
     };
 
     // add với URL override — nếu partId có override thì dùng URL đó
@@ -459,51 +538,55 @@ function getDrawOrder() {
         const overrideUrl = STATE.urlOverrides[partId];
         if (overrideUrl) {
             // URL từ API — dùng trực tiếp, không prefix BASE_URL
-            order.push({ path: overrideUrl, color: s[colorKey]?.color || null });
+            order.push({
+                path: overrideUrl,
+                color: s[colorKey]?.color || null,
+                colorKey: colorKey || null
+            });
         } else {
             add(path, colorKey);
         }
     };
 
-    const hl  = s.hindlegStyleSelect?.style;
-    const fl  = s.forelegStyleSelect?.style;
-    const w   = s.wingStyle?.style;
-    const sn  = s.snoutStyle?.style;
+    const hl = s.hindlegStyleSelect?.style;
+    const fl = s.forelegStyleSelect?.style;
+    const w = s.wingStyle?.style;
+    const sn = s.snoutStyle?.style;
     const eye = s.eyeStyle?.style;
-    const brow= s.browStyle?.style;
-    const mane= s.maneStyle?.style;
-    const horn= s.hornStyle?.style;
+    const brow = s.browStyle?.style;
+    const mane = s.maneStyle?.style;
+    const horn = s.hornStyle?.style;
     const ear = s.earStyle?.style;
-    const fang= s.fangStyle?.style;
+    const fang = s.fangStyle?.style;
     const jaw = s.jawdecStyle?.style;
     const whisker = s.whiskerStyle?.style;
-    const belly   = s.bellyStyle?.style;
-    const spine   = s.spinedecStyle?.style;
+    const belly = s.bellyStyle?.style;
+    const spine = s.spinedecStyle?.style;
 
     if (hl && hl !== 'none') {
-        add(`legs/hindlegs/hindleg_rear_${hl}_base.png`,  'baseColor');
+        add(`legs/hindlegs/hindleg_rear_${hl}_base.png`, 'baseColor');
         add(`legs/markings_hindleg/marking_${hl}_rear_${s.hindlegmarkingStyle?.style}.png`, 'hindlegmarkingColor');
-        add(`legs/hindlegs/hindleg_rear_${hl}_bone.png`,  'boneColor');
+        add(`legs/hindlegs/hindleg_rear_${hl}_bone.png`, 'boneColor');
         add(`legs/hindlegs/hindleg_rear_${hl}_flesh.png`, 'fleshColor');
         add(`legs/hindlegs/hindleg_rear_${hl}_lines.png`, null);
     }
     if (fl && fl !== 'none') {
-        add(`legs/forelegs/foreleg_rear_${fl}_base.png`,  'baseColor');
-        add(`legs/forelegs/foreleg_rear_${fl}_bone.png`,  'boneColor');
+        add(`legs/forelegs/foreleg_rear_${fl}_base.png`, 'baseColor');
+        add(`legs/forelegs/foreleg_rear_${fl}_bone.png`, 'boneColor');
         add(`legs/forelegs/foreleg_rear_${fl}_flesh.png`, 'fleshColor');
         add(`legs/forelegs/foreleg_rear_${fl}_lines.png`, null);
     }
     if (w && w !== 'none') {
-        add(`wings/wings/wing_${w}_rear_base.png`,  'baseColor');
+        add(`wings/wings/wing_${w}_rear_base.png`, 'baseColor');
         add(`wings/wings/wing_${w}_rear_color.png`, 'wingColor');
-        add(`wings/wings/wing_${w}_rear_bone.png`,  'boneColor');
+        add(`wings/wings/wing_${w}_rear_bone.png`, 'boneColor');
         add(`wings/wings/wing_${w}_rear_lines.png`, null);
     }
     add(`torso/base/newbase_c1.png`, 'baseColor');
     add(`torso/markings/marking_${s.marking1Style?.style}.png`, 'marking1Color');
     add(`torso/markings/marking_${s.marking2Style?.style}.png`, 'marking2Color');
     add(`torso/markings/marking_${s.marking3Style?.style}.png`, 'marking3Color');
-    add(`tail/markings_tail/tailmarking_${s.tailmarkingStyle?.style}.png`,  'tailmarkingColor');
+    add(`tail/markings_tail/tailmarking_${s.tailmarkingStyle?.style}.png`, 'tailmarkingColor');
     add(`tail/markings_tail/tailmarking_${s.tailmarking2Style?.style}.png`, 'tailmarking2Color');
     add(`torso/base/baselineart.png`, null);
     add(`torso/belly/belly_${belly}_color.png`, 'bellyColor');
@@ -514,7 +597,7 @@ function getDrawOrder() {
         add(`head/snouts/snout_${sn}_lines.png`, null);
     }
     add(`head/mouth/mouth_neutral_flesh.png`, 'fleshColor');
-    add(`head/mouth/mouth_neutral_bone.png`,  'boneColor');
+    add(`head/mouth/mouth_neutral_bone.png`, 'boneColor');
     add(`head/mouth/mouth_neutral_lines.png`, null);
     add(`head/eyes/eyes_${eye}_color.png`, 'eyeColor');
     add(`head/eyes/eyes_${eye}_lines.png`, null);
@@ -532,21 +615,21 @@ function getDrawOrder() {
     }
     add(`accessories/acc_tail/${s.tailacc?.style}.png`, null);
     if (hl && hl !== 'none') {
-        add(`legs/hindlegs/hindleg_front_${hl}_base.png`,  'baseColor');
+        add(`legs/hindlegs/hindleg_front_${hl}_base.png`, 'baseColor');
         add(`legs/markings_hindleg/marking_${hl}_front_${s.hindlegmarkingStyle?.style}.png`, 'hindlegmarkingColor');
-        add(`legs/hindlegs/hindleg_front_${hl}_bone.png`,  'boneColor');
+        add(`legs/hindlegs/hindleg_front_${hl}_bone.png`, 'boneColor');
         add(`legs/hindlegs/hindleg_front_${hl}_flesh.png`, 'fleshColor');
         add(`legs/hindlegs/hindleg_front_${hl}_lines.png`, null);
     }
     add(`accessories/acc_torso/${s.torsoacc?.style}.png`, null);
     if (w && w !== 'none') {
-        add(`wings/wings/wing_${w}_front_base.png`,  'baseColor');
+        add(`wings/wings/wing_${w}_front_base.png`, 'baseColor');
         add(`wings/wings/wing_${w}_front_color.png`, 'wingColor');
-        add(`wings/wings/wing_${w}_front_bone.png`,  'boneColor');
+        add(`wings/wings/wing_${w}_front_bone.png`, 'boneColor');
         add(`wings/wings/wing_${w}_front_lines.png`, null);
     }
     if (ear && ear !== 'none') {
-        add(`head/ears/ear_${ear}_front_base.png`,  'baseColor');
+        add(`head/ears/ear_${ear}_front_base.png`, 'baseColor');
         add(`head/ears/ear_${ear}_front_flesh.png`, 'fleshColor');
         add(`head/ears/ear_${ear}_front_lines.png`, null);
     }
@@ -574,9 +657,9 @@ function getDrawOrder() {
         add(`tail/decor/tail_${td2}_lines.png`, null);
     }
     if (fl && fl !== 'none') {
-        add(`legs/forelegs/foreleg_front_${fl}_base.png`,  'baseColor');
+        add(`legs/forelegs/foreleg_front_${fl}_base.png`, 'baseColor');
         add(`legs/markings_foreleg/marking_${fl}_front_${s.forelegmarkingStyle?.style}.png`, 'forelegmarkingColor');
-        add(`legs/forelegs/foreleg_front_${fl}_bone.png`,  'boneColor');
+        add(`legs/forelegs/foreleg_front_${fl}_bone.png`, 'boneColor');
         add(`legs/forelegs/foreleg_front_${fl}_flesh.png`, 'fleshColor');
         add(`legs/forelegs/foreleg_front_${fl}_lines.png`, null);
     }
@@ -596,8 +679,8 @@ function getDrawOrder() {
 // ============================================================
 //  IMAGE HELPERS
 // ============================================================
-async function getLayerImage(path, color) {
-    const key = `${path}_${color || 'none'}`;
+async function getLayerImage(path, color, colorKey) {
+    const key = `${path}_${colorKey || 'none'}_${color || 'none'}`;
     if (STATE.layers[key]) return STATE.layers[key];
 
     const img = await loadImage(path);
@@ -622,7 +705,7 @@ function loadImage(src) {
         if (src.startsWith('http://') || src.startsWith('https://')) {
             img.crossOrigin = 'anonymous';
         }
-        img.onload  = () => { STATE.imageBuffer[src] = img; resolve(img); };
+        img.onload = () => { STATE.imageBuffer[src] = img; resolve(img); };
         img.onerror = () => {
             console.warn('[loadImage] Failed:', src);
             resolve(null);
@@ -635,47 +718,75 @@ function recolorImage(img, color) {
     const c = document.createElement('canvas');
     c.width = img.width; c.height = img.height;
     const ctx = c.getContext('2d');
-    
-    // Đổ màu nền
-    ctx.fillStyle = color;
-    ctx.fillRect(0, 0, c.width, c.height);
-
-    // Blend multiply ảnh gốc đè lên (để giữ khối và shading)
-    ctx.globalCompositeOperation = 'multiply';
     ctx.drawImage(img, 0, 0);
 
-    // Giữ lại phần alpha của ảnh gốc (xóa các vùng trong suốt)
-    ctx.globalCompositeOperation = 'destination-in';
-    ctx.drawImage(img, 0, 0);
-    
+    const data = ctx.getImageData(0, 0, c.width, c.height);
+    const d = data.data;
+    const r = parseInt(color.slice(1, 3), 16);
+    const g = parseInt(color.slice(3, 5), 16);
+    const b = parseInt(color.slice(5, 7), 16);
+
+    for (let i = 0; i < d.length; i += 4) {
+        if (d[i + 3] > 10) {
+            // Multiply blend: preserve shading
+            d[i] = Math.round(d[i] / 255 * r);
+            d[i + 1] = Math.round(d[i + 1] / 255 * g);
+            d[i + 2] = Math.round(d[i + 2] / 255 * b);
+        }
+    }
+    ctx.putImageData(data, 0, 0);
     return c;
 }
 
 // ============================================================
 //  RANDOMIZE
 // ============================================================
+function randomizeTraitsStateOnly() {
+    getEditablePartIds().forEach(id => {
+        const opts = STATE.data.selects[id]?.options;
+        if (!opts || opts.length === 0) return;
+
+        STATE.selections[id].style =
+            opts[Math.floor(Math.random() * opts.length)].value;
+    });
+    normalizeLegMarkings();
+}
+
+function randomizeColorsStateOnly() {
+    getEditableColorIds().forEach(colorId => {
+        if (!STATE.selections[colorId]) return;
+
+        STATE.selections[colorId].color =
+            '#' + Math.floor(Math.random() * 16777215)
+                .toString(16)
+                .padStart(6, '0');
+    });
+}
+
 function randomizeTraits() {
-    for (let id in STATE.data.selects) {
-        const opts = STATE.data.selects[id].options;
-        STATE.selections[id].style = opts[Math.floor(Math.random() * opts.length)].value;
-    }
+    randomizeTraitsStateOnly();
+    notifySelectedTraits();
     STATE.layers = {};
     renderPanel();
+    centerSelectedThumbsInCurrentTab();
     updatePreview();
 }
 
 function randomizeColors() {
-    STATE.data.color_inputs.forEach(ci => {
-        STATE.selections[ci.id].color = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-    });
+    randomizeColorsStateOnly();
     STATE.layers = {};
     renderPanel();
     updatePreview();
 }
 
 function randomizeAll() {
-    randomizeTraits();
-    randomizeColors();
+    randomizeTraitsStateOnly();
+    randomizeColorsStateOnly();
+    notifySelectedTraits();
+    STATE.layers = {};
+    renderPanel();
+    centerSelectedThumbsInCurrentTab();
+    updatePreview();
 }
 
 // ============================================================
@@ -698,11 +809,31 @@ function downloadPNG() {
     link.click();
 }
 
+function capturePNGForEdit() {
+    if (!window.AndroidBridge) return;
+    const dataUrl = UI.canvas.toDataURL('image/png');
+    AndroidBridge.onEvent(JSON.stringify({
+        type: 'EDIT_READY',
+        data: dataUrl,
+        selectionState: JSON.stringify(STATE.selections)
+    }));
+}
+
+function capturePNGForSuccess() {
+    if (!window.AndroidBridge) return;
+    const dataUrl = UI.canvas.toDataURL('image/png');
+    AndroidBridge.onEvent(JSON.stringify({
+        type: 'SUCCESS_READY',
+        data: dataUrl,
+        selectionState: JSON.stringify(STATE.selections)
+    }));
+}
+
 // ============================================================
 //  ANDROID BRIDGE — dispatch(actionJson)
 //  Kotlin gọi: window.dispatch('{"type":"SET_STYLE",...}')
 // ============================================================
-window.dispatch = function(actionJson) {
+window.dispatch = function (actionJson) {
     let action;
     try {
         action = (typeof actionJson === 'string') ? JSON.parse(actionJson) : actionJson;
@@ -717,8 +848,20 @@ window.dispatch = function(actionJson) {
         case 'SET_STYLE': {
             const sel = STATE.selections[action.partId];
             if (!sel) { console.warn('[dispatch] Unknown partId:', action.partId); return; }
+
+            const requiredLeg = LEG_MARKING_REQUIREMENTS[action.partId];
+            if (requiredLeg && STATE.selections[requiredLeg]?.style === 'none') {
+                return;
+            }
+
             sel.style = action.value;
-            STATE.layers = {};
+            const dependentMarking = Object.keys(LEG_MARKING_REQUIREMENTS)
+                .find(markingId => LEG_MARKING_REQUIREMENTS[markingId] === action.partId);
+            if (action.value === 'none' && dependentMarking) {
+                STATE.selections[dependentMarking].style = 'none';
+            }
+            notifySelectedTraits();
+            // Do not clear the entire layer cache. Only unchanged layers remain cached.
             updatePreview();
             break;
         }
@@ -728,7 +871,13 @@ window.dispatch = function(actionJson) {
             const sel = STATE.selections[action.colorId];
             if (!sel) { console.warn('[dispatch] Unknown colorId:', action.colorId); return; }
             sel.color = action.hex;
-            STATE.layers = {};
+
+            // Clean up cache only for this colorId
+            Object.keys(STATE.layers).forEach(k => {
+                if (k.includes(`_${action.colorId}_`)) {
+                    delete STATE.layers[k];
+                }
+            });
             updatePreview();
             break;
         }
@@ -736,6 +885,38 @@ window.dispatch = function(actionJson) {
         // Override 1 layer bằng URL từ API/Kotlin
         // { type: "SET_LAYER", partId: "breath", url: "https://api.example.com/fire.png" }
         // Để xóa override: { type: "SET_LAYER", partId: "breath", url: "" }
+        case 'APPLY_STATE': {
+            const nextState = action.state || {};
+            // Clean up cache only for colors that changed
+            Object.entries(nextState).forEach(([id, value]) => {
+                const sel = STATE.selections[id];
+                if (!sel || !value) return;
+                if (value.color != null && sel.color != null && sel.color !== value.color) {
+                    Object.keys(STATE.layers).forEach(k => {
+                        if (k.includes(`_${id}_`)) {
+                            delete STATE.layers[k];
+                        }
+                    });
+                }
+            });
+            Object.entries(nextState).forEach(([id, value]) => {
+                const sel = STATE.selections[id];
+                if (!sel || !value) return;
+                if (value.style != null && sel.style != null) {
+                    sel.style = value.style;
+                }
+                if (value.color != null && sel.color != null) {
+                    sel.color = value.color;
+                }
+            });
+            normalizeLegMarkings();
+            notifySelectedTraits();
+            renderPanel();
+            centerSelectedThumbsInCurrentTab();
+            updatePreview();
+            break;
+        }
+
         case 'SET_LAYER': {
             const { partId, url } = action;
             if (!partId) { console.warn('[dispatch] SET_LAYER missing partId'); return; }
@@ -792,6 +973,14 @@ window.dispatch = function(actionJson) {
             downloadPNG();
             break;
 
+        case 'CAPTURE_FOR_EDIT':
+            capturePNGForEdit();
+            break;
+
+        case 'CAPTURE_FOR_SUCCESS':
+            capturePNGForSuccess();
+            break;
+
         // Switch active tab: { type, tab }
         case 'SET_TAB': {
             const btn = document.querySelector(`.btab[data-tab="${action.tab}"]`);
@@ -809,55 +998,13 @@ window.dispatch = function(actionJson) {
             updatePreview();
             break;
 
-        // Reset chỉ transform (vị trí/góc/size)
-        case 'RESET_TRANSFORM':
-            STATE.transform = { offsetX: 0, offsetY: 0, rotate: 0, scale: 1.0 };
-            updatePreview();
-            break;
-
-        // Di chuyển / xoay / scale rồng trên canvas
-        // { type: "SET_TRANSFORM", offsetX, offsetY, rotate, scale }
-        // Chỉ cần gửi các field muốn thay đổi, các field khác giữ nguyên
-        case 'SET_TRANSFORM': {
-            const t = STATE.transform;
-            if (action.offsetX !== undefined) t.offsetX = parseFloat(action.offsetX);
-            if (action.offsetY !== undefined) t.offsetY = parseFloat(action.offsetY);
-            if (action.rotate  !== undefined) t.rotate  = parseFloat(action.rotate);
-            if (action.scale   !== undefined) t.scale   = parseFloat(action.scale);
-            updatePreview();
-            break;
-        }
-
-        // Di chuyển tương đối (cộng thêm vào giá trị hiện tại)
-        // { type: "MOVE", dx, dy }
-        case 'MOVE': {
-            STATE.transform.offsetX += parseFloat(action.dx || 0);
-            STATE.transform.offsetY += parseFloat(action.dy || 0);
-            updatePreview();
-            break;
-        }
-
-        // Xoay tương đối
-        // { type: "ROTATE", deg }
-        case 'ROTATE': {
-            STATE.transform.rotate += parseFloat(action.deg || 0);
-            updatePreview();
-            break;
-        }
-
-        // Scale tương đối
-        // { type: "SCALE", factor } — ví dụ 1.1 để zoom in 10%
-        case 'SCALE': {
-            const newScale = STATE.transform.scale * parseFloat(action.factor || 1);
-            STATE.transform.scale = Math.max(0.1, Math.min(5.0, newScale));
-            updatePreview();
-            break;
-        }
-
         // Get full state JSON — result returned via callback
         // Kotlin: webView.evaluateJavascript("window.dispatch({type:'GET_STATE'})", { result -> })
         case 'GET_STATE':
             return JSON.stringify(STATE.selections);
+
+        case 'GET_EDITABLE_STATE':
+            return serializeEditableSelections();
 
         default:
             console.warn('[dispatch] Unknown action type:', action.type);
